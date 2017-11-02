@@ -16,37 +16,23 @@ internal let targetData = URL(fileURLWithPath: "data",
 class MyCollectionViewController: UICollectionViewController {
   
   let searchController = UISearchController(searchResultsController: nil)
-  var elements: [Element] = []
+  private var elements: [Element] = []
   var filteredElements = [Element]()
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    guard elements.count != 118 else {
-      print("array already exists")
-      return
-    }
-    
-    print("array is empty")
-    
-    if !FileManager.default.fileExists(atPath: targetData.path) {
-      copyLocalJSONtoDocumentDirectory()
-    } else {
-      print("data.json already exists")
-    }
-    elements = loadDatabaseInArray()
-  }
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    loadDataBaseTo(array: &elements)
     navigationController?.navigationBar.prefersLargeTitles = true
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.searchBar.placeholder = "Search element".localize(withComment: "search bar placeholder")
     navigationItem.searchController = searchController
     definesPresentationContext = true
-    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
+    print(dictStringForName)
   }
   
   override func didReceiveMemoryWarning() {
@@ -145,6 +131,23 @@ extension MyCollectionViewController {
     } catch let error as NSError{
       print(error)
     }
+  }
+  
+  // load database to elements array
+  func loadDataBaseTo(array: inout [Element]) {
+    guard array.count != 118 else {
+      print("array already exists")
+      return
+    }
+    
+    print("array is empty")
+    
+    if !FileManager.default.fileExists(atPath: targetData.path) {
+      copyLocalJSONtoDocumentDirectory()
+    } else {
+      print("data.json already exists")
+    }
+    array = loadDatabaseInArray()
   }
   
   // MARK: - Search Bar Helper Methods

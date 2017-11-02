@@ -9,6 +9,8 @@
 import Foundation
 import SwiftyJSON
 
+var dictStringForName: String = "****"
+
 extension MyCollectionViewController {
   func loadDatabaseInArray() -> [Element] {
     guard let data = try? Data(contentsOf: targetData) else { return [Element]() }
@@ -25,10 +27,10 @@ extension MyCollectionViewController {
       // Element ID
       let atomicNumber = result["atomicNumber"].intValue
       let symbol = result["symbol"].stringValue
-      let name = result["name"].stringValue.localize(withComment: "name of the element")
+      let name = result["name"].stringValue.localize(withComment: "name of the element") //TO LOCALIZE dict
       let cpkHexColor = result["cpkHexColor"].string
-      let legacyBlock = result["groupBlock", "legacy"].stringValue.localize(withComment: "group of the element")
-      let iupacBlock = result["groupBlock", "iupac"].string?.localize(withComment: "groupd of the element based on IUPAC")
+      let legacyBlock = result["groupBlock", "legacy"].stringValue.localize(withComment: "group of the element") //TO LOC'd dict
+      let iupacBlock = result["groupBlock", "iupac"].string?.localize(withComment: "groupd of the element based on IUPAC") // TO Loc'd dict
       let yearDiscovered = result["yearDiscovered"].stringValue
       let tableRow = result["location", "row"].intValue
       let tableColumn = result["location", "column"].intValue
@@ -45,7 +47,7 @@ extension MyCollectionViewController {
       
       // Basic Properties
       let atomicMass = result["atomicMass"].doubleValue
-      let standardState = result["standardState"].stringValue.localize(withComment: "state of the element standard condition")
+      let standardState = result["standardState"].stringValue.localize(withComment: "state of the element standard condition") // TO loc'd dict
       let density = result["density"].double
       let electronConfiguration = result["electronicConfiguration"].stringValue
       let valence = result["valence"].intValue
@@ -135,8 +137,9 @@ extension MyCollectionViewController {
                                basicProperties: basicProperties,
                                advancedProperties: advancedProperties)
       elements.append(newElement)
+      dictStringForName += "\"\(newElement.elementID.name)\": NSLocalizedString(\"\(newElement.elementID.name)\", comment: \"Localized name: \(newElement.elementID.name)\"), "
+
     }
-    
     return elements
   }
 }
