@@ -1,0 +1,7408 @@
+{
+  "version": 1.0,
+  "result": [
+    {
+      "atomicNumber": 1,
+      "symbol": "H",
+      "name": "Hydrogen",
+      "atomicMass": 1.00794,
+      "cpkHexColor": "FFFFFF",
+      "electronicConfiguration": "1s1",
+      "electronegativity": 2.2,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 1312,
+      "electronAffinity": -73,
+      "oxidationStates": "-1, 1",
+      "standardState": "gas",
+      "bondingType": "diatomic",
+      "meltingPoint": 14.01,
+      "boilingPoint": 20.28,
+      "density": 0.0000899,
+      "groupBlock": {
+        "iupac": "nonmetal",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "1766",
+      "valence": 1,
+      "atomicRadius": {
+        "vanDerWaals": 120,
+        "empirical": 25,
+        "calculated": 53,
+        "covalent": 37
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.1805
+      },
+      "heat": {
+        "specific": 14300,
+        "vaporization": 0.452,
+        "fusion": 0.558
+      },
+      "abundance": {
+        "universe": 0.75,
+        "solar": 0.75,
+        "meteor": 0.024,
+        "crust": 0.0015,
+        "ocean": 0.11,
+        "human": 0.10
+      },
+      "location": {
+        "row": 1,
+        "column": 1
+      }
+    },
+    {
+      "atomicNumber": 2,
+      "symbol": "He",
+      "name": "Helium",
+      "atomicMass": 4.002602,
+      "cpkHexColor": "D9FFFF",
+      "electronicConfiguration": "1s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 2372.3,
+      "electronAffinity": 0,
+      "oxidationStates": null,
+      "standardState": "gas",
+      "bondingType": "atomic",
+      "meltingPoint": 0,
+      "boilingPoint": 4.22,
+      "density": 0.0001785,
+      "groupBlock": {
+        "iupac": "noble gas",
+        "legacy": "noble gas"
+      },
+      "yearDiscovered": "1868",
+      "valence": 0,
+      "atomicRadius": {
+        "vanDerWaals": 140,
+        "empirical": null,
+        "calculated": 31,
+        "covalent": 32
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.1513
+      },
+      "heat": {
+        "specific": 5193.1,
+        "vaporization": 0.083,
+        "fusion": 0.02
+      },
+      "abundance": {
+        "universe": 0.23,
+        "solar": 0.23,
+        "crust": 0.0000000055,
+        "meteor": null,
+        "ocean": 0.0000000000072,
+        "human": null
+      },
+      "location": {
+        "row": 1,
+        "column": 18
+      }
+    },
+    {
+      "atomicNumber": 3,
+      "symbol": "Li",
+      "name": "Lithium",
+      "atomicMass": 6.941,
+      "cpkHexColor": "CC80FF",
+      "electronicConfiguration": "[He] 2s1",
+      "electronegativity": 0.98,
+      "ionRadius": {
+        "+1": 76
+      },
+      "ionizationEnergy": 520.2,
+      "electronAffinity": -59.6,
+      "oxidationStates": "1",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 453.69,
+      "boilingPoint": 1615,
+      "density": 0.535,
+      "groupBlock": {
+        "iupac": "alkali metal",
+        "legacy": "alkali metal"
+      },
+      "yearDiscovered": "1817",
+      "valence": 1,
+      "atomicRadius": {
+        "vanDerWaals": 182,
+        "empirical": 145,
+        "calculated": 167,
+        "covalent": 134
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 0.6,
+        "brinell": null
+      },
+      "modulus": {
+        "young": 4.9,
+        "shear": 4.2,
+        "bulk": 11
+      },
+      "conductivity": {
+        "electric": 11,
+        "thermal": 85
+      },
+      "heat": {
+        "specific": 3570,
+        "vaporization": 147,
+        "fusion": 3
+      },
+      "abundance": {
+        "universe": 0.000000006,
+        "solar": 0.00000000006,
+        "meteor": 0.0000017,
+        "crust": 0.000017,
+        "ocean": 0.00000018,
+        "human": 0.00000003
+      },
+      "location": {
+        "row": 2,
+        "column": 1
+      }
+    },
+    {
+      "atomicNumber": 4,
+      "symbol": "Be",
+      "name": "Beryllium",
+      "atomicMass": 9.012182,
+      "cpkHexColor": "C2FF00",
+      "electronicConfiguration": "[He] 2s2",
+      "electronegativity": 1.57,
+      "ionRadius": {
+        "+2": 45
+      },
+      "ionizationEnergy": 899.5,
+      "electronAffinity": 0,
+      "oxidationStates": "2",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1560,
+      "boilingPoint": 2743,
+      "density": 1.848,
+      "groupBlock": {
+        "iupac": "alkaline earth metal",
+        "legacy": "alkaline earth metal"
+      },
+      "yearDiscovered": "1798",
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 105,
+        "calculated": 112,
+        "covalent": 90
+      },
+      "hardness": {
+        "brinell": 600,
+        "mohs": 5.5,
+        "vickers": 1670
+      },
+      "modulus": {
+        "young": 287,
+        "shear": 132,
+        "bulk": 130
+      },
+      "conductivity": {
+        "electric": 25,
+        "thermal": 190
+      },
+      "heat": {
+        "specific": 1820,
+        "vaporization": 297,
+        "fusion": 7.95
+      },
+      "abundance": {
+        "universe": 0.000000001,
+        "solar": 0.0000000001,
+        "meteor": 0.000000029,
+        "crust": 0.0000019,
+        "ocean": 0.0000000000006,
+        "human": 0.0000000004
+      },
+      "location": {
+        "row": 2,
+        "column": 2
+      }
+    },
+    {
+      "atomicNumber": 5,
+      "symbol": "B",
+      "name": "Boron",
+      "atomicMass": 10.811,
+      "cpkHexColor": "FFB5B5",
+      "electronicConfiguration": "[He] 2s2 2p1",
+      "electronegativity": 2.04,
+      "ionRadius": {
+        "+3": 27
+      },
+      "ionizationEnergy": 800.6,
+      "electronAffinity": -26.7,
+      "oxidationStates": "1, 2, 3",
+      "standardState": "solid",
+      "bondingType": "covalent network",
+      "meltingPoint": 2348,
+      "boilingPoint": 4273,
+      "density": 2.46,
+      "groupBlock": {
+        "iupac": "boron",
+        "legacy": "metalloid"
+      },
+      "yearDiscovered": "1808",
+      "valence": 3,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 85,
+        "calculated": 87,
+        "covalent": 82
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": 9.3,
+        "vickers": 49000
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": 320
+      },
+      "conductivity": {
+        "electric": 0.0000000001,
+        "thermal": 27
+      },
+      "heat": {
+        "specific": 1030,
+        "vaporization": 507,
+        "fusion": 50
+      },
+      "abundance": {
+        "universe": 0.000000001,
+        "solar": 0.000000002,
+        "meteor": 0.0000016,
+        "crust": 0.0000086,
+        "ocean": 0.0000044,
+        "human": 0.0000007
+      },
+      "location": {
+        "row": 2,
+        "column": 13
+      }
+    },
+    {
+      "atomicNumber": 6,
+      "symbol": "C",
+      "name": "Carbon",
+      "atomicMass": "12.0107",
+      "cpkHexColor": 909090,
+      "electronicConfiguration": "[He] 2s2 2p2",
+      "electronegativity": 2.55,
+      "ionRadius": {
+        "+4": 16
+      },
+      "ionizationEnergy": 1086.5,
+      "electronAffinity": -153.9,
+      "oxidationStates": "-4, -3, -2, -1, 1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "covalent network",
+      "meltingPoint": 3823,
+      "boilingPoint": 4300,
+      "density": 2.26,
+      "groupBlock": {
+        "iupac": "carbon",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 4,
+      "atomicRadius": {
+        "vanDerWaals": 170,
+        "empirical": 70,
+        "calculated": 67,
+        "covalent": 77
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": 0.5,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": 33
+      },
+      "conductivity": {
+        "electric": 0.10,
+        "thermal": 140
+      },
+      "heat": {
+        "specific": 710,
+        "vaporization": 140,
+        "fusion": 105
+      },
+      "abundance": {
+        "universe": 0.005,
+        "solar": 0.003,
+        "meteor": 0.015,
+        "crust": 0.0018,
+        "ocean": 0.000028,
+        "human": 0.23
+      },
+      "location": {
+        "row": 2,
+        "column": 14
+      }
+    },
+    {
+      "atomicNumber": 7,
+      "symbol": "N",
+      "name": "Nitrogen",
+      "atomicMass": 14.0067,
+      "cpkHexColor": "3050F8",
+      "electronicConfiguration": "[He] 2s2 2p3",
+      "electronegativity": 3.04,
+      "ionRadius": {
+        "-3": 146
+      },
+      "ionizationEnergy": 1402.3,
+      "electronAffinity": -7,
+      "oxidationStates": "-3, -2, -1, 1, 2, 3, 4, 5",
+      "standardState": "gas",
+      "bondingType": "diatomic",
+      "meltingPoint": 63.05,
+      "boilingPoint": 77.36,
+      "density": 0.001251,
+      "groupBlock": {
+        "iupac": "pnictogen",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "1772",
+      "valence": 5,
+      "atomicRadius": {
+        "vanDerWaals": 155,
+        "empirical": 65,
+        "calculated": 56,
+        "covalent": 75
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.02583
+      },
+      "heat": {
+        "specific": 1040,
+        "vaporization": 2.79,
+        "fusion": 0.36
+      },
+      "abundance": {
+        "universe": 0.001,
+        "solar": 0.001,
+        "meteor": 0.0014,
+        "crust": 0.00002,
+        "ocean": 0.0000005,
+        "human": 0.026
+      },
+      "location": {
+        "row": 2,
+        "column": 15
+      }
+    },
+    {
+      "atomicNumber": 8,
+      "symbol": "O",
+      "name": "Oxygen",
+      "atomicMass": 15.9994,
+      "cpkHexColor": "FF0D0D",
+      "electronicConfiguration": "[He] 2s2 2p4",
+      "electronegativity": 3.44,
+      "ionRadius": {
+        "-2": 140
+      },
+      "ionizationEnergy": 1313.9,
+      "electronAffinity": -141,
+      "oxidationStates": "-2, -1, 1, 2",
+      "standardState": "gas",
+      "bondingType": "diatomic",
+      "meltingPoint": 54.8,
+      "boilingPoint": 90.2,
+      "density": 0.001429,
+      "groupBlock": {
+        "iupac": "chalcogen",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "1774",
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": 152,
+        "empirical": 60,
+        "calculated": 48,
+        "covalent": 73
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.02658
+      },
+      "heat": {
+        "specific": 919,
+        "vaporization": 3.41,
+        "fusion": 0.222
+      },
+      "abundance": {
+        "universe": 0.01,
+        "solar": 0.009,
+        "meteor": 0.4,
+        "crust": 0.46,
+        "ocean": 0.86,
+        "human": 0.61
+      },
+      "location": {
+        "row": 2,
+        "column": 16
+      }
+    },
+    {
+      "atomicNumber": 9,
+      "symbol": "F",
+      "name": "Fluorine",
+      "atomicMass": "18.9984032(5)",
+      "cpkHexColor": "80B3FF",
+      "electronicConfiguration": "[He] 2s2 2p5",
+      "electronegativity": 3.98,
+      "ionRadius": {
+        "-1": 133
+      },
+      "ionizationEnergy": 1681,
+      "electronAffinity": -328,
+      "oxidationStates": "-1",
+      "standardState": "gas",
+      "bondingType": "atomic",
+      "meltingPoint": 53.5,
+      "boilingPoint": 85.03,
+      "density": 0.001696,
+      "groupBlock": {
+        "iupac": "halogen",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "1886",
+      "valence": 1,
+      "atomicRadius": {
+        "vanDerWaals": 147,
+        "empirical": 50,
+        "calculated": 42,
+        "covalent": 71
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.0277
+      },
+      "heat": {
+        "specific": 824,
+        "vaporization": 3.27,
+        "fusion": 0.26
+      },
+      "abundance": {
+        "universe": 0.0000004,
+        "solar": 0.0000005,
+        "meteor": 0.000087,
+        "crust": 0.00054,
+        "ocean": 0.0000013,
+        "human": 0.000037
+      },
+      "location": {
+        "row": 2,
+        "column": 17
+      }
+    },
+    {
+      "atomicNumber": 10,
+      "symbol": "Ne",
+      "name": "Neon",
+      "atomicMass": 20.1797,
+      "cpkHexColor": "B3E3F5",
+      "electronicConfiguration": "[He] 2s2 2p6",
+      "electronegativity": "",
+      "ionRadius": {
+      },
+      "ionizationEnergy": 2080.7,
+      "electronAffinity": 0,
+      "oxidationStates": null,
+      "standardState": "gas",
+      "bondingType": "atomic",
+      "meltingPoint": 24.56,
+      "boilingPoint": 27.07,
+      "density": 0.0009,
+      "groupBlock": {
+        "iupac": "noble gas",
+        "legacy": "noble gas"
+      },
+      "yearDiscovered": "1898",
+      "valence": 0,
+      "atomicRadius": {
+        "vanDerWaals": 154,
+        "empirical": null,
+        "calculated": 38,
+        "covalent": 69
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.0491
+      },
+      "heat": {
+        "specific": 1030,
+        "vaporization": 1.75,
+        "fusion": 0.34
+      },
+      "abundance": {
+        "universe": 0.0013,
+        "solar": 0.001,
+        "meteor": null,
+        "crust": 0.000000003,
+        "ocean": 0.00000000012,
+        "human": null
+      },
+      "location": {
+        "row": 2,
+        "column": 18
+      }
+    },
+    {
+      "atomicNumber": 11,
+      "symbol": "Na",
+      "name": "Sodium",
+      "atomicMass": "22.98976928",
+      "cpkHexColor": "AB5CF2",
+      "electronicConfiguration": "[Ne] 3s1",
+      "electronegativity": 0.93,
+      "ionRadius": {
+        "+1": 102
+      },
+      "ionizationEnergy": 495.8,
+      "electronAffinity": -52.8,
+      "oxidationStates": "-1, 1",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 370.87,
+      "boilingPoint": 1156,
+      "density": 0.968,
+      "groupBlock": {
+        "iupac": "alkali metal",
+        "legacy": "alkali metal"
+      },
+      "yearDiscovered": "1807",
+      "valence": 1,
+      "atomicRadius": {
+        "vanDerWaals": 227,
+        "empirical": 180,
+        "calculated": 190,
+        "covalent": 69
+      },
+      "hardness": {
+        "brinell": 0.69,
+        "mohs": 0.5,
+        "vickers": null
+      },
+      "modulus": {
+        "young": 10,
+        "shear": 3.3,
+        "bulk": 6.3
+      },
+      "conductivity": {
+        "electric": 21,
+        "thermal": 140
+      },
+      "heat": {
+        "specific": 1230,
+        "vaporization": 97.7,
+        "fusion": 2.6
+      },
+      "abundance": {
+        "universe": 0.00002,
+        "solar": 0.00004,
+        "meteor": 0.0055,
+        "crust": 0.023,
+        "ocean": 0.011,
+        "human": 0.0014
+      },
+      "location": {
+        "row": 3,
+        "column": 1
+      }
+    },
+    {
+      "atomicNumber": 12,
+      "symbol": "Mg",
+      "name": "Magnesium",
+      "atomicMass": 24.3050,
+      "cpkHexColor": "8AFF00",
+      "electronicConfiguration": "[Ne] 3s2",
+      "electronegativity": 1.31,
+      "ionRadius": {
+        "+2": 72
+      },
+      "ionizationEnergy": 737.7,
+      "electronAffinity": 0,
+      "oxidationStates": "1, 2",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 923,
+      "boilingPoint": 1363,
+      "density": 1.738,
+      "groupBlock": {
+        "iupac": "alkaline earth metal",
+        "legacy": "alkaline earth metal"
+      },
+      "yearDiscovered": "1755",
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": 173,
+        "empirical": 150,
+        "calculated": 145,
+        "covalent": 130
+      },
+      "hardness": {
+        "brinell": 260,
+        "mohs": 2.5,
+        "vickers": null
+      },
+      "modulus": {
+        "young": 45,
+        "shear": 17,
+        "bulk": 45
+      },
+      "conductivity": {
+        "electric": 23,
+        "thermal": 160
+      },
+      "heat": {
+        "specific": 1020,
+        "vaporization": 128,
+        "fusion": 8.7
+      },
+      "abundance": {
+        "universe": 0.0006,
+        "solar": 0.0007,
+        "meteor": 0.12,
+        "crust": 0.029,
+        "ocean": 0.0013,
+        "human": 0.00027
+      },
+      "location": {
+        "row": 3,
+        "column": 2
+      }
+    },
+    {
+      "atomicNumber": 13,
+      "symbol": "Al",
+      "name": "Aluminum",
+      "atomicMass": 26.9815386,
+      "cpkHexColor": "BFA6A6",
+      "electronicConfiguration": "[Ne] 3s2 3p1",
+      "electronegativity": 1.61,
+      "ionRadius": {
+        "+3": 53.5
+      },
+      "ionizationEnergy": 577.5,
+      "electronAffinity": -42.5,
+      "oxidationStates": "1, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 933.47,
+      "boilingPoint": 2792,
+      "density": 2.7,
+      "groupBlock": {
+        "iupac": "boron",
+        "legacy": "metal"
+      },
+      "yearDiscovered": "1825",
+      "valence": 3,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 125,
+        "calculated": 118,
+        "covalent": 118
+      },
+      "hardness": {
+        "brinell": 245,
+        "mohs": 2.75,
+        "vickers": 167
+      },
+      "modulus": {
+        "young": 70,
+        "shear": 26,
+        "bulk": 76
+      },
+      "conductivity": {
+        "electric": 38,
+        "thermal": 235
+      },
+      "heat": {
+        "specific": 904,
+        "vaporization": 293,
+        "fusion": 10.7
+      },
+      "abundance": {
+        "universe": 0.00005,
+        "solar": 0.00006,
+        "meteor": 0.0091,
+        "crust": 0.081,
+        "ocean": 0.000000005,
+        "human": 0.0000009
+      },
+      "location": {
+        "row": 3,
+        "column": 13
+      }
+    },
+    {
+      "atomicNumber": 14,
+      "symbol": "Si",
+      "name": "Silicon",
+      "atomicMass": 28.0855,
+      "cpkHexColor": "F0C8A0",
+      "electronicConfiguration": "[Ne] 3s2 3p2",
+      "electronegativity": 1.9,
+      "ionRadius": {
+        "+4": 40
+      },
+      "ionizationEnergy": 786.5,
+      "electronAffinity": -133.6,
+      "oxidationStates": "-4, -3, -2, -1, 1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1687,
+      "boilingPoint": 3173,
+      "density": 2.33,
+      "groupBlock": {
+        "iupac": "carbon",
+        "legacy": "metalloid"
+      },
+      "yearDiscovered": "1824",
+      "valence": 4,
+      "atomicRadius": {
+        "vanDerWaals": 210,
+        "empirical": 110,
+        "calculated": 111,
+        "covalent": 111
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": 6.5,
+        "vickers": null
+      },
+      "modulus": {
+        "young": 47,
+        "shear": null,
+        "bulk": 100
+      },
+      "conductivity": {
+        "electric": 0.0010,
+        "thermal": 150
+      },
+      "heat": {
+        "specific": 710,
+        "vaporization": 359,
+        "fusion": 50.2
+      },
+      "abundance": {
+        "universe": 0.00070,
+        "solar": 0.00090,
+        "meteor": 0.14,
+        "crust": 0.27,
+        "ocean": 0.0000010,
+        "human": 0.00026
+      },
+      "location": {
+        "row": 3,
+        "column": 14
+      }
+    },
+    {
+      "atomicNumber": 15,
+      "symbol": "P",
+      "name": "Phosphorus",
+      "atomicMass": 30.973762,
+      "cpkHexColor": "FF8000",
+      "electronicConfiguration": "[Ne] 3s2 3p3",
+      "electronegativity": 2.19,
+      "ionRadius": {
+        "+3": 44
+      },
+      "ionizationEnergy": 1012,
+      "electronAffinity": -72,
+      "oxidationStates": "-3, -2, -1, 1, 2, 3, 4, 5",
+      "standardState": "solid",
+      "bondingType": "covalent network",
+      "meltingPoint": 317.3,
+      "boilingPoint": 553.6,
+      "density": 1.823,
+      "groupBlock": {
+        "iupac": "pnictogen",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "1669",
+      "valence": 5,
+      "atomicRadius": {
+        "vanDerWaals": 180,
+        "empirical": 100,
+        "calculated": 98,
+        "covalent": 106
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": 11
+      },
+      "conductivity": {
+        "electric": 10,
+        "thermal": 0.236
+      },
+      "heat": {
+        "specific": 769.7,
+        "vaporization": 12.4,
+        "fusion": 0.64
+      },
+      "abundance": {
+        "universe": 0.0000070,
+        "solar": 0.0000070,
+        "meteor": 0.0011,
+        "crust": 0.00099,
+        "ocean": 0.00000007,
+        "human": 0.011
+      },
+      "location": {
+        "row": 3,
+        "column": 15
+      }
+    },
+    {
+      "atomicNumber": 16,
+      "symbol": "S",
+      "name": "Sulfur",
+      "atomicMass": 32.065,
+      "cpkHexColor": "FFFF30",
+      "electronicConfiguration": "[Ne] 3s2 3p4",
+      "electronegativity": 2.58,
+      "ionRadius": {
+        "-2": 184
+      },
+      "ionizationEnergy": 999.6,
+      "electronAffinity": -200,
+      "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "covalent network",
+      "meltingPoint": 388.36,
+      "boilingPoint": 717.87,
+      "density": 1.96,
+      "groupBlock": {
+        "iupac": "chalcogen",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 6,
+      "atomicRadius": {
+        "vanDerWaals": 180,
+        "empirical": 100,
+        "calculated": 88,
+        "covalent": 102
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": 2,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": 7.7
+      },
+      "conductivity": {
+        "electric": 0.000000000000000000001,
+        "thermal": 0.205
+      },
+      "heat": {
+        "specific": 705,
+        "vaporization": 9.8,
+        "fusion": 1.73
+      },
+      "abundance": {
+        "universe": 0.0005,
+        "solar": 0.00040,
+        "meteor": 0.04,
+        "crust": 0.00042,
+        "ocean": 0.00093,
+        "human": 0.0020
+      },
+      "location": {
+        "row": 3,
+        "column": 16
+      }
+    },
+    {
+      "atomicNumber": 17,
+      "symbol": "Cl",
+      "name": "Chlorine",
+      "atomicMass": 35.453,
+      "cpkHexColor": "1FF01F",
+      "electronicConfiguration": "[Ne] 3s2 3p5",
+      "electronegativity": 3.16,
+      "ionRadius": {
+        "-1": 181
+      },
+      "ionizationEnergy": 1251,
+      "electronAffinity": -349,
+      "oxidationStates": "-1, 1, 2, 3, 4, 5, 6, 7",
+      "standardState": "gas",
+      "bondingType": "covalent network",
+      "meltingPoint": 171.6,
+      "boilingPoint": 239.11,
+      "density": 0.003214,
+      "groupBlock": {
+        "iupac": "halogen",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "1774",
+      "valence": 7,
+      "atomicRadius": {
+        "vanDerWaals": 175,
+        "empirical": 100,
+        "calculated": 79,
+        "covalent": 99
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": 1.1
+      },
+      "conductivity": {
+        "electric": 0.00000001,
+        "thermal": 0.0089
+      },
+      "heat": {
+        "specific": 478.2,
+        "vaporization": 10.2,
+        "fusion": 3.2
+      },
+      "abundance": {
+        "universe": 0.00000100,
+        "solar": 0.0000080,
+        "meteor": 0.00037,
+        "crust": 0.00017,
+        "ocean": 0.02,
+        "human": 0.0012
+      },
+      "location": {
+        "row": 3,
+        "column": 17
+      }
+    },
+    {
+      "atomicNumber": 18,
+      "symbol": "Ar",
+      "name": "Argon",
+      "atomicMass": 39.948,
+      "cpkHexColor": "80D1E3",
+      "electronicConfiguration": "[Ne] 3s2 3p6",
+      "electronegativity": null,
+      "ionRadius": null,
+      "ionizationEnergy": 1520.6,
+      "electronAffinity": 0,
+      "oxidationStates": null,
+      "standardState": "gas",
+      "bondingType": "atomic",
+      "meltingPoint": 83.8,
+      "boilingPoint": 87.3,
+      "density": 0.001784,
+      "groupBlock": {
+        "iupac": "noble gas",
+        "legacy": "noble gas"
+      },
+      "yearDiscovered": 1894,
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": 188,
+        "empirical": 71,
+        "calculated": 71,
+        "covalent": 97
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.01772
+      },
+      "heat": {
+        "specific": 520.33,
+        "vaporization": 6.5,
+        "fusion": 1.18
+      },
+      "abundance": {
+        "universe": 0.00020,
+        "solar": 0.000070,
+        "crust": 0.0000015,
+        "meteor": null,
+        "ocean": 0.00000045,
+        "human": null
+      },
+      "location": {
+        "row": 3,
+        "column": 18
+      }
+    },
+    {
+      "atomicNumber": 19,
+      "symbol": "K",
+      "name": "Potassium",
+      "atomicMass": 39.0983,
+      "cpkHexColor": "8F40D4",
+      "electronicConfiguration": "[Ar] 4s1",
+      "electronegativity": 0.82,
+      "ionRadius": {
+        "+1": 138
+      },
+      "ionizationEnergy": 418.8,
+      "electronAffinity": -48.4,
+      "oxidationStates": "1",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 336.53,
+      "boilingPoint": 1032,
+      "density": 0.856,
+      "groupBlock": {
+        "iupac": "alkali metal",
+        "legacy": "alkali metal"
+      },
+      "yearDiscovered": "1807",
+      "valence": 1,
+      "atomicRadius": {
+        "vanDerWaals": 275,
+        "empirical": 220,
+        "calculated": 243,
+        "covalent": 196
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 0.4,
+        "brinell": 0.363
+      },
+      "modulus": {
+        "young": null,
+        "shear": 1.3,
+        "bulk": 3.1
+      },
+      "conductivity": {
+        "electric": 14,
+        "thermal": 100
+      },
+      "heat": {
+        "specific": 757,
+        "vaporization": 76.9,
+        "fusion": 2.33
+      },
+      "abundance": {
+        "universe": 0.0000030,
+        "solar": 0.0000040,
+        "meteor": 0.00070,
+        "crust": 0.015,
+        "ocean": 0.00042,
+        "human": 0.0020
+      },
+      "location": {
+        "row": 1,
+        "column": 4
+      }
+    },
+    {
+      "atomicNumber": 20,
+      "symbol": "Ca",
+      "name": "Calcium",
+      "atomicMass": 40.078,
+      "cpkHexColor": "3DFF00",
+      "electronicConfiguration": "[Ar] 4s2",
+      "electronegativity": 1,
+      "ionRadius": {
+        "+2": 100
+      },
+      "ionizationEnergy": 589.8,
+      "electronAffinity": -2.37,
+      "oxidationStates": "2",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1115,
+      "boilingPoint": 1757,
+      "density": 1.55,
+      "groupBlock": {
+        "iupac": "alkaline earth metal",
+        "legacy": "alkaline earth metal"
+      },
+      "yearDiscovered": "1808",
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 180,
+        "calculated": 194,
+        "covalent": 174
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 1.75,
+        "brinell": 167
+      },
+      "modulus": {
+        "young": 20,
+        "shear": 7.4,
+        "bulk": 17
+      },
+      "conductivity": {
+        "electric": 29,
+        "thermal": 200
+      },
+      "heat": {
+        "specific": 631,
+        "vaporization": 155,
+        "fusion": 8.54
+      },
+      "abundance": {
+        "universe": 0.000070,
+        "solar": 0.000070,
+        "meteor": 0.011,
+        "crust": 0.050,
+        "ocean": 0.0000042,
+        "human": 0.014
+      },
+      "location": {
+        "row": 4,
+        "column": 2
+      }
+    },
+    {
+      "atomicNumber": 21,
+      "symbol": "Sc",
+      "name": "Scandium",
+      "atomicMass": 44.955912,
+      "cpkHexColor": "E6E6E6",
+      "electronicConfiguration": "[Ar] 3d1 4s2",
+      "electronegativity": 1.36,
+      "ionRadius": {
+        "+3": 74.5
+      },
+      "ionizationEnergy": 633.1,
+      "electronAffinity": -18.1,
+      "oxidationStates": "1, 2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1814,
+      "boilingPoint": 3103,
+      "density": 2.985,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1879",
+      "valence": 3,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 160,
+        "calculated": 184,
+        "covalent": 144
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": 750
+      },
+      "modulus": {
+        "young": 74,
+        "shear": 29,
+        "bulk": 57
+      },
+      "conductivity": {
+        "electric": 1.8,
+        "thermal": 16
+      },
+      "heat": {
+        "specific": 567,
+        "vaporization": 318,
+        "fusion": 16
+      },
+      "abundance": {
+        "universe": 0.000000030,
+        "solar": 0.000000040,
+        "meteor": 0.0000064,
+        "crust": 0.000026,
+        "ocean": 0.0000000000015,
+        "human": null
+      },
+      "location": {
+        "row": 4,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 22,
+      "symbol": "Ti",
+      "name": "Titanium",
+      "atomicMass": 47.867,
+      "cpkHexColor": "BFC2C7",
+      "electronicConfiguration": "[Ar] 3d2 4s2",
+      "electronegativity": 1.54,
+      "ionRadius": {
+        "+2": 86
+      },
+      "ionizationEnergy": 658.8,
+      "electronAffinity": -7.6,
+      "oxidationStates": "-1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1941,
+      "boilingPoint": 3560,
+      "density": 4.507,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1791",
+      "valence": 4,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 140,
+        "calculated": 176,
+        "covalent": 136
+      },
+      "hardness": {
+        "vickers": 970,
+        "mohs": 6,
+        "brinell": 716
+      },
+      "modulus": {
+        "young": 116,
+        "shear": 44,
+        "bulk": 110
+      },
+      "conductivity": {
+        "electric": 2.5,
+        "thermal": 22
+      },
+      "heat": {
+        "specific": 520,
+        "vaporization": 425,
+        "fusion": 18.7
+      },
+      "abundance": {
+        "universe": 0.0000030,
+        "solar": 0.0000040,
+        "meteor": 0.024,
+        "crust": 0.0066,
+        "ocean": 0.0000000010,
+        "human": null
+      },
+      "location": {
+        "row": 4,
+        "column": 4
+      }
+    },
+    {
+      "atomicNumber": 23,
+      "symbol": "V",
+      "name": "Vanadium",
+      "atomicMass": 50.9415,
+      "cpkHexColor": "A6A6AB",
+      "electronicConfiguration": "[Ar] 3d3 4s2",
+      "electronegativity": 1.63,
+      "ionRadius": {
+        "+2": 79
+      },
+      "ionizationEnergy": 650.9,
+      "electronAffinity": -50.6,
+      "oxidationStates": "-1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2183,
+      "boilingPoint": 3680,
+      "density": 6.11,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1801",
+      "valence": 5,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 135,
+        "calculated": 171,
+        "covalent": 125
+      },
+      "hardness": {
+        "vickers": 628,
+        "mohs": 7,
+        "brinell": 628
+      },
+      "modulus": {
+        "young": 128,
+        "shear": 47,
+        "bulk": 160
+      },
+      "conductivity": {
+        "electric": 5.0,
+        "thermal": 31
+      },
+      "heat": {
+        "specific": 489,
+        "vaporization": 453,
+        "fusion": 22.8
+      },
+      "abundance": {
+        "universe": 0.00000100,
+        "solar": 0.00000040,
+        "meteor": 0.000061,
+        "crust": 0.00019,
+        "ocean": 0.0000000015,
+        "human": 0.00000003
+      },
+      "location": {
+        "row": 4,
+        "column": 5
+      }
+    },
+    {
+      "atomicNumber": 24,
+      "symbol": "Cr",
+      "name": "Chromium",
+      "atomicMass": 51.9961,
+      "cpkHexColor": "8A99C7",
+      "electronicConfiguration": "[Ar] 3d5 4s1",
+      "electronegativity": 1.66,
+      "ionRadius": {
+        "+2*": 80
+      },
+      "ionizationEnergy": 652.9,
+      "electronAffinity": -64.3,
+      "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2180,
+      "boilingPoint": 2944,
+      "density": 7.14,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1797",
+      "valence": 6,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 140,
+        "calculated": 166,
+        "covalent": 127
+      },
+      "hardness": {
+        "vickers": 1060,
+        "mohs": 8.5,
+        "brinell": 1120
+      },
+      "modulus": {
+        "young": 279,
+        "shear": 115,
+        "bulk": 160
+      },
+      "conductivity": {
+        "electric": 7.9,
+        "thermal": 94
+      },
+      "heat": {
+        "specific": 448,
+        "vaporization": 339,
+        "fusion": 20.5
+      },
+      "abundance": {
+        "universe": 0.000015,
+        "solar": 0.000020,
+        "meteor": 0.0030,
+        "crust": 0.00014,
+        "ocean": 0.0000000006,
+        "human": 0.00000003
+      },
+      "location": {
+        "row": 4,
+        "column": 6
+      }
+    },
+    {
+      "atomicNumber": 25,
+      "symbol": "Mn",
+      "name": "Manganese",
+      "atomicMass": 54.938045,
+      "cpkHexColor": "9C7AC7",
+      "electronicConfiguration": "[Ar] 3d5 4s2",
+      "electronegativity": 1.55,
+      "ionRadius": {
+        "+2": 67
+      },
+      "ionizationEnergy": 717.3,
+      "electronAffinity": 0,
+      "oxidationStates": "-3, -2, -1, 1, 2, 3, 4, 5, 6, 7",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1519,
+      "boilingPoint": 2334,
+      "density": 7.47,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": 1774,
+      "valence": 7,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 140,
+        "calculated": 161,
+        "covalent": 139
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 6,
+        "brinell": 196
+      },
+      "modulus": {
+        "young": 198,
+        "shear": null,
+        "bulk": 120
+      },
+      "conductivity": {
+        "electric": 0.62,
+        "thermal": 7.8
+      },
+      "heat": {
+        "specific": 479,
+        "vaporization": 220,
+        "fusion": 13.2
+      },
+      "abundance": {
+        "universe": 0.0000080,
+        "solar": 0.000010,
+        "meteor": 0.0027,
+        "crust": 0.0011,
+        "ocean": 0.000000002,
+        "human": 0.00000020
+      },
+      "location": {
+        "row": 4,
+        "column": 7
+      }
+    },
+    {
+      "atomicNumber": 26,
+      "symbol": "Fe",
+      "name": "Iron",
+      "atomicMass": "55.845",
+      "cpkHexColor": "E06633",
+      "electronicConfiguration": "[Ar] 3d6 4s2",
+      "electronegativity": 1.83,
+      "ionRadius": {
+        "+2*": 78
+      },
+      "ionizationEnergy": 762.5,
+      "electronAffinity": -16,
+      "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1811,
+      "boilingPoint": 3134,
+      "density": 7.874,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 6,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 140,
+        "calculated": 156,
+        "covalent": 125
+      },
+      "hardness": {
+        "vickers": 608,
+        "mohs": 4,
+        "brinell": 490
+      },
+      "modulus": {
+        "young": 211,
+        "shear": 82,
+        "bulk": 170
+      },
+      "conductivity": {
+        "electric": 10,
+        "thermal": 80
+      },
+      "heat": {
+        "specific": 449,
+        "vaporization": 347,
+        "fusion": 13.8
+      },
+      "abundance": {
+        "universe": 0.0011,
+        "solar": 0.0010,
+        "meteor": 0.22,
+        "crust": 0.063,
+        "ocean": 0.000000003,
+        "human": 0.000060
+      },
+      "location": {
+        "row": 4,
+        "column": 8
+      }
+    },
+    {
+      "atomicNumber": 27,
+      "symbol": "Co",
+      "name": "Cobalt",
+      "atomicMass": 58.933195,
+      "cpkHexColor": "F090A0",
+      "electronicConfiguration": "[Ar] 3d7 4s2",
+      "electronegativity": 1.88,
+      "ionRadius": {
+        "+2*": 74.5
+      },
+      "ionizationEnergy": 760.4,
+      "electronAffinity": -63.7,
+      "oxidationStates": "-1, 1, 2, 3, 4, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1768,
+      "boilingPoint": 3200,
+      "density": 8.9,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1735",
+      "valence": 5,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 135,
+        "calculated": 152,
+        "covalent": 126
+      },
+      "hardness": {
+        "vickers": 1043,
+        "mohs": 5,
+        "brinell": 700
+      },
+      "modulus": {
+        "young": 209,
+        "shear": 75,
+        "bulk": 180
+      },
+      "conductivity": {
+        "electric": 17,
+        "thermal": 100
+      },
+      "heat": {
+        "specific": 421,
+        "vaporization": 375,
+        "fusion": 16.2
+      },
+      "abundance": {
+        "universe": 0.0000030,
+        "solar": 0.0000040,
+        "meteor": 0.00059,
+        "crust": 0.000030,
+        "ocean": 0.00000000008,
+        "human": 0.00000002
+      },
+      "location": {
+        "row": 4,
+        "column": 9
+      }
+    },
+    {
+      "atomicNumber": 28,
+      "symbol": "Ni",
+      "name": "Nickel",
+      "atomicMass": 58.6934,
+      "cpkHexColor": "50D050",
+      "electronicConfiguration": "[Ar] 3d8 4s2",
+      "electronegativity": 1.91,
+      "ionRadius": {
+        "+2": 69
+      },
+      "ionizationEnergy": 737.1,
+      "electronAffinity": -112,
+      "oxidationStates": "-1, 1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1728,
+      "boilingPoint": 3186,
+      "density": 8.908,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": 1751,
+      "valence": 4,
+      "atomicRadius": {
+        "vanDerWaals": 163,
+        "empirical": 135,
+        "calculated": 149,
+        "covalent": 121
+      },
+      "hardness": {
+        "vickers": 638,
+        "mohs": 4,
+        "brinell": 700
+      },
+      "modulus": {
+        "young": 200,
+        "shear": 76,
+        "bulk": 180
+      },
+      "conductivity": {
+        "electric": 14,
+        "thermal": 91
+      },
+      "heat": {
+        "specific": 445,
+        "vaporization": 378,
+        "fusion": 17.2
+      },
+      "abundance": {
+        "universe": 0.000060,
+        "solar": 0.000080,
+        "meteor": 0.013,
+        "crust": 0.000089,
+        "ocean": 0.000000002,
+        "human": 0.00000010
+      },
+      "location": {
+        "row": 4,
+        "column": 10
+      }
+    },
+    {
+      "atomicNumber": 29,
+      "symbol": "Cu",
+      "name": "Copper",
+      "atomicMass": 63.546,
+      "cpkHexColor": "C88033",
+      "electronicConfiguration": "[Ar] 3d10 4s1",
+      "electronegativity": 1.90,
+      "ionRadius": {
+        "+1": 77
+      },
+      "ionizationEnergy": 745.5,
+      "electronAffinity": -118.4,
+      "oxidationStates": "1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1357.77,
+      "boilingPoint": 3200,
+      "density": 8.92,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 4,
+      "atomicRadius": {
+        "vanDerWaals": 140,
+        "empirical": 135,
+        "calculated": 145,
+        "covalent": 138
+      },
+      "hardness": {
+        "vickers": 369,
+        "mohs": 3,
+        "brinell": 874
+      },
+      "modulus": {
+        "young": 130,
+        "shear": 48,
+        "bulk": 140
+      },
+      "conductivity": {
+        "electric": 59,
+        "thermal": 400
+      },
+      "heat": {
+        "specific": 384.4,
+        "vaporization": 300,
+        "fusion": 13.1
+      },
+      "abundance": {
+        "universe": 0.00000006,
+        "solar": 0.00000070,
+        "meteor": 0.00011,
+        "crust": 0.000068,
+        "ocean": 0.000000003,
+        "human": 0.0000010
+      },
+      "location": {
+        "row": 4,
+        "column": 11
+      }
+    },
+    {
+      "atomicNumber": 30,
+      "symbol": "Zn",
+      "name": "Zinc",
+      "atomicMass": 65.38,
+      "cpkHexColor": "7D80B0",
+      "electronicConfiguration": "[Ar] 3d10 4s2",
+      "electronegativity": 1.65,
+      "ionRadius": "74 (+2)",
+      "ionizationEnergy": 906.4,
+      "electronAffinity": 0,
+      "oxidationStates": "2",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 692.68,
+      "boilingPoint": 1180,
+      "density": 7.14,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1500",
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": 139,
+        "empirical": 135,
+        "calculated": 142,
+        "covalent": 131
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 2.5,
+        "brinell": 412
+      },
+      "modulus": {
+        "young": 108,
+        "shear": 43,
+        "bulk": 70
+      },
+      "conductivity": {
+        "electric": 17,
+        "thermal": 120
+      },
+      "heat": {
+        "specific": 388,
+        "vaporization": 119,
+        "fusion": 7.35
+      },
+      "abundance": {
+        "universe": 0.00000030,
+        "solar": 0.0000020,
+        "meteor": 0.00018,
+        "crust": 0.000078,
+        "ocean": 0.000000005,
+        "human": 0.000033
+      },
+      "location": {
+        "row": 4,
+        "column": 12
+      }
+    },
+    {
+      "atomicNumber": 31,
+      "symbol": "Ga",
+      "name": "Gallium",
+      "atomicMass": 69.723,
+      "cpkHexColor": "C28F8F",
+      "electronicConfiguration": "[Ar] 3d10 4s2 4p1",
+      "electronegativity": 1.81,
+      "ionRadius": {
+        "+3": 62
+      },
+      "ionizationEnergy": 578.8,
+      "electronAffinity": -28.9,
+      "oxidationStates": "1, 2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 302.91,
+      "boilingPoint": 2477,
+      "density": 5.904,
+      "groupBlock": {
+        "iupac": "boron",
+        "legacy": "metal"
+      },
+      "yearDiscovered": "1875",
+      "valence": 3,
+      "atomicRadius": {
+        "vanDerWaals": 187,
+        "empirical": 130,
+        "calculated": 136,
+        "covalent": 126
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 1.5,
+        "brinell": 60
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": 7.1,
+        "thermal": 29
+      },
+      "heat": {
+        "specific": 371,
+        "vaporization": 256,
+        "fusion": 5.59
+      },
+      "abundance": {
+        "universe": 0.00000001,
+        "solar": 0.00000004,
+        "meteor": 0.0000076,
+        "crust": 0.000019,
+        "ocean": 0.00000000003,
+        "human": null
+      },
+      "location": {
+        "row": 4,
+        "column": 13
+      }
+    },
+    {
+      "atomicNumber": 32,
+      "symbol": "Ge",
+      "name": "Germanium",
+      "atomicMass": 72.64,
+      "cpkHexColor": "668F8F",
+      "electronicConfiguration": "[Ar] 3d10 4s2 4p2",
+      "electronegativity": 2.01,
+      "ionRadius": {
+        "+2": 73
+      },
+      "ionizationEnergy": 762,
+      "electronAffinity": -119,
+      "oxidationStates": "-4, 1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1211.4,
+      "boilingPoint": 3093,
+      "density": 5.323,
+      "groupBlock": {
+        "iupac": "carbon",
+        "legacy": "metalloid"
+      },
+      "yearDiscovered": "1886",
+      "valence": 4,
+      "atomicRadius": {
+        "vanDerWaals": 120,
+        "empirical": 125,
+        "calculated": 125,
+        "covalent": 122
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 6,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": 0.0020,
+        "thermal": 60
+      },
+      "heat": {
+        "specific": 321.4,
+        "vaporization": 334,
+        "fusion": 31.8
+      },
+      "abundance": {
+        "universe": 0.00000020,
+        "solar": 0.00000020,
+        "meteor": 0.000021,
+        "crust": 0.0000014,
+        "ocean": 0.00000000006,
+        "human": null
+      },
+      "location": {
+        "row": 4,
+        "column": 14
+      }
+    },
+    {
+      "atomicNumber": 33,
+      "symbol": "As",
+      "name": "Arsenic",
+      "atomicMass": 74.92160,
+      "cpkHexColor": "BD80E3",
+      "electronicConfiguration": "[Ar] 3d10 4s2 4p3",
+      "electronegativity": 2.18,
+      "ionRadius": {
+        "+3": 58
+      },
+      "ionizationEnergy": 947,
+      "electronAffinity": -78,
+      "oxidationStates": "-3, 2, 3, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1090,
+      "boilingPoint": 887,
+      "density": 5.727,
+      "groupBlock": {
+        "iupac": "pnictogen",
+        "legacy": "metalloid"
+      },
+      "yearDiscovered": "1250",
+      "valence": 5,
+      "atomicRadius": {
+        "vanDerWaals": 185,
+        "empirical": 115,
+        "calculated": 114,
+        "covalent": 119
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 3.5,
+        "brinell": 1440
+      },
+      "modulus": {
+        "young": 8,
+        "shear": null,
+        "bulk": 22
+      },
+      "conductivity": {
+        "electric": 3.3,
+        "thermal": 50
+      },
+      "heat": {
+        "specific": 328,
+        "vaporization": 32.4,
+        "fusion": 27.7
+      },
+      "abundance": {
+        "universe": 0.000000008,
+        "solar": null,
+        "meteor": 0.0000018,
+        "crust": 0.0000021,
+        "ocean": 0.0000000023,
+        "human": 0.00000005
+      },
+      "location": {
+        "row": 4,
+        "column": 15
+      }
+    },
+    {
+      "atomicNumber": 34,
+      "symbol": "Se",
+      "name": "Selenium",
+      "atomicMass": 78.96,
+      "cpkHexColor": "FFA100",
+      "electronicConfiguration": "[Ar] 3d10 4s2 4p4",
+      "electronegativity": 2.55,
+      "ionRadius": {
+        "-2": 198
+      },
+      "ionizationEnergy": 941,
+      "electronAffinity": -195,
+      "oxidationStates": "-2, 2, 4, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 494,
+      "boilingPoint": 958,
+      "density": 4.819,
+      "groupBlock": {
+        "iupac": "chalcogen",
+        "legacy": "nonmetal"
+      },
+      "yearDiscovered": "1817",
+      "valence": 6,
+      "atomicRadius": {
+        "vanDerWaals": 190,
+        "empirical": 115,
+        "calculated": 103,
+        "covalent": 116
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 2,
+        "brinell": 736
+      },
+      "modulus": {
+        "young": 10,
+        "shear": 3.7,
+        "bulk": 8.3
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.52
+      },
+      "heat": {
+        "specific": 321.2,
+        "vaporization": 26,
+        "fusion": 5.4
+      },
+      "abundance": {
+        "universe": 0.000000030,
+        "solar": null,
+        "meteor": 0.000013,
+        "crust": 0.000000050,
+        "ocean": 0.00000000045,
+        "human": 0.000000050
+      },
+      "location": {
+        "row": 4,
+        "column": 16
+      }
+    },
+    {
+      "atomicNumber": 35,
+      "symbol": "Br",
+      "name": "Bromine",
+      "atomicMass": 79.904,
+      "cpkHexColor": "A62929",
+      "electronicConfiguration": "[Ar] 3d10 4s2 4p5",
+      "electronegativity": 2.96,
+      "ionRadius": {
+        "-1": 196
+      },
+      "ionizationEnergy": 1139.9,
+      "electronAffinity": -324.6,
+      "oxidationStates": "-1, 1, 3, 4, 5, 7",
+      "standardState": "liquid",
+      "bondingType": "covalent network",
+      "meltingPoint": 265.8,
+      "boilingPoint": 332,
+      "density": 3.12,
+      "groupBlock": {
+        "iupac": "halogen",
+        "legacy": "halogen"
+      },
+      "yearDiscovered": "1826",
+      "valence": 7,
+      "atomicRadius": {
+        "vanDerWaals": 185,
+        "empirical": 115,
+        "calculated": 94,
+        "covalent": 114
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": 1.9
+      },
+      "conductivity": {
+        "electric": 0.0000000000000001,
+        "thermal": 0.12
+      },
+      "heat": {
+        "specific": 947.3,
+        "vaporization": 14.8,
+        "fusion": 5.8
+      },
+      "abundance": {
+        "universe": 0.000000007,
+        "solar": null,
+        "meteor": 0.0000012,
+        "crust": 0.0000030,
+        "ocean": 0.000067,
+        "human": 0.0000029
+      },
+      "location": {
+        "row": 4,
+        "column": 17
+      }
+    },
+    {
+      "atomicNumber": 36,
+      "symbol": "Kr",
+      "name": "Krypton",
+      "atomicMass": 83.798,
+      "cpkHexColor": "5CB8D1",
+      "electronicConfiguration": "[Ar] 3d10 4s2 4p6",
+      "electronegativity": 3.0,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 1350.8,
+      "electronAffinity": 0,
+      "oxidationStates": "2",
+      "standardState": "gas",
+      "bondingType": "atomic",
+      "meltingPoint": 115.79,
+      "boilingPoint": 119.93,
+      "density": 0.00375,
+      "groupBlock": {
+        "iupac": "noble gas",
+        "legacy": "noble gas"
+      },
+      "yearDiscovered": "1898",
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": 202,
+        "empirical": 25,
+        "calculated": null,
+        "covalent": 110
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.00943
+      },
+      "heat": {
+        "specific": 248.05,
+        "vaporization": 9.02,
+        "fusion": 1.64
+      },
+      "abundance": {
+        "universe": 0.00000004,
+        "solar": null,
+        "meteor": null,
+        "crust": 0.00000000015,
+        "ocean": 0.00000000021,
+        "human": null
+      },
+      "location": {
+        "row": 4,
+        "column": 18
+      }
+    },
+    {
+      "atomicNumber": 37,
+      "symbol": "Rb",
+      "name": "Rubidium",
+      "atomicMass": 85.4678,
+      "cpkHexColor": "702EB0",
+      "electronicConfiguration": "[Kr] 5s1",
+      "electronegativity": 0.82,
+      "ionRadius": {
+        "+1": 152
+      },
+      "ionizationEnergy": 403.0,
+      "electronAffinity": -46.9,
+      "oxidationStates": "1",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 312.46,
+      "boilingPoint": 961,
+      "density": 1.532,
+      "groupBlock": {
+        "iupac": "alkali metal",
+        "legacy": "alkali metal"
+      },
+      "yearDiscovered": "1861",
+      "valence": 1,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 235,
+        "calculated": 265,
+        "covalent": 211
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 0.3,
+        "brinell": 0.216
+      },
+      "modulus": {
+        "young": 2.4,
+        "shear": null,
+        "bulk": 2.5
+      },
+      "conductivity": {
+        "electric": 8.3,
+        "thermal": 58
+      },
+      "heat": {
+        "specific": 364,
+        "vaporization": 72,
+        "fusion": 2.19
+      },
+      "abundance": {
+        "universe": 0.00000001,
+        "solar": 0.00000003,
+        "meteor": 0.0000032,
+        "crust": 0.000060,
+        "ocean": 0.00000012,
+        "human": 0.0000046
+      },
+      "location": {
+        "row": 5,
+        "column": 1
+      }
+    },
+    {
+      "atomicNumber": 38,
+      "symbol": "Sr",
+      "name": "Strontium",
+      "atomicMass": "87.62",
+      "cpkHexColor": "00FF00",
+      "electronicConfiguration": "[Kr] 5s2",
+      "electronegativity": 0.95,
+      "ionRadius": {
+        "+2": 118
+      },
+      "ionizationEnergy": 549.5,
+      "electronAffinity": -5.03,
+      "oxidationStates": "2",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1050,
+      "boilingPoint": 1655,
+      "density": 2.63,
+      "groupBlock": {
+        "iupac": "alkaline earth metal",
+        "legacy": "alkaline earth metal"
+      },
+      "yearDiscovered": "1790",
+      "valence": 2,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 200,
+        "calculated": 219,
+        "covalent": 192
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 1.5,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": 6.1,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": 7.7,
+        "thermal": 35
+      },
+      "heat": {
+        "specific": 300,
+        "vaporization": 137,
+        "fusion": 8
+      },
+      "abundance": {
+        "universe": 0.00000004,
+        "solar": 0.000000050,
+        "meteor": 0.0000087,
+        "crust": 0.00036,
+        "ocean": 0.0000081,
+        "human": 0.0000046
+      },
+      "location": {
+        "row": 5,
+        "column": 2
+      }
+    },
+    {
+      "atomicNumber": 39,
+      "symbol": "Y",
+      "name": "Yttrium",
+      "atomicMass": 88.90585,
+      "cpkHexColor": "94FFFF",
+      "electronicConfiguration": "[Kr] 4d1 5s2",
+      "electronegativity": 1.22,
+      "ionRadius": {
+        "+3": 90
+      },
+      "ionizationEnergy": 600,
+      "electronAffinity": -29.6,
+      "oxidationStates": "1, 2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1799,
+      "boilingPoint": 3618,
+      "density": 4.472,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1794",
+      "valence": 3,
+      "atomicRadius": {
+        "vanDerWaals": null,
+        "empirical": 180,
+        "calculated": 212,
+        "covalent": 162
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": 589
+      },
+      "modulus": {
+        "young": 64,
+        "shear": 26,
+        "bulk": 41
+      },
+      "conductivity": {
+        "electric": 1.8,
+        "thermal": 17
+      },
+      "heat": {
+        "specific": 298,
+        "vaporization": 380,
+        "fusion": 11.4
+      },
+      "abundance": {
+        "universe": 0.0000000070,
+        "solar": 0.000000010,
+        "meteor": 0.0000019,
+        "crust": 0.000029,
+        "ocean": 0.000000000013,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 40,
+      "symbol": "Zr",
+      "name": "Zirconium",
+      "atomicMass": 91.224,
+      "cpkHexColor": "94E0E0",
+      "electronicConfiguration": "[Kr] 4d2 5s2",
+      "electronegativity": 1.33,
+      "ionRadius": {
+        "+4": 72
+      },
+      "ionizationEnergy": 640.1,
+      "electronAffinity": -41.1,
+      "oxidationStates": "1, 2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2128,
+      "boilingPoint": 4682,
+      "density": 6.511,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1789",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 206,
+        "empirical": 155,
+        "covalent": 148,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 903,
+        "mohs": 5,
+        "brinell": 650
+      },
+      "modulus": {
+        "young": 68,
+        "shear": 33,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": 2.4,
+        "thermal": 23
+      },
+      "heat": {
+        "specific": 278,
+        "vaporization": 580,
+        "fusion": 21
+      },
+      "abundance": {
+        "universe": 0.000000050,
+        "solar": 0.000000040,
+        "meteor": 0.0000066,
+        "crust": 0.00013,
+        "ocean": 0.000000000026,
+        "human": 0.000000050
+      },
+      "location": {
+        "row": 5,
+        "column": 4
+      }
+    },
+    {
+      "atomicNumber": 41,
+      "symbol": "Nb",
+      "name": "Niobium",
+      "atomicMass": 92.90638,
+      "cpkHexColor": "73C2C9",
+      "electronicConfiguration": "[Kr] 4d4 5s1",
+      "electronegativity": 1.6,
+      "ionRadius": {
+        "+3": 72
+      },
+      "ionizationEnergy": 652.1,
+      "electronAffinity": -86.1,
+      "oxidationStates": "-1, 2, 3, 4, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2750,
+      "boilingPoint": 5017,
+      "density": 8.57,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1801",
+      "valence": 5,
+      "atomicRadius": {
+        "calculated": 198,
+        "empirical": 145,
+        "covalent": 137,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 1320,
+        "mohs": 6,
+        "brinell": 736
+      },
+      "modulus": {
+        "young": 105,
+        "shear": 38,
+        "bulk": 170
+      },
+      "conductivity": {
+        "electric": 6.7,
+        "thermal": 54
+      },
+      "heat": {
+        "specific": 265,
+        "vaporization": 690,
+        "fusion": 26.8
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000040,
+        "meteor": 0.00000019,
+        "crust": 0.000017,
+        "ocean": 0.0000000000010,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 5
+      }
+    },
+    {
+      "atomicNumber": 42,
+      "symbol": "Mo",
+      "name": "Molybdenum",
+      "atomicMass": 95.96,
+      "cpkHexColor": "54B5B5",
+      "electronicConfiguration": "[Kr] 4d5 5s1",
+      "electronegativity": 2.16,
+      "ionRadius": {
+        "+3": 69
+      },
+      "ionizationEnergy": 684.3,
+      "electronAffinity": -71.9,
+      "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2896,
+      "boilingPoint": 4912,
+      "density": 10.28,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1781",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": 190,
+        "empirical": 145,
+        "covalent": 145,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 1530,
+        "mohs": 5.5,
+        "brinell": 1500
+      },
+      "modulus": {
+        "young": 329,
+        "shear": 20,
+        "bulk": 230
+      },
+      "conductivity": {
+        "electric": 20,
+        "thermal": 139
+      },
+      "heat": {
+        "specific": 251,
+        "vaporization": 600,
+        "fusion": 36
+      },
+      "abundance": {
+        "universe": 0.0000000050,
+        "solar": 0.0000000090,
+        "meteor": 0.0000012,
+        "crust": 0.0000011,
+        "ocean": 0.000000010,
+        "human": 0.00000010
+      },
+      "location": {
+        "row": 5,
+        "column": 6
+      }
+    },
+    {
+      "atomicNumber": 43,
+      "symbol": "Tc",
+      "name": "Technetium",
+      "atomicMass": 98,
+      "cpkHexColor": "3B9E9E",
+      "electronicConfiguration": "[Kr] 4d5 5s2",
+      "electronegativity": 1.9,
+      "ionRadius": {
+        "+4": 64.5
+      },
+      "ionizationEnergy": 702,
+      "electronAffinity": -53,
+      "oxidationStates": "-3, -1, 1, 2, 3, 4, 5, 6, 7",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2430,
+      "boilingPoint": 4538,
+      "density": 11.5,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1937",
+      "valence": 7,
+      "atomicRadius": {
+        "calculated": 183,
+        "empirical": 135,
+        "covalent": 156,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": 5.0,
+        "thermal": 51
+      },
+      "heat": {
+        "specific": 63,
+        "vaporization": 550,
+        "fusion": 23
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 5,
+        "column": 7
+      }
+    },
+    {
+      "atomicNumber": 44,
+      "symbol": "Ru",
+      "name": "Ruthenium",
+      "atomicMass": 101.07,
+      "cpkHexColor": "248F8F",
+      "electronicConfiguration": "[Kr] 4d7 5s1",
+      "electronegativity": 2.2,
+      "ionRadius": {
+        "+3": 68
+      },
+      "ionizationEnergy": 710.2,
+      "electronAffinity": -101.3,
+      "oxidationStates": "-2, 1, 2, 3, 4, 5, 6, 7, 8",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2607,
+      "boilingPoint": 4423,
+      "density": 12.37,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1844",
+      "valence": 8,
+      "atomicRadius": {
+        "calculated": 178,
+        "empirical": 130,
+        "covalent": 126,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 6.5,
+        "brinell": 2160
+      },
+      "modulus": {
+        "young": 447,
+        "shear": 173,
+        "bulk": 220
+      },
+      "conductivity": {
+        "electric": 14,
+        "thermal": 120
+      },
+      "heat": {
+        "specific": 238,
+        "vaporization": 580,
+        "fusion": 25.7
+      },
+      "abundance": {
+        "universe": 0.0000000040,
+        "solar": 0.0000000050,
+        "meteor": 0.00000081,
+        "crust": 0.00000000099,
+        "ocean": 0.00000000000070,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 8
+      }
+    },
+    {
+      "atomicNumber": 45,
+      "symbol": "Rh",
+      "name": "Rhodium",
+      "atomicMass": 102.90550,
+      "cpkHexColor": "0A7D8C",
+      "electronicConfiguration": "[Kr] 4d8 5s1",
+      "electronegativity": 2.28,
+      "ionRadius": {
+        "+3": 66.5
+      },
+      "ionizationEnergy": 719.7,
+      "electronAffinity": -109.7,
+      "oxidationStates": "-1, 1, 2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2237,
+      "boilingPoint": 3968,
+      "density": 12.45,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1803",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": 173,
+        "empirical": 135,
+        "covalent": 135,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 1246,
+        "mohs": 6,
+        "brinell": 1100
+      },
+      "modulus": {
+        "young": 275,
+        "shear": 150,
+        "bulk": 380
+      },
+      "conductivity": {
+        "electric": 23,
+        "thermal": 150
+      },
+      "heat": {
+        "specific": 240,
+        "vaporization": 495,
+        "fusion": 21.7
+      },
+      "abundance": {
+        "universe": 0.00000000060,
+        "solar": 0.0000000020,
+        "meteor": 0.00000018,
+        "crust": 0.00000000070,
+        "ocean": null,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 9
+      }
+    },
+    {
+      "atomicNumber": 46,
+      "symbol": "Pd",
+      "name": "Palladium",
+      "atomicMass": 106.42,
+      "cpkHexColor": "006985",
+      "electronicConfiguration": "[Kr] 4d10",
+      "electronegativity": 2.20,
+      "ionRadius": {
+        "+1": 59
+      },
+      "ionizationEnergy": 804.4,
+      "electronAffinity": -53.7,
+      "oxidationStates": "2, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1828.05,
+      "boilingPoint": 3236,
+      "density": 12.023,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1803",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 169,
+        "empirical": 140,
+        "covalent": 131,
+        "vanDerWaals": 163
+      },
+      "hardness": {
+        "vickers": 461,
+        "mohs": 4.75,
+        "brinell": 37.3
+      },
+      "modulus": {
+        "young": 121,
+        "shear": 44,
+        "bulk": 180
+      },
+      "conductivity": {
+        "electric": 10,
+        "thermal": 72
+      },
+      "heat": {
+        "specific": 240,
+        "vaporization": 380,
+        "fusion": 16.7
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000030,
+        "meteor": 0.00000066,
+        "crust": 0.0000000063,
+        "ocean": null,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 10
+      }
+    },
+    {
+      "atomicNumber": 47,
+      "symbol": "Ag",
+      "name": "Silver",
+      "atomicMass": 107.8682,
+      "cpkHexColor": "C0C0C0",
+      "electronicConfiguration": "[Kr] 4d10 5s1",
+      "electronegativity": 1.93,
+      "ionRadius": {
+        "+1": 115
+      },
+      "ionizationEnergy": 731.0,
+      "electronAffinity": -125.6,
+      "oxidationStates": "1, 2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1234.93,
+      "boilingPoint": 2435,
+      "density": 10.49,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 165,
+        "empirical": 160,
+        "covalent": 153,
+        "vanDerWaals": 172
+      },
+      "hardness": {
+        "vickers": 251,
+        "mohs": 2.5,
+        "brinell": 24.5
+      },
+      "modulus": {
+        "young": 83,
+        "shear": 30,
+        "bulk": 100
+      },
+      "conductivity": {
+        "electric": 62,
+        "thermal": 430
+      },
+      "heat": {
+        "specific": 235,
+        "vaporization": 255,
+        "fusion": 11.3
+      },
+      "abundance": {
+        "universe": 0.00000000060,
+        "solar": 0.0000000010,
+        "meteor": 0.00000014,
+        "crust": 0.000000079,
+        "ocean": 0.00000000010,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 11
+      }
+    },
+    {
+      "atomicNumber": 48,
+      "symbol": "Cd",
+      "name": "Cadmium",
+      "atomicMass": 112.411,
+      "cpkHexColor": "FFD98F",
+      "electronicConfiguration": "[Kr] 4d10 5s2",
+      "electronegativity": 1.69,
+      "ionRadius": {
+        "+2": 95
+      },
+      "ionizationEnergy": 867.8,
+      "electronAffinity": 0,
+      "oxidationStates": 2,
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 594.22,
+      "boilingPoint": 1040,
+      "density": 8.65,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1817",
+      "valence": 2,
+      "atomicRadius": {
+        "calculated": 161,
+        "empirical": 155,
+        "covalent": 148,
+        "vanDerWaals": 158
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 2,
+        "brinell": 203
+      },
+      "modulus": {
+        "young": 50,
+        "shear": 19,
+        "bulk": 42
+      },
+      "conductivity": {
+        "electric": 14,
+        "thermal": 97
+      },
+      "heat": {
+        "specific": 230,
+        "vaporization": 100,
+        "fusion": 6.3
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000060,
+        "meteor": 0.00000044,
+        "crust": 0.00000015,
+        "ocean": 0.000000000050,
+        "human": 0.00000070
+      },
+      "location": {
+        "row": 5,
+        "column": 12
+      }
+    },
+    {
+      "atomicNumber": 49,
+      "symbol": "In",
+      "name": "Indium",
+      "atomicMass": 114.818,
+      "cpkHexColor": "A67573",
+      "electronicConfiguration": "[Kr] 4d10 5s2 5p1",
+      "electronegativity": 1.78,
+      "ionRadius": {
+        "+3": 80
+      },
+      "ionizationEnergy": 558.3,
+      "electronAffinity": -28.9,
+      "oxidationStates": "1, 2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 429.75,
+      "boilingPoint": 2345,
+      "density": 7.31,
+      "groupBlock": {
+        "iupac": "boron",
+        "legacy": "metal"
+      },
+      "yearDiscovered": "1863",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 156,
+        "empirical": 155,
+        "covalent": 144,
+        "vanDerWaals": 193
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 1.2,
+        "brinell": 8.83
+      },
+      "modulus": {
+        "young": 11,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": 12,
+        "thermal": 82
+      },
+      "heat": {
+        "specific": 233,
+        "vaporization": 230,
+        "fusion": 3.26
+      },
+      "abundance": {
+        "universe": 0.00000000030,
+        "solar": 0.0000000040,
+        "meteor": 0.000000044,
+        "crust": 0.00000016,
+        "ocean": 0.00000000000010,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 13
+      }
+    },
+    {
+      "atomicNumber": 50,
+      "symbol": "Sn",
+      "name": "Tin",
+      "atomicMass": 118.710,
+      "cpkHexColor": "668080",
+      "electronicConfiguration": "[Kr] 4d10 5s2 5p2",
+      "electronegativity": 1.96,
+      "ionRadius": {
+        "+2": 112
+      },
+      "ionizationEnergy": 708.6,
+      "electronAffinity": -107.3,
+      "oxidationStates": "-4, 2, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 505.08,
+      "boilingPoint": 2875,
+      "density": 7.31,
+      "groupBlock": {
+        "iupac": "carbon",
+        "legacy": "metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 145,
+        "empirical": 145,
+        "covalent": 141,
+        "vanDerWaals": 217
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 1.5,
+        "brinell": 51
+      },
+      "modulus": {
+        "young": 50,
+        "shear": 18,
+        "bulk": 58
+      },
+      "conductivity": {
+        "electric": 9.1,
+        "thermal": 67
+      },
+      "heat": {
+        "specific": 217,
+        "vaporization": 290,
+        "fusion": 7.0
+      },
+      "abundance": {
+        "universe": 0.0000000040,
+        "solar": 0.0000000090,
+        "meteor": 0.0000012,
+        "crust": 0.0000022,
+        "ocean": 0.000000000010,
+        "human": 0.00000020
+      },
+      "location": {
+        "row": 5,
+        "column": 14
+      }
+    },
+    {
+      "atomicNumber": 51,
+      "symbol": "Sb",
+      "name": "Antimony",
+      "atomicMass": 121.760,
+      "cpkHexColor": "9E63B5",
+      "electronicConfiguration": "[Kr] 4d10 5s2 5p3",
+      "electronegativity": 2.05,
+      "ionRadius": {
+        "+3": 76
+      },
+      "ionizationEnergy": 834,
+      "electronAffinity": -103.2,
+      "oxidationStates": "-3, 3, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 903.78,
+      "boilingPoint": 1860,
+      "density": 6.697,
+      "groupBlock": {
+        "iupac": "pnictogen",
+        "legacy": "metalloid"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 5,
+      "atomicRadius": {
+        "calculated": 133,
+        "empirical": 145,
+        "covalent": 138,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 3,
+        "brinell": 294
+      },
+      "modulus": {
+        "young": 55,
+        "shear": 20,
+        "bulk": 42
+      },
+      "conductivity": {
+        "electric": 2.5,
+        "thermal": 24
+      },
+      "heat": {
+        "specific": 207,
+        "vaporization": 68,
+        "fusion": 19.7
+      },
+      "abundance": {
+        "universe": 0.00000000040,
+        "solar": 0.0000000010,
+        "meteor": 0.00000012,
+        "crust": 0.00000020,
+        "ocean": 0.00000000020,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 15
+      }
+    },
+    {
+      "atomicNumber": 52,
+      "symbol": "Te",
+      "name": "Tellurium",
+      "atomicMass": 127.60,
+      "cpkHexColor": "D47A00",
+      "electronicConfiguration": "[Kr] 4d10 5s2 5p4",
+      "electronegativity": 2.1,
+      "ionRadius": {
+        "-2": 221
+      },
+      "ionizationEnergy": 869.3,
+      "electronAffinity": -190.2,
+      "oxidationStates": "-2, 2, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 722.66,
+      "boilingPoint": 1261,
+      "density": 6.24,
+      "groupBlock": {
+        "iupac": "chalcogen",
+        "legacy": "metalloid"
+      },
+      "yearDiscovered": "1783",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": 123,
+        "empirical": 140,
+        "covalent": 135,
+        "vanDerWaals": 206
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 2.25,
+        "brinell": 180
+      },
+      "modulus": {
+        "young": 43,
+        "shear": 16,
+        "bulk": 65
+      },
+      "conductivity": {
+        "electric": 0.010,
+        "thermal": 3
+      },
+      "heat": {
+        "specific": 201,
+        "vaporization": 48,
+        "fusion": 17.5
+      },
+      "abundance": {
+        "universe": 0.0000000090,
+        "solar": null,
+        "meteor": 0.0000021,
+        "crust": 0.00000000099,
+        "ocean": null,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 16
+      }
+    },
+    {
+      "atomicNumber": 53,
+      "symbol": "I",
+      "name": "Iodine",
+      "atomicMass": 126.90447,
+      "cpkHexColor": "940094",
+      "electronicConfiguration": "[Kr] 4d10 5s2 5p5",
+      "electronegativity": 2.66,
+      "ionRadius": {
+        "-1": 220
+      },
+      "ionizationEnergy": 1008,
+      "electronAffinity": -295.2,
+      "oxidationStates": "-1, 1, 3, 5, 7",
+      "standardState": "solid",
+      "bondingType": "covalent network",
+      "meltingPoint": 386.85,
+      "boilingPoint": 457.4,
+      "density": 4.94,
+      "groupBlock": {
+        "iupac": "halogen",
+        "legacy": "halogen"
+      },
+      "yearDiscovered": "1811",
+      "valence": 7,
+      "atomicRadius": {
+        "calculated": 115,
+        "empirical": 140,
+        "covalent": 133,
+        "vanDerWaals": 198
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": 7.7
+      },
+      "conductivity": {
+        "electric": 0.00000000000010,
+        "thermal": 0.449
+      },
+      "heat": {
+        "specific": 429.0,
+        "vaporization": 20.9,
+        "fusion": 7.76
+      },
+      "abundance": {
+        "universe": 0.00000000100,
+        "solar": null,
+        "meteor": 0.00000025,
+        "crust": 0.00000049,
+        "ocean": 0.000000060,
+        "human": 0.00000020
+      },
+      "location": {
+        "row": 5,
+        "column": 17
+      }
+    },
+    {
+      "atomicNumber": 54,
+      "symbol": "Xe",
+      "name": "Xenon",
+      "atomicMass": 131.293,
+      "cpkHexColor": "429EB0",
+      "electronicConfiguration": "[Kr] 4d10 5s2 5p6",
+      "electronegativity": 2.6,
+      "ionRadius": {
+        "+8": 48
+      },
+      "ionizationEnergy": 1170.4,
+      "electronAffinity": 0,
+      "oxidationStates": "2, 4, 6, 8",
+      "standardState": "gas",
+      "bondingType": "atomic",
+      "meltingPoint": 161.3,
+      "boilingPoint": 165.1,
+      "density": 0.0059,
+      "groupBlock": {
+        "iupac": "noble gas",
+        "legacy": "noble gas"
+      },
+      "yearDiscovered": "1898",
+      "valence": 8,
+      "atomicRadius": {
+        "calculated": 108,
+        "empirical": null,
+        "covalent": 130,
+        "vanDerWaals": 216
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": null,
+        "shear": null,
+        "bulk": null
+      },
+      "conductivity": {
+        "electric": null,
+        "thermal": 0.00565
+      },
+      "heat": {
+        "specific": 158.32,
+        "vaporization": 12.64,
+        "fusion": 2.30
+      },
+      "abundance": {
+        "universe": 0.0000000100,
+        "solar": null,
+        "meteor": null,
+        "crust": 0.000000000020,
+        "ocean": 0.0000000000050,
+        "human": null
+      },
+      "location": {
+        "row": 5,
+        "column": 18
+      }
+    },
+    {
+      "atomicNumber": 55,
+      "symbol": "Cs",
+      "name": "Cesium",
+      "atomicMass": 132.9054519,
+      "cpkHexColor": "57178F",
+      "electronicConfiguration": "[Xe] 6s1",
+      "electronegativity": 0.79,
+      "ionRadius": {
+        "+1": 167
+      },
+      "ionizationEnergy": 375.7,
+      "electronAffinity": -45.5,
+      "oxidationStates": "1",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 301.59,
+      "boilingPoint": 944,
+      "density": 1.879,
+      "groupBlock": {
+        "iupac": "alkali metal",
+        "legacy": "alkali metal"
+      },
+      "yearDiscovered": "1860",
+      "valence": 1,
+      "atomicRadius": {
+        "calculated": 298,
+        "empirical": 260,
+        "covalent": 225,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 0.2,
+        "brinell": 0.14
+      },
+      "modulus": {
+        "young": 1.7,
+        "shear": null,
+        "bulk": 1.6
+      },
+      "conductivity": {
+        "electric": 5.0,
+        "thermal": 36
+      },
+      "heat": {
+        "specific": 242,
+        "vaporization": 65,
+        "fusion": 2.09
+      },
+      "abundance": {
+        "universe": 0.00000000080,
+        "solar": 0.0000000080,
+        "meteor": 0.00000014,
+        "crust": 0.0000019,
+        "ocean": 0.00000000050,
+        "human": 0.000000020
+      },
+      "location": {
+        "row": 6,
+        "column": 1
+      }
+    },
+    {
+      "atomicNumber": 56,
+      "symbol": "Ba",
+      "name": "Barium",
+      "atomicMass": 137.327,
+      "cpkHexColor": "00C900",
+      "electronicConfiguration": "[Xe] 6s2",
+      "electronegativity": 0.89,
+      "ionRadius": {
+        "+2": 135
+      },
+      "ionizationEnergy": 502.9,
+      "electronAffinity": -13.95,
+      "oxidationStates": "2",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1000,
+      "boilingPoint": 2143,
+      "density": 3.51,
+      "groupBlock": {
+        "iupac": "alkaline earth metal",
+        "legacy": "alkaline earth metal"
+      },
+      "yearDiscovered": "1808",
+      "valence": 2,
+      "atomicRadius": {
+        "calculated": 253,
+        "empirical": 215,
+        "covalent": 198,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": 1.25,
+        "brinell": null
+      },
+      "modulus": {
+        "young": 13,
+        "shear": 4.9,
+        "bulk": 9.6
+      },
+      "conductivity": {
+        "electric": 2.9,
+        "thermal": 18
+      },
+      "heat": {
+        "specific": 205,
+        "vaporization": 140,
+        "fusion": 8.0
+      },
+      "abundance": {
+        "universe": 0.0000000100,
+        "solar": 0.000000010,
+        "meteor": 0.0000027,
+        "crust": 0.00034,
+        "ocean": 0.000000030,
+        "human": 0.00000030
+      },
+      "location": {
+        "row": 6,
+        "column": 2
+      }
+    },
+    {
+      "atomicNumber": 57,
+      "symbol": "La",
+      "name": "Lanthanum",
+      "atomicMass": 138.90547,
+      "cpkHexColor": "70D4FF",
+      "electronicConfiguration": "[Xe] 5d1 6s2",
+      "electronegativity": 1.1,
+      "ionRadius": {
+        "+3": 103.2
+      },
+      "ionizationEnergy": 538.1,
+      "electronAffinity": -48,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1193,
+      "boilingPoint": 3737,
+      "density": 6.146,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1839",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 195,
+        "covalent": 169,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 491,
+        "mohs": 2.5,
+        "brinell": 363
+      },
+      "modulus": {
+        "young": 37,
+        "shear": 14,
+        "bulk": 28
+      },
+      "conductivity": {
+        "electric": 1.6,
+        "thermal": 13
+      },
+      "heat": {
+        "specific": 195,
+        "vaporization": 400,
+        "fusion": 6.2
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000020,
+        "meteor": 0.00000028,
+        "crust": 0.000034,
+        "ocean": 0.0000000000034,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 58,
+      "symbol": "Ce",
+      "name": "Cerium",
+      "atomicMass": 140.116,
+      "cpkHexColor": "FFFFC7",
+      "electronicConfiguration": "[Xe] 4f1 5d1 6s2",
+      "electronegativity": 1.12,
+      "ionRadius": {
+        "+3": 102
+      },
+      "ionizationEnergy": 534.4,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1071,
+      "boilingPoint": 3633,
+      "density": 6.689,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1803",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 185,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 270,
+        "mohs": 2.5,
+        "brinell": 412
+      },
+      "modulus": {
+        "young": 34,
+        "shear": 14,
+        "bulk": 22
+      },
+      "conductivity": {
+        "electric": 1.4,
+        "thermal": 11
+      },
+      "heat": {
+        "specific": 192,
+        "vaporization": 350,
+        "fusion": 5.5
+      },
+      "abundance": {
+        "universe": 0.0000000100,
+        "solar": 0.0000000040,
+        "meteor": 0.00000075,
+        "crust": 0.000060,
+        "ocean": 0.0000000000012,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 59,
+      "symbol": "Pr",
+      "name": "Praseodymium",
+      "atomicMass": 140.90765,
+      "cpkHexColor": "D9FFC7",
+      "electronicConfiguration": "[Xe] 4f3 6s2",
+      "electronegativity": 1.13,
+      "ionRadius": {
+        "+3": 99
+      },
+      "ionizationEnergy": 527,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1204,
+      "boilingPoint": 3563,
+      "density": 6.64,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1885",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 247,
+        "empirical": 185,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 400,
+        "mohs": null,
+        "brinell": 481
+      },
+      "modulus": {
+        "young": 37,
+        "shear": 15,
+        "bulk": 29
+      },
+      "conductivity": {
+        "electric": 1.4,
+        "thermal": 13
+      },
+      "heat": {
+        "specific": 193,
+        "vaporization": 330,
+        "fusion": 6.9
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000010,
+        "meteor": 0.000000098,
+        "crust": 0.0000086,
+        "ocean": 0.00000000000060,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 60,
+      "symbol": "Nd",
+      "name": "Neodymium",
+      "atomicMass": 144.242,
+      "cpkHexColor": "C7FFC7",
+      "electronicConfiguration": "[Xe] 4f4 6s2",
+      "electronegativity": 1.14,
+      "ionRadius": {
+        "+2": 129
+      },
+      "ionizationEnergy": 533.1,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1294,
+      "boilingPoint": 3373,
+      "density": 7.01,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1885",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 206,
+        "empirical": 185,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 343,
+        "mohs": null,
+        "brinell": 265
+      },
+      "modulus": {
+        "young": 41,
+        "shear": 16,
+        "bulk": 32
+      },
+      "conductivity": {
+        "electric": 1.6,
+        "thermal": 17
+      },
+      "heat": {
+        "specific": 190,
+        "vaporization": 285,
+        "fusion": 7.1
+      },
+      "abundance": {
+        "universe": 0.0000000100,
+        "solar": 0.0000000030,
+        "meteor": 0.00000050,
+        "crust": 0.000033,
+        "ocean": 0.0000000000028,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 61,
+      "symbol": "Pm",
+      "name": "Promethium",
+      "atomicMass": 145,
+      "cpkHexColor": "A3FFC7",
+      "electronicConfiguration": "[Xe] 4f5 6s2",
+      "electronegativity": 1.13,
+      "ionRadius": {
+        "+3": 97
+      },
+      "ionizationEnergy": 540,
+      "electronAffinity": -50,
+      "oxidationStates": 3,
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1373,
+      "boilingPoint": 3273,
+      "density": 7.264,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1945",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 205,
+        "empirical": 185,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": null,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": 46,
+        "shear": 18,
+        "bulk": 33
+      },
+      "conductivity": {
+        "electric": 1.3,
+        "thermal": 15
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": 290,
+        "fusion": 7.7
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 62,
+      "symbol": "Sm",
+      "name": "Samarium",
+      "atomicMass": 150.36,
+      "cpkHexColor": "8FFFC7",
+      "electronicConfiguration": "[Xe] 4f6 6s2",
+      "electronegativity": 1.17,
+      "ionRadius": {
+        "+2": 122
+      },
+      "ionizationEnergy": 544.5,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1345,
+      "boilingPoint": 2076,
+      "density": 7.353,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": 1879,
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 238,
+        "empirical": 105,
+        "covalent": 90,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 1670,
+        "mohs": 5.5,
+        "brinell": 600
+      },
+      "modulus": {
+        "young": 287,
+        "shear": 132,
+        "bulk": 130
+      },
+      "conductivity": {
+        "electric": 25,
+        "thermal": 190
+      },
+      "heat": {
+        "specific": 1820,
+        "vaporization": 128,
+        "fusion": 8.7
+      },
+      "abundance": {
+        "universe": 0.00000000100,
+        "solar": 0.00000000010,
+        "meteor": 0.011,
+        "crust": 0.05,
+        "ocean": 0.0000042,
+        "human": 0.014
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 63,
+      "symbol": "Eu",
+      "name": "Europium",
+      "atomicMass": 151.964,
+      "cpkHexColor": "61FFC7",
+      "electronicConfiguration": "[Xe] 4f7 6s2",
+      "electronegativity": 1.2,
+      "ionRadius": {
+        "+2": 117
+      },
+      "ionizationEnergy": 547.1,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1095,
+      "boilingPoint": 1800,
+      "density": 5.244,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1901",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 231,
+        "empirical": 185,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 167,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": 18,
+        "shear": 7.9,
+        "bulk": 8.3
+      },
+      "conductivity": {
+        "electric": 1.1,
+        "thermal": 14
+      },
+      "heat": {
+        "specific": 182,
+        "vaporization": 175,
+        "fusion": 9.2
+      },
+      "abundance": {
+        "universe": 0.00000000050,
+        "solar": 0.00000000050,
+        "meteor": 0.000000059,
+        "crust": 0.0000018,
+        "ocean": 0.00000000000013,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 64,
+      "symbol": "Gd",
+      "name": "Gadolinium",
+      "atomicMass": 157.25,
+      "cpkHexColor": "45FFC7",
+      "electronicConfiguration": "[Xe] 4f7 5d1 6s2",
+      "electronegativity": 1.20,
+      "ionRadius": {
+        "+3": "93.8"
+      },
+      "ionizationEnergy": 593.4,
+      "electronAffinity": -50,
+      "oxidationStates": "1, 2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1586,
+      "boilingPoint": 3523,
+      "density": 7.901,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1880",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 233,
+        "empirical": 180,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 570,
+        "mohs": null,
+        "brinell": null
+      },
+      "modulus": {
+        "young": 55,
+        "shear": 22,
+        "bulk": 38
+      },
+      "conductivity": {
+        "electric": 0.77,
+        "thermal": 11
+      },
+      "heat": {
+        "specific": 240,
+        "vaporization": 305,
+        "fusion": 10
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000020,
+        "meteor": 0.00000023,
+        "crust": 0.0000052,
+        "ocean": 0.00000000000070,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 65,
+      "symbol": "Tb",
+      "name": "Terbium",
+      "atomicMass": 158.92535,
+      "cpkHexColor": "30FFC7",
+      "electronicConfiguration": "[Xe] 4f9 6s2",
+      "electronegativity": 1.2,
+      "ionRadius": {
+        "+3": 92.3
+      },
+      "ionizationEnergy": 565.8,
+      "electronAffinity": -50,
+      "oxidationStates": "1, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1629,
+      "boilingPoint": 3503,
+      "density": 8.219,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1843",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 225,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "vickers": 863,
+        "mohs": null,
+        "brinell": 677
+      },
+      "modulus": {
+        "young": 56,
+        "shear": 22,
+        "bulk": 38.7
+      },
+      "conductivity": {
+        "electric": 0.83,
+        "thermal": 11
+      },
+      "heat": {
+        "specific": 182,
+        "vaporization": 295,
+        "fusion": 10.8
+      },
+      "abundance": {
+        "universe": 0.00000000050,
+        "solar": 0.00000000010,
+        "meteor": 0.000000039,
+        "crust": 0.00000093,
+        "ocean": 0.00000000000014,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 66,
+      "symbol": "Dy",
+      "name": "Dysprosium",
+      "atomicMass": 162.500,
+      "cpkHexColor": "1FFFC7",
+      "electronicConfiguration": "[Xe] 4f10 6s2",
+      "electronegativity": 1.22,
+      "ionRadius": {
+        "+2": 107
+      },
+      "ionizationEnergy": 573.0,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1685,
+      "boilingPoint": 2840,
+      "density": 8.551,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1886",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 228,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 500,
+        "mohs": null,
+        "vickers": 540
+      },
+      "modulus": {
+        "bulk": 41,
+        "shear": 25,
+        "young": 61
+      },
+      "conductivity": {
+        "electric": 1.1,
+        "thermal": 11
+      },
+      "heat": {
+        "specific": 167,
+        "vaporization": 280,
+        "fusion": 11.1
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000020,
+        "meteor": 0.00000027,
+        "crust": 0.0000062,
+        "ocean": 0.00000000000091,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 67,
+      "symbol": "Ho",
+      "name": "Holmium",
+      "atomicMass": 164.93032,
+      "cpkHexColor": "00FF9C",
+      "electronicConfiguration": "[Xe] 4f11 6s2",
+      "electronegativity": 1.23,
+      "ionRadius": {
+        "+3": 90.1
+      },
+      "ionizationEnergy": 581.0,
+      "electronAffinity": -50,
+      "oxidationStates": "3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1747,
+      "boilingPoint": 2973,
+      "density": 8.795,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1878",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 226,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 746,
+        "mohs": null,
+        "vickers": 481
+      },
+      "modulus": {
+        "bulk": 40,
+        "shear": 26,
+        "young": 65
+      },
+      "conductivity": {
+        "electric": 1.1,
+        "thermal": 16
+      },
+      "heat": {
+        "specific": 165,
+        "vaporization": 265,
+        "fusion": 17.0
+      },
+      "abundance": {
+        "universe": 0.00000000050,
+        "solar": 0,
+        "meteor": 0.000000059,
+        "crust": 0.0000012,
+        "ocean": 0.00000000000022,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 68,
+      "symbol": "Er",
+      "name": "Erbium",
+      "atomicMass": 167.259,
+      "cpkHexColor": "00E675",
+      "electronicConfiguration": "[Xe] 4f12 6s2",
+      "electronegativity": 1.24,
+      "ionRadius": {
+        "+3": 89
+      },
+      "ionizationEnergy": 589.3,
+      "electronAffinity": -50,
+      "oxidationStates": "3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1770,
+      "boilingPoint": 3141,
+      "density": 9.066,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1842",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 226,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 814,
+        "mohs": null,
+        "vickers": 589
+      },
+      "modulus": {
+        "bulk": 44,
+        "shear": 28,
+        "young": 70
+      },
+      "conductivity": {
+        "electric": 1.2,
+        "thermal": 15
+      },
+      "heat": {
+        "specific": 168,
+        "vaporization": 285,
+        "fusion": 19.9
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000010,
+        "meteor": 0.00000018,
+        "crust": 0.0000030,
+        "ocean": 0.00000000000090,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 69,
+      "symbol": "Tm",
+      "name": "Thulium",
+      "atomicMass": 168.93421,
+      "cpkHexColor": "00D452",
+      "electronicConfiguration": "[Xe] 4f13 6s2",
+      "electronegativity": 1.25,
+      "ionRadius": {
+        "+2": 103
+      },
+      "ionizationEnergy": 596.7,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1818,
+      "boilingPoint": 2223,
+      "density": 9.321,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1879",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 222,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 471,
+        "mohs": null,
+        "vickers": 520
+      },
+      "modulus": {
+        "bulk": 45,
+        "shear": 31,
+        "young": 74
+      },
+      "conductivity": {
+        "electric": 1.4,
+        "thermal": 17
+      },
+      "heat": {
+        "specific": 160,
+        "vaporization": 250,
+        "fusion": 16.8
+      },
+      "abundance": {
+        "universe": 0.000000000100,
+        "solar": 0.00000000020,
+        "meteor": 0.000000029,
+        "crust": 0.00000045,
+        "ocean": 0.00000000000020,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 70,
+      "symbol": "Yb",
+      "name": "Ytterbium",
+      "atomicMass": 173.054,
+      "cpkHexColor": "00BF38",
+      "electronicConfiguration": "[Xe] 4f14 6s2",
+      "electronegativity": 1.1,
+      "ionRadius": {
+        "+2": 102
+      },
+      "ionizationEnergy": 603.4,
+      "electronAffinity": -50,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1092,
+      "boilingPoint": 1469,
+      "density": 6.57,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1878",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 222,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 343,
+        "mohs": null,
+        "vickers": 206
+      },
+      "modulus": {
+        "bulk": 31,
+        "shear": 9.9,
+        "young": 24
+      },
+      "conductivity": {
+        "electric": 3.6,
+        "thermal": 39
+      },
+      "heat": {
+        "specific": 154,
+        "vaporization": 160,
+        "fusion": 7.7
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000010,
+        "meteor": 0.00000018,
+        "crust": 0.0000028,
+        "ocean": 0.00000000000080,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 71,
+      "symbol": "Lu",
+      "name": "Lutetium",
+      "atomicMass": 174.9668,
+      "cpkHexColor": "00AB24",
+      "electronicConfiguration": "[Xe] 4f14 5d1 6s2",
+      "electronegativity": 1.27,
+      "ionRadius": {
+        "+3": 86.1
+      },
+      "ionizationEnergy": 523.5,
+      "electronAffinity": -50,
+      "oxidationStates": "3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1936,
+      "boilingPoint": 3675,
+      "density": 9.841,
+      "groupBlock": {
+        "iupac": "lanthanoid",
+        "legacy": "lanthanoid"
+      },
+      "yearDiscovered": "1907",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 217,
+        "empirical": 175,
+        "covalent": 160,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 893,
+        "mohs": null,
+        "vickers": 1160
+      },
+      "modulus": {
+        "bulk": 48,
+        "shear": 27,
+        "young": 69
+      },
+      "conductivity": {
+        "thermal": 16,
+        "electric": 1.8
+      },
+      "heat": {
+        "specific": 154,
+        "vaporization": 415,
+        "fusion": 22
+      },
+      "abundance": {
+        "universe": 0.000000000100,
+        "solar": 0.0000000010,
+        "meteor": 0.000000029,
+        "crust": 0.00000056,
+        "ocean": 0.00000000000015,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 72,
+      "symbol": "Hf",
+      "name": "Hafnium",
+      "atomicMass": 178.49,
+      "cpkHexColor": "4DC2FF",
+      "electronicConfiguration": "[Xe] 4f14 5d2 6s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+        "+4": 71
+      },
+      "ionizationEnergy": 658.5,
+      "electronAffinity": 0,
+      "oxidationStates": "2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2506,
+      "boilingPoint": 4876,
+      "density": 13.31,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1923",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 208,
+        "empirical": 155,
+        "covalent": 150,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 1700,
+        "mohs": 5.5,
+        "vickers": 1760
+      },
+      "modulus": {
+        "bulk": 110,
+        "shear": 30,
+        "young": 78
+      },
+      "conductivity": {
+        "thermal": 23,
+        "electric": 3.3
+      },
+      "heat": {
+        "specific": 144,
+        "vaporization": 630,
+        "fusion": 25.5
+      },
+      "abundance": {
+        "universe": 0.00000000070,
+        "solar": 0.0000000010,
+        "meteor": 0.00000017,
+        "crust": 0.0000033,
+        "ocean": 0.0000000000080,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 4
+      }
+    },
+    {
+      "atomicNumber": 73,
+      "symbol": "Ta",
+      "name": "Tantalum",
+      "atomicMass": 180.94788,
+      "cpkHexColor": "4DA6FF",
+      "electronicConfiguration": "[Xe] 4f14 5d3 6s2",
+      "electronegativity": 1.5,
+      "ionRadius": {
+        "+3": 72
+      },
+      "ionizationEnergy": 761,
+      "electronAffinity": -31,
+      "oxidationStates": "-1, 2, 3, 4, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 3290,
+      "boilingPoint": 5731,
+      "density": 16.65,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1802",
+      "valence": 5,
+      "atomicRadius": {
+        "calculated": 200,
+        "empirical": 145,
+        "covalent": 138,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 800,
+        "mohs": 6.5,
+        "vickers": 873
+      },
+      "modulus": {
+        "bulk": 200,
+        "shear": 69,
+        "young": 186
+      },
+      "conductivity": {
+        "thermal": 57,
+        "electric": 7.7
+      },
+      "heat": {
+        "specific": 140,
+        "vaporization": 735,
+        "fusion": 36
+      },
+      "abundance": {
+        "universe": 0.000000000080,
+        "solar": null,
+        "meteor": 0.000000020,
+        "crust": 0.0000017,
+        "ocean": 0.0000000000020,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 5
+      }
+    },
+    {
+      "atomicNumber": 74,
+      "symbol": "W",
+      "name": "Tungsten",
+      "atomicMass": 183.84,
+      "cpkHexColor": "2194D6",
+      "electronicConfiguration": "[Xe] 4f14 5d4 6s2",
+      "electronegativity": 2.36,
+      "ionRadius": {
+        "+4": "66"
+      },
+      "ionizationEnergy": 770,
+      "electronAffinity": -78.6,
+      "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 3695,
+      "boilingPoint": 5828,
+      "density": 19.25,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1783",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": 193,
+        "empirical": 135,
+        "covalent": 146,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 2570,
+        "mohs": 7.5,
+        "vickers": 3430
+      },
+      "modulus": {
+        "bulk": 310,
+        "shear": 161,
+        "young": 411
+      },
+      "conductivity": {
+        "thermal": 170,
+        "electric": 20
+      },
+      "heat": {
+        "specific": 132,
+        "vaporization": 800,
+        "fusion": 35
+      },
+      "abundance": {
+        "universe": 0.00000000050,
+        "solar": 0.0000000040,
+        "meteor": 0.00000012,
+        "crust": 0.0000011,
+        "ocean": 0.00000000012,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 6
+      }
+    },
+    {
+      "atomicNumber": 75,
+      "symbol": "Re",
+      "name": "Rhenium",
+      "atomicMass": 186.207,
+      "cpkHexColor": "267DAB",
+      "electronicConfiguration": "[Xe] 4f14 5d5 6s2",
+      "electronegativity": 1.9,
+      "ionRadius": {
+        "+4": 63
+      },
+      "ionizationEnergy": 760,
+      "electronAffinity": -15,
+      "oxidationStates": "-3, -1, 1, 2, 3, 4, 5, 6, 7",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 3459,
+      "boilingPoint": 5869,
+      "density": 21.02,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1925",
+      "valence": 7,
+      "atomicRadius": {
+        "calculated": 188,
+        "empirical": 135,
+        "covalent": 159,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 1320,
+        "mohs": 7,
+        "vickers": 2450
+      },
+      "modulus": {
+        "bulk": 370,
+        "shear": 178,
+        "young": 463
+      },
+      "conductivity": {
+        "thermal": 48,
+        "electric": 5.6
+      },
+      "heat": {
+        "specific": 137,
+        "vaporization": 705,
+        "fusion": 33
+      },
+      "abundance": {
+        "universe": 0.00000000020,
+        "solar": 0.00000000010,
+        "meteor": 0.000000049,
+        "crust": 0.0000000026,
+        "ocean": 0.000000000010,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 7
+      }
+    },
+    {
+      "atomicNumber": 76,
+      "symbol": "Os",
+      "name": "Osmium",
+      "atomicMass": 190.23,
+      "cpkHexColor": 266696,
+      "electronicConfiguration": "[Xe] 4f14 5d6 6s2",
+      "electronegativity": 2.2,
+      "ionRadius": {
+        "+4": 63
+      },
+      "ionizationEnergy": 840,
+      "electronAffinity": -106.1,
+      "oxidationStates": "-2, -1, 1, 2, 3, 4, 5, 6, 7, 8",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 3306,
+      "boilingPoint": 5285,
+      "density": 22.61,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1803",
+      "valence": 8,
+      "atomicRadius": {
+        "calculated": 185,
+        "empirical": 130,
+        "covalent": 128,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 3920,
+        "mohs": 7,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": 222,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 88,
+        "electric": 12
+      },
+      "heat": {
+        "specific": 130,
+        "vaporization": 630,
+        "fusion": 31
+      },
+      "abundance": {
+        "universe": 0.0000000030,
+        "solar": 0.0000000020,
+        "meteor": 0.00000066,
+        "crust": 0.0000000018,
+        "ocean": null,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 8
+      }
+    },
+    {
+      "atomicNumber": 77,
+      "symbol": "Ir",
+      "name": "Iridium",
+      "atomicMass": 192.217,
+      "cpkHexColor": 175487,
+      "electronicConfiguration": "[Xe] 4f14 5d7 6s2",
+      "electronegativity": 2.20,
+      "ionRadius": {
+        "+3": 68
+      },
+      "ionizationEnergy": 880,
+      "electronAffinity": -151,
+      "oxidationStates": "-3, -1, 1, 2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2739,
+      "boilingPoint": 4701,
+      "density": 22.65,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1803",
+      "valence": 8,
+      "atomicRadius": {
+        "calculated": 180,
+        "empirical": 135,
+        "covalent": 137,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 1670,
+        "mohs": 6.5,
+        "vickers": 1760
+      },
+      "modulus": {
+        "bulk": 320,
+        "shear": 210,
+        "young": 528
+      },
+      "conductivity": {
+        "thermal": 150,
+        "electric": 21
+      },
+      "heat": {
+        "specific": 131,
+        "vaporization": 560,
+        "fusion": 26
+      },
+      "abundance": {
+        "universe": 0.0000000020,
+        "solar": 0.0000000020,
+        "meteor": 0.00000054,
+        "crust": 0.00000000040,
+        "ocean": null,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 9
+      }
+    },
+    {
+      "atomicNumber": 78,
+      "symbol": "Pt",
+      "name": "Platinum",
+      "atomicMass": 195.084,
+      "cpkHexColor": "D0D0E0",
+      "electronicConfiguration": "[Xe] 4f14 5d9 6s1",
+      "electronegativity": 2.28,
+      "ionRadius": {
+        "+2": 86
+      },
+      "ionizationEnergy": 870,
+      "electronAffinity": -205.3,
+      "oxidationStates": "2, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2041.4,
+      "boilingPoint": 4098,
+      "density": 21.09,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1735",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": 177,
+        "empirical": 135,
+        "covalent": 128,
+        "vanDerWaals": 175
+      },
+      "hardness": {
+        "brinell": 392,
+        "mohs": 3.5,
+        "vickers": 549
+      },
+      "modulus": {
+        "bulk": 230,
+        "shear": 61,
+        "young": 168
+      },
+      "conductivity": {
+        "thermal": 72,
+        "electric": 9.4
+      },
+      "heat": {
+        "specific": 133,
+        "vaporization": 490,
+        "fusion": 20
+      },
+      "abundance": {
+        "universe": 0.0000000050,
+        "solar": 0.0000000090,
+        "meteor": 0.00000098,
+        "crust": 0.000000037,
+        "ocean": null,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 10
+      }
+    },
+    {
+      "atomicNumber": 79,
+      "symbol": "Au",
+      "name": "Gold",
+      "atomicMass": 196.966569,
+      "cpkHexColor": "FFD123",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s1",
+      "electronegativity": 2.54,
+      "ionRadius": {
+        "+1": 137
+      },
+      "ionizationEnergy": 890.1,
+      "electronAffinity": -222.8,
+      "oxidationStates": "-1, 1, 2, 3, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1337.33,
+      "boilingPoint": 3129,
+      "density": 19.3,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 5,
+      "atomicRadius": {
+        "calculated": 174,
+        "empirical": 135,
+        "covalent": 144,
+        "vanDerWaals": 166
+      },
+      "hardness": {
+        "brinell": 25,
+        "mohs": 2.5,
+        "vickers": 216
+      },
+      "modulus": {
+        "bulk": 220,
+        "shear": 27,
+        "young": 78
+      },
+      "conductivity": {
+        "thermal": 320,
+        "electric": 45
+      },
+      "heat": {
+        "specific": 129.1,
+        "vaporization": 330,
+        "fusion": 12.5
+      },
+      "abundance": {
+        "universe": 0.00000000060,
+        "solar": 0.0000000010,
+        "meteor": 0.00000017,
+        "crust": 0.0000000031,
+        "ocean": 0.000000000050,
+        "human": 0.00000010
+      },
+      "location": {
+        "row": 6,
+        "column": 11
+      }
+    },
+    {
+      "atomicNumber": 80,
+      "symbol": "Hg",
+      "name": "Mercury",
+      "atomicMass": 200.59,
+      "cpkHexColor": "B8B8D0",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s2",
+      "electronegativity": 2.0,
+      "ionRadius": {
+        "+1": 119
+      },
+      "ionizationEnergy": 1007.1,
+      "electronAffinity": 0,
+      "oxidationStates": "1, 2, 4",
+      "standardState": "liquid",
+      "bondingType": "metallic",
+      "meltingPoint": 234,
+      "boilingPoint": 630,
+      "density": 13.534,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 171,
+        "empirical": 150,
+        "covalent": 149,
+        "vanDerWaals": 155
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": 25,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 8.3,
+        "electric": 1.0
+      },
+      "heat": {
+        "specific": 139.5,
+        "vaporization": 59.2,
+        "fusion": 2.29
+      },
+      "abundance": {
+        "universe": 0.00000000100,
+        "solar": 0.000000020,
+        "meteor": 0.00000025,
+        "crust": 0.000000067,
+        "ocean": 0.000000000050,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 12
+      }
+    },
+    {
+      "atomicNumber": 81,
+      "symbol": "Tl",
+      "name": "Thallium",
+      "atomicMass": 204.3833,
+      "cpkHexColor": "A6544D",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p1",
+      "electronegativity": 1.62,
+      "ionRadius": {
+        "+1": "150"
+      },
+      "ionizationEnergy": 589.4,
+      "electronAffinity": -19.2,
+      "oxidationStates": "1, 3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 577,
+      "boilingPoint": 1746,
+      "density": 11.85,
+      "groupBlock": {
+        "iupac": "boron",
+        "legacy": "metal"
+      },
+      "yearDiscovered": "1861",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": 156,
+        "empirical": 190,
+        "covalent": 148,
+        "vanDerWaals": 196
+      },
+      "hardness": {
+        "brinell": 26.4,
+        "mohs": 1.2,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": 43,
+        "shear": 2.8,
+        "young": 8
+      },
+      "conductivity": {
+        "thermal": 46,
+        "electric": 6.7
+      },
+      "heat": {
+        "specific": 129,
+        "vaporization": 165,
+        "fusion": 4.2
+      },
+      "abundance": {
+        "universe": 0.00000000050,
+        "solar": 0.0000000010,
+        "meteor": 0.000000078,
+        "crust": 0.00000053,
+        "ocean": 0.0000000000010,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 13
+      }
+    },
+    {
+      "atomicNumber": 82,
+      "symbol": "Pb",
+      "name": "Lead",
+      "atomicMass": 207.2,
+      "cpkHexColor": "575961",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p2",
+      "electronegativity": 2.33,
+      "ionRadius": {
+        "+2": 119
+      },
+      "ionizationEnergy": 716,
+      "electronAffinity": -35.1,
+      "oxidationStates": "-4, 2, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 600.61,
+      "boilingPoint": 2022,
+      "density": 11.34,
+      "groupBlock": {
+        "iupac": "carbon",
+        "legacy": "metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 154,
+        "empirical": 180,
+        "covalent": 147,
+        "vanDerWaals": 202
+      },
+      "hardness": {
+        "brinell": 38.3,
+        "mohs": 1.5,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": 46,
+        "shear": 5.6,
+        "young": 16
+      },
+      "conductivity": {
+        "thermal": 35,
+        "electric": 4.8
+      },
+      "heat": {
+        "specific": 127,
+        "vaporization": 178,
+        "fusion": 4.77
+      },
+      "abundance": {
+        "universe": 0.0000000100,
+        "solar": 0.000000010,
+        "meteor": 0.0000014,
+        "crust": 0.0000099,
+        "ocean": 0.000000000030,
+        "human": 0.0000017
+      },
+      "location": {
+        "row": 6,
+        "column": 14
+      }
+    },
+    {
+      "atomicNumber": 83,
+      "symbol": "Bi",
+      "name": "Bismuth",
+      "atomicMass": 208.98040,
+      "cpkHexColor": "9E4FB5",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p3",
+      "electronegativity": 2.02,
+      "ionRadius": {
+        "+3": 103
+      },
+      "ionizationEnergy": 703,
+      "electronAffinity": -91,
+      "oxidationStates": "-3, 3, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 544.4,
+      "boilingPoint": 1837,
+      "density": 9.78,
+      "groupBlock": {
+        "iupac": "pnictogen",
+        "legacy": "metal"
+      },
+      "yearDiscovered": "Ancient",
+      "valence": 5,
+      "atomicRadius": {
+        "calculated": 143,
+        "empirical": 160,
+        "covalent": 146,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 94.2,
+        "mohs": 2.25,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": 31,
+        "shear": 12,
+        "young": 32
+      },
+      "conductivity": {
+        "thermal": 8,
+        "electric": 0.77
+      },
+      "heat": {
+        "specific": 122,
+        "vaporization": 160,
+        "fusion": 10.9
+      },
+      "abundance": {
+        "universe": 0.00000000070,
+        "solar": 0.000000010,
+        "meteor": 0.000000069,
+        "crust": 0.000000025,
+        "ocean": 0.000000000020,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 15
+      }
+    },
+    {
+      "atomicNumber": 84,
+      "symbol": "Po",
+      "name": "Polonium",
+      "atomicMass": 209,
+      "cpkHexColor": "AB5C00",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p4",
+      "electronegativity": 2.0,
+      "ionRadius": {
+        "+4": 94
+      },
+      "ionizationEnergy": 812.1,
+      "electronAffinity": -183.3,
+      "oxidationStates": "-2, 2, 4, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 527,
+      "boilingPoint": 1235,
+      "density": 9.196,
+      "groupBlock": {
+        "iupac": "chalcogen",
+        "legacy": "metalloid"
+      },
+      "yearDiscovered": "1898",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": 135,
+        "empirical": 190,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": 2.3
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": 100,
+        "fusion": 13
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": null,
+        "meteor": null,
+        "crust": null,
+        "ocean": 0.000000000000000000020,
+        "human": 0
+      },
+      "location": {
+        "row": 6,
+        "column": 16
+      }
+    },
+    {
+      "atomicNumber": 85,
+      "symbol": "At",
+      "name": "Astatine",
+      "atomicMass": 210,
+      "cpkHexColor": "754F45",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p5",
+      "electronegativity": 2.2,
+      "ionRadius": {
+        "+7": 62
+      },
+      "ionizationEnergy": 890,
+      "electronAffinity": -270.1,
+      "oxidationStates": "-1, 1, 3, 5",
+      "standardState": "solid",
+      "bondingType": "covalent network",
+      "meltingPoint": 575,
+      "boilingPoint": "610",
+      "density": null,
+      "groupBlock": {
+        "iupac": "halogen",
+        "legacy": "halogen"
+      },
+      "yearDiscovered": "1940",
+      "valence": 7,
+      "atomicRadius": {
+        "calculated": 127,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 2,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": 40,
+        "fusion": 6
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": null,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 6,
+        "column": 17
+      }
+    },
+    {
+      "atomicNumber": 86,
+      "symbol": "Rn",
+      "name": "Radon",
+      "atomicMass": 222,
+      "cpkHexColor": "428296",
+      "electronicConfiguration": "[Xe] 4f14 5d10 6s2 6p6",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 1037,
+      "electronAffinity": 0,
+      "oxidationStates": "2",
+      "standardState": "gas",
+      "bondingType": "atomic",
+      "meltingPoint": 202,
+      "boilingPoint": 211.3,
+      "density": 0.00973,
+      "groupBlock": {
+        "iupac": "noble gas",
+        "legacy": "noble gas"
+      },
+      "yearDiscovered": "1900",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": 120,
+        "empirical": null,
+        "covalent": 145,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 0.0000361,
+        "electric": null
+      },
+      "heat": {
+        "specific": 93.65,
+        "vaporization": 17,
+        "fusion": 3
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": null,
+        "meteor": null,
+        "crust": null,
+        "ocean": 0.00000000000000000000060,
+        "human": null
+      },
+      "location": {
+        "row": 6,
+        "column": 18
+      }
+    },
+    {
+      "atomicNumber": 87,
+      "symbol": "Fr",
+      "name": "Francium",
+      "atomicMass": 223,
+      "cpkHexColor": "420066",
+      "electronicConfiguration": "[Rn] 7s1",
+      "electronegativity": 0.7,
+      "ionRadius": {
+        "+1": 180
+      },
+      "ionizationEnergy": 380,
+      "electronAffinity": "0.7",
+      "oxidationStates": "1",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": "300",
+      "boilingPoint": "950",
+      "density": null,
+      "groupBlock": {
+        "iupac": "alkali metal",
+        "legacy": "alkali metal"
+      },
+      "yearDiscovered": "1939",
+      "valence": 1,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": 65,
+        "fusion": 2
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": null,
+        "meteor": null,
+        "crust": null,
+        "ocean": null,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 1
+      }
+    },
+    {
+      "atomicNumber": 88,
+      "symbol": "Ra",
+      "name": "Radium",
+      "atomicMass": 226,
+      "cpkHexColor": "007D00",
+      "electronicConfiguration": "[Rn] 7s2",
+      "electronegativity": 0.9,
+      "ionRadius": {
+        "+2": 148
+      },
+      "ionizationEnergy": 509.3,
+      "electronAffinity": null,
+      "oxidationStates": "2",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 973,
+      "boilingPoint": 2010,
+      "density": 5,
+      "groupBlock": {
+        "iupac": "alkaline earth metal",
+        "legacy": "alkaline earth metal"
+      },
+      "yearDiscovered": "1898",
+      "valence": 2,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 215,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 19,
+        "electric": 1.0
+      },
+      "heat": {
+        "specific": 92.0,
+        "vaporization": 125,
+        "fusion": 8
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": null,
+        "meteor": null,
+        "crust": 0.000000000000099,
+        "ocean": 0.000000000000000010,
+        "human": 0.0000000000000010
+      },
+      "location": {
+        "row": 7,
+        "column": 2
+      }
+    },
+    {
+      "atomicNumber": 89,
+      "symbol": "Ac",
+      "name": "Actinium",
+      "atomicMass": 227,
+      "cpkHexColor": "70ABFA",
+      "electronicConfiguration": "[Rn] 6d1 7s2",
+      "electronegativity": 1.1,
+      "ionRadius": {
+        "+3": 112
+      },
+      "ionizationEnergy": 499,
+      "electronAffinity": null,
+      "oxidationStates": "3",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1323,
+      "boilingPoint": 3473,
+      "density": 10.07,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1899",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 195,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 12,
+        "electric": null
+      },
+      "heat": {
+        "specific": 120,
+        "vaporization": 400,
+        "fusion": 14
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": null,
+        "crust": null,
+        "ocean": null,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 90,
+      "symbol": "Th",
+      "name": "Thorium",
+      "atomicMass": 232.03806,
+      "cpkHexColor": "00BAFF",
+      "electronicConfiguration": "[Rn] 6d2 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+        "+4": 94
+      },
+      "ionizationEnergy": 587,
+      "electronAffinity": null,
+      "oxidationStates": "2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 2023,
+      "boilingPoint": 5093,
+      "density": 11.724,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1829",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 180,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": 400,
+        "mohs": 3,
+        "vickers": 350
+      },
+      "modulus": {
+        "bulk": 54,
+        "shear": 31,
+        "young": 79
+      },
+      "conductivity": {
+        "thermal": 54,
+        "electric": 6.7
+      },
+      "heat": {
+        "specific": 118,
+        "vaporization": 530,
+        "fusion": 16
+      },
+      "abundance": {
+        "universe": 0.00000000040,
+        "solar": 0.00000000030,
+        "meteor": 0.000000039,
+        "crust": 0.0000060,
+        "ocean": 0.000000000000040,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 91,
+      "symbol": "Pa",
+      "name": "Protactinium",
+      "atomicMass": 231.03588,
+      "cpkHexColor": "00A1FF",
+      "electronicConfiguration": "[Rn] 5f2 6d1 7s2",
+      "electronegativity": 1.5,
+      "ionRadius": {
+        "+3": 104
+      },
+      "ionizationEnergy": 568,
+      "electronAffinity": null,
+      "oxidationStates": "3, 4, 5",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1845,
+      "boilingPoint": 4273,
+      "density": 15.37,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1913",
+      "valence": 5,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 180,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 47,
+        "electric": 5.6
+      },
+      "heat": {
+        "specific": 99.1,
+        "vaporization": 470,
+        "fusion": 15
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": null,
+        "meteor": null,
+        "crust": 0.0000000000000099,
+        "ocean": 0.00000000000000000000000020,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 92,
+      "symbol": "U",
+      "name": "Uranium",
+      "atomicMass": 238.02891,
+      "cpkHexColor": "008FFF",
+      "electronicConfiguration": "[Rn] 5f3 6d1 7s2",
+      "electronegativity": 1.38,
+      "ionRadius": {
+        "+3": 102.5
+      },
+      "ionizationEnergy": 597.6,
+      "electronAffinity": null,
+      "oxidationStates": "3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1408,
+      "boilingPoint": 4200,
+      "density": 19.05,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1789",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": 186
+      },
+      "hardness": {
+        "brinell": 2400,
+        "mohs": 6,
+        "vickers": 1960
+      },
+      "modulus": {
+        "bulk": 100,
+        "shear": 111,
+        "young": 208
+      },
+      "conductivity": {
+        "thermal": 27,
+        "electric": 3.6
+      },
+      "heat": {
+        "specific": 116,
+        "vaporization": 420,
+        "fusion": 14
+      },
+      "abundance": {
+        "universe": 0.00000000020,
+        "solar": 0.0000000010,
+        "meteor": 0.0000000098,
+        "crust": 0.0000018,
+        "ocean": 0.0000000033,
+        "human": 0.0000000010
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 93,
+      "symbol": "Np",
+      "name": "Neptunium",
+      "atomicMass": 237,
+      "cpkHexColor": "0080FF",
+      "electronicConfiguration": "[Rn] 5f4 6d1 7s2",
+      "electronegativity": 1.36,
+      "ionRadius": {
+        "+2": 110
+      },
+      "ionizationEnergy": 604.5,
+      "electronAffinity": null,
+      "oxidationStates": "3, 4, 5, 6, 7",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 917,
+      "boilingPoint": 4273,
+      "density": 20.45,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1940",
+      "valence": 7,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 6,
+        "electric": 0.83
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": 335,
+        "fusion": 10
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 94,
+      "symbol": "Pu",
+      "name": "Plutonium",
+      "atomicMass": 244,
+      "cpkHexColor": "006BFF",
+      "electronicConfiguration": "[Rn] 5f6 7s2",
+      "electronegativity": 1.28,
+      "ionRadius": {
+        "+3": 100
+      },
+      "ionizationEnergy": 584.7,
+      "electronAffinity": null,
+      "oxidationStates": "3, 4, 5, 6, 7",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 913,
+      "boilingPoint": 3503,
+      "density": 19.816,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1940",
+      "valence": 8,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 6,
+        "electric": 0.67
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": 325,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 95,
+      "symbol": "Am",
+      "name": "Americium",
+      "atomicMass": 243,
+      "cpkHexColor": "545CF2",
+      "electronicConfiguration": "[Rn] 5f7 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+        "+2": 126
+      },
+      "ionizationEnergy": 578,
+      "electronAffinity": null,
+      "oxidationStates": "2, 3, 4, 5, 6",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1449,
+      "boilingPoint": 2284,
+      "density": null,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1944",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": 175,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 10,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 96,
+      "symbol": "Cm",
+      "name": "Curium",
+      "atomicMass": 247,
+      "cpkHexColor": "785CE3",
+      "electronicConfiguration": "[Rn] 5f7 6d1 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+        "+3": 97
+      },
+      "ionizationEnergy": 581,
+      "electronAffinity": null,
+      "oxidationStates": "3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1618,
+      "boilingPoint": 3383,
+      "density": 13.51,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1944",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 97,
+      "symbol": "Bk",
+      "name": "Berkelium",
+      "atomicMass": 247,
+      "cpkHexColor": "8A4FE3",
+      "electronicConfiguration": "[Rn] 5f9 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+        "+3": 96
+      },
+      "ionizationEnergy": 601,
+      "electronAffinity": null,
+      "oxidationStates": "3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1323,
+      "boilingPoint": null,
+      "density": 14.78,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1949",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": 10,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 98,
+      "symbol": "Cf",
+      "name": "Californium",
+      "atomicMass": 251,
+      "cpkHexColor": "A136D4",
+      "electronicConfiguration": "[Rn] 5f10 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": "95 (+3)",
+      "ionizationEnergy": 608,
+      "electronAffinity": null,
+      "oxidationStates": "2, 3, 4",
+      "standardState": "solid",
+      "bondingType": "metallic",
+      "meltingPoint": 1173,
+      "boilingPoint": null,
+      "density": 15.1,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1950",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": 0,
+        "empirical": 0,
+        "covalent": 0,
+        "vanDerWaals": 0
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 99,
+      "symbol": "Es",
+      "name": "Einsteinium",
+      "atomicMass": 252,
+      "cpkHexColor": "B31FD4",
+      "electronicConfiguration": "[Rn] 5f11 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 619,
+      "electronAffinity": null,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": 1133,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1952",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 100,
+      "symbol": "Fm",
+      "name": "Fermium",
+      "atomicMass": 257,
+      "cpkHexColor": "B31FBA",
+      "electronicConfiguration": "[Rn] 5f12 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 627,
+      "electronAffinity": null,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": 1800,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1952",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 101,
+      "symbol": "Md",
+      "name": "Mendelevium",
+      "atomicMass": 258,
+      "cpkHexColor": "B30DA6",
+      "electronicConfiguration": "[Rn] 5f13 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 635,
+      "electronAffinity": null,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": 1100,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1955",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 102,
+      "symbol": "No",
+      "name": "Nobelium",
+      "atomicMass": 259,
+      "cpkHexColor": "BD0D87",
+      "electronicConfiguration": "[Rn] 5f14 7s2",
+      "electronegativity": 1.3,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 642,
+      "electronAffinity": null,
+      "oxidationStates": "2, 3",
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": 1100,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1958",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 103,
+      "symbol": "Lr",
+      "name": "Lawrencium",
+      "atomicMass": 266,
+      "cpkHexColor": "C70066",
+      "electronicConfiguration": "[Rn] 5f14 7s2 7p1",
+      "electronegativity": 1.3,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 470,
+      "electronAffinity": null,
+      "oxidationStates": "3",
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": 1900,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "actinoid",
+        "legacy": "actinoid"
+      },
+      "yearDiscovered": "1961",
+      "valence": 3,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 3
+      }
+    },
+    {
+      "atomicNumber": 104,
+      "symbol": "Rf",
+      "name": "Rutherfordium",
+      "atomicMass": 267,
+      "cpkHexColor": "CC0059",
+      "electronicConfiguration": "[Rn] 5f14 6d2 7s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": 580,
+      "electronAffinity": null,
+      "oxidationStates": "4",
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": 1900,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1964",
+      "valence": 4,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 4
+      }
+    },
+    {
+      "atomicNumber": 105,
+      "symbol": "Db",
+      "name": "Dubnium",
+      "atomicMass": 268,
+      "cpkHexColor": "D1004F",
+      "electronicConfiguration": "[Rn] 5f14 6d3 7s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1967",
+      "valence": 5,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 5
+      }
+    },
+    {
+      "atomicNumber": 106,
+      "symbol": "Sg",
+      "name": "Seaborgium",
+      "atomicMass": 269,
+      "cpkHexColor": "D90045",
+      "electronicConfiguration": "[Rn] 5f14 6d4 7s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1974",
+      "valence": 6,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 6
+      }
+    },
+    {
+      "atomicNumber": 107,
+      "symbol": "Bh",
+      "name": "Bohrium",
+      "atomicMass": 270,
+      "cpkHexColor": "E00038",
+      "electronicConfiguration": "[Rn] 5f14 6d5 7s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1981",
+      "valence": 7,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 7
+      }
+    },
+    {
+      "atomicNumber": 108,
+      "symbol": "Hs",
+      "name": "Hassium",
+      "atomicMass": 277,
+      "cpkHexColor": "E6002E",
+      "electronicConfiguration": "[Rn] 5f14 6d6 7s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": "",
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1984",
+      "valence": 8,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 8
+      }
+    },
+    {
+      "atomicNumber": 109,
+      "symbol": "Mt",
+      "name": "Meitnerium",
+      "atomicMass": 278,
+      "cpkHexColor": "EB0026",
+      "electronicConfiguration": "[Rn] 5f14 6d7 7s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1982",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 9
+      }
+    },
+    {
+      "atomicNumber": 110,
+      "symbol": "Ds",
+      "name": "Darmstadtium",
+      "atomicMass": 281,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d9 7s1",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1994",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 10
+      }
+    },
+    {
+      "atomicNumber": 111,
+      "symbol": "Rg",
+      "name": "Roentgenium",
+      "atomicMass": 282,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s1",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1994",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 11
+      }
+    },
+    {
+      "atomicNumber": 112,
+      "symbol": "Cn",
+      "name": "Copernicium",
+      "atomicMass": 285,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "transition metal",
+        "legacy": "transition metal"
+      },
+      "yearDiscovered": "1996",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 12
+      }
+    },
+    {
+      "atomicNumber": 113,
+      "symbol": "Nh",
+      "name": "Nihonium",
+      "atomicMass": 286,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p1",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": null,
+        "legacy": "post-transition metal"
+      },
+      "yearDiscovered": "2004",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 13
+      }
+    },
+    {
+      "atomicNumber": 114,
+      "symbol": "Fl",
+      "name": "Flerovium",
+      "atomicMass": 289,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p2",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "carbon",
+        "legacy": "post-transition metal"
+      },
+      "yearDiscovered": "1998",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 14
+      }
+    },
+    {
+      "atomicNumber": 115,
+      "symbol": "Mc",
+      "name": "Moscovium",
+      "atomicMass": 289,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p3",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": null,
+        "legacy": "post-transition metal"
+      },
+      "yearDiscovered": "2010",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 15
+      }
+    },
+    {
+      "atomicNumber": 116,
+      "symbol": "Lv",
+      "name": "Livermorium",
+      "atomicMass": 293,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p4",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": null,
+        "legacy": "post-transition metal"
+      },
+      "yearDiscovered": "2000",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 16
+      }
+    },
+    {
+      "atomicNumber": 117,
+      "symbol": "Ts",
+      "name": "Tennessine",
+      "atomicMass": 294,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p5",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": null,
+        "legacy": "post-transition metal"
+      },
+      "yearDiscovered": "2010",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 17
+      }
+    },
+    {
+      "atomicNumber": 118,
+      "symbol": "Og",
+      "name": "Oganesson",
+      "atomicMass": 294,
+      "cpkHexColor": null,
+      "electronicConfiguration": "[Rn] 5f14 6d10 7s2 7p6",
+      "electronegativity": null,
+      "ionRadius": {
+      },
+      "ionizationEnergy": null,
+      "electronAffinity": null,
+      "oxidationStates": null,
+      "standardState": "solid",
+      "bondingType": null,
+      "meltingPoint": null,
+      "boilingPoint": null,
+      "density": null,
+      "groupBlock": {
+        "iupac": "noble gas",
+        "legacy": "noble gas"
+      },
+      "yearDiscovered": "2006",
+      "valence": null,
+      "atomicRadius": {
+        "calculated": null,
+        "empirical": null,
+        "covalent": null,
+        "vanDerWaals": null
+      },
+      "hardness": {
+        "brinell": null,
+        "mohs": null,
+        "vickers": null
+      },
+      "modulus": {
+        "bulk": null,
+        "shear": null,
+        "young": null
+      },
+      "conductivity": {
+        "thermal": null,
+        "electric": null
+      },
+      "heat": {
+        "specific": null,
+        "vaporization": null,
+        "fusion": null
+      },
+      "abundance": {
+        "universe": 0,
+        "solar": 0,
+        "meteor": 0,
+        "crust": 0,
+        "ocean": 0,
+        "human": 0
+      },
+      "location": {
+        "row": 7,
+        "column": 18
+      }
+    }
+  ]
+}

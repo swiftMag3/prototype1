@@ -13,8 +13,9 @@ extension String {
 //  var localized: String {
 //    return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
 //  }
-  
+
   func localize(withComment comment: String) -> String {
     return NSLocalizedString(self, comment: comment)
   }
 }
+

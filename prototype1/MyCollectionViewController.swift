@@ -27,12 +27,11 @@ class MyCollectionViewController: UICollectionViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
-    searchController.searchBar.placeholder = "Search element".localize(withComment: "search bar placeholder")
+    searchController.searchBar.placeholder = "Search element".localize(withComment: "Search bar placeholder")
     navigationItem.searchController = searchController
     definesPresentationContext = true
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
-    print(dictStringForName)
   }
   
   override func didReceiveMemoryWarning() {
