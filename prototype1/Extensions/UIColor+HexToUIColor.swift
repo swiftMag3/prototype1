@@ -45,6 +45,23 @@ extension UIColor {
       blue: CGFloat(b) / 0xff, alpha: 1
     )
   }
+  
+  
+  static func adjustColor(textColor: UIColor, withBackground color: UIColor) -> UIColor {
+    var r: CGFloat = 0
+    var g: CGFloat = 0
+    var b: CGFloat = 0
+    var a: CGFloat = 0
+    color.getRed(&r, green: &g, blue: &b, alpha: &a)
+    
+    let luminanceIndex = 1 - ( 0.299 * r + 0.587 * g + 0.114 * b)
+
+    if luminanceIndex < 0.5 {
+      return textColor
+    } else {
+      return UIColor.white
+    }
+  }
 }
 
 

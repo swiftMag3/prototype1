@@ -13,23 +13,34 @@ internal let targetData = URL(fileURLWithPath: "data",
                              relativeTo: FileManager.documentDirectoryURL)
   .appendingPathExtension("json")
 
+
+
 class MyCollectionViewController: UICollectionViewController {
   
   let searchController = UISearchController(searchResultsController: nil)
-  private var elements: [Element] = []
-  var filteredElements = [Element]()
-  
+  private var elementIcons: [ElementIcon] = [ElementIcon()]
+  private var filteredElements: [ElementIcon] = []
 
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    loadDataBaseTo(array: &elements)
+    // Setup the database
+    loadIconData(to: &elementIcons)
+    
+    
+    // Setup the cell size
+    let width = (view.frame.size.width - 60) / 5
+    let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+    layout.itemSize = CGSize(width: width, height: width)
+    
+    // Setup the Search Controller
     navigationController?.navigationBar.prefersLargeTitles = true
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.searchBar.placeholder = "Search element".localize(withComment: "Search bar placeholder")
     navigationItem.searchController = searchController
     definesPresentationContext = true
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
   }
@@ -55,28 +66,28 @@ class MyCollectionViewController: UICollectionViewController {
     // #warning Incomplete implementation, return the number of sections
     return 1
   }
-  
-  
+
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if isFiltering() {
       return filteredElements.count
     }
     
-    return elements.count
+    return elementIcons.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-    let element: Element
+    let elementIconData: ElementIcon
     if isFiltering() {
-      element = filteredElements[indexPath.row]
+      elementIconData = filteredElements[indexPath.row]
     } else {
-      element = elements[indexPath.row]
+      elementIconData = elementIcons[indexPath.row]
     }
-    let cpkColor = element.elementID.cpkHexColor
-    cell.label.text = element.elementID.symbol
+    let cpkColor = elementIconData.cpkColor
+    cell.label.text = elementIconData.elementSymbol
     cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
-
+    cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+    
     return cell
   }
   
@@ -133,7 +144,7 @@ extension MyCollectionViewController {
   }
   
   // load database to elements array
-  func loadDataBaseTo(array: inout [Element]) {
+  func loadIconData(to array: inout [ElementIcon]) {
     guard array.count != 118 else {
       print("array already exists")
       return
@@ -146,7 +157,7 @@ extension MyCollectionViewController {
     } else {
       print("data.json already exists")
     }
-    array = loadDatabaseInArray()
+    array = loadIconsData()
   }
   
   // MARK: - Search Bar Helper Methods
@@ -156,11 +167,12 @@ extension MyCollectionViewController {
   }
   
   func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-    filteredElements = elements.filter({ (element: Element) -> Bool in
-      let isName = element.elementID.name.lowercased().contains(searchText.lowercased())
-      let isSymbol = element.elementID.symbol.lowercased().contains(searchText.lowercased())
-      let isNumber = String(element.elementID.atomicNumber).contains(searchText)
-      let isGroup = element.elementID.legacyBlock.lowercased().contains(searchText.lowercased())
+    filteredElements = elementIcons.filter({ (elementIcon: ElementIcon) -> Bool in
+      let isName = elementIcon.elementName.lowercased().contains(searchText.lowercased())
+        || elementIcon.localizedName.lowercased().contains(searchText.lowercased())
+      let isSymbol = elementIcon.elementSymbol.lowercased().contains(searchText.lowercased())
+      let isNumber = String(elementIcon.atomicNumber).contains(searchText)
+      let isGroup = elementIcon.elementGroup.lowercased().contains(searchText.lowercased()) || elementIcon.localizedGroup.lowercased().contains(searchText.lowercased()) || elementIcon.elementIUPAC.lowercased().contains(searchText.lowercased()) || elementIcon.localizedIUPAC.lowercased().contains(searchText.lowercased())
       let showElement = isName || isSymbol || isNumber || isGroup
       return showElement
     })

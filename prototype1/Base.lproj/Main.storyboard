@@ -32,6 +32,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4O-jB-uME">
+                                            <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                            <color key="backgroundColor" red="0.84705882352941175" green="0.87450980392156863" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ww" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="b0C-H2-Obq">
                                             <rect key="frame" x="3" y="11" width="58.5" height="42"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
@@ -41,8 +45,12 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="H4O-jB-uME" firstAttribute="leading" secondItem="gKa-Z8-DSX" secondAttribute="leading" id="4hA-8M-ttO"/>
                                     <constraint firstItem="b0C-H2-Obq" firstAttribute="centerX" secondItem="gKa-Z8-DSX" secondAttribute="centerX" id="Qi8-q3-i48"/>
+                                    <constraint firstAttribute="trailing" secondItem="H4O-jB-uME" secondAttribute="trailing" id="RQP-ts-TTc"/>
                                     <constraint firstItem="b0C-H2-Obq" firstAttribute="centerY" secondItem="gKa-Z8-DSX" secondAttribute="centerY" id="fKK-HV-4JA"/>
+                                    <constraint firstAttribute="bottom" secondItem="H4O-jB-uME" secondAttribute="bottom" id="fxV-hh-v6J"/>
+                                    <constraint firstItem="H4O-jB-uME" firstAttribute="top" secondItem="gKa-Z8-DSX" secondAttribute="top" id="l3L-ac-hnX"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="label" destination="b0C-H2-Obq" id="0gM-ve-Xpu"/>
