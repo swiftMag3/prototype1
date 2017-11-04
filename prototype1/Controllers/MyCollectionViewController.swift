@@ -20,13 +20,24 @@ class MyCollectionViewController: UICollectionViewController {
   let searchController = UISearchController(searchResultsController: nil)
   private var elementIcons: [ElementIcon] = [ElementIcon()]
   private var filteredElements: [ElementIcon] = []
-
+  var groupDictionary = [String: [ElementIcon]]()
+  var groupTitles = ["nonmetal".localize(withComment: "Section Header"),
+                     "alkali metal".localize(withComment: "Section Header"),
+                     "alkaline earth metal".localize(withComment: "Section Header"),
+                     "metalloid".localize(withComment: "Section Header"),
+                     "metal".localize(withComment: "Section Header"),
+                     "transition metal".localize(withComment: "Section Header"),
+                     "noble gas".localize(withComment: "Section Header"),
+                     "lanthanoid".localize(withComment: "Section Header"),
+                     "actinoid".localize(withComment: "Section Header"),
+                     "post-transition metal".localize(withComment: "Section Header")
+                     ]
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Setup the database
     loadIconData(to: &elementIcons)
-    
+    createGroupDictionary() // Creating groups
     
     // Setup the cell size
     let width = (view.frame.size.width - 60) / 5
@@ -64,26 +75,35 @@ class MyCollectionViewController: UICollectionViewController {
   
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
     // #warning Incomplete implementation, return the number of sections
-    return 1
+    if isFiltering() {
+      return 1
+    } else {
+      return groupTitles.count
+    }
   }
 
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if isFiltering() {
       return filteredElements.count
     }
-    
-    return elementIcons.count
+    let groupName = groupTitles[section]
+    guard let elementsGrouped = groupDictionary[groupName] else { return 0 }
+    return elementsGrouped.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-    let elementIconData: ElementIcon
+    var elementIconData = ElementIcon()
+    let cpkColor: String?
     if isFiltering() {
       elementIconData = filteredElements[indexPath.row]
     } else {
-      elementIconData = elementIcons[indexPath.row]
+      let groupName = groupTitles[indexPath.section]
+      if let elementsGrouped = groupDictionary[groupName] {
+        elementIconData = elementsGrouped[indexPath.row]
+      }
     }
-    let cpkColor = elementIconData.cpkColor
+    cpkColor = elementIconData.cpkColor
     cell.label.text = elementIconData.elementSymbol
     cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
     cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
@@ -91,7 +111,23 @@ class MyCollectionViewController: UICollectionViewController {
     return cell
   }
   
+  override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
+    if isFiltering() {
+      sectionHeader.title = "Search Result".localize(withComment: "Search result section header")
+    } else {
+      sectionHeader.title = groupTitles[indexPath.section].capitalized
+    }
+
+    return sectionHeader
+  }
   // MARK: UICollectionViewDelegate
+  
+  //  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+  //    let item = elementIcons[indexPath.row]
+  //    let name = item.elementName
+  //    print(name)
+  //  }
   
   /*
    // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -158,6 +194,20 @@ extension MyCollectionViewController {
       print("data.json already exists")
     }
     array = loadIconsData()
+  }
+  
+  // Create dictionary for sectioning
+  func createGroupDictionary() {
+    for element in elementIcons {
+      let groupName = element.localizedGroup
+      
+      if var elementsGrouped = groupDictionary[groupName] {
+        elementsGrouped.append(element)
+        groupDictionary[groupName] = elementsGrouped
+      } else {
+        groupDictionary[groupName] = [element]
+      }
+    }
   }
   
   // MARK: - Search Bar Helper Methods
