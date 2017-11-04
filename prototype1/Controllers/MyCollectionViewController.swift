@@ -224,6 +224,7 @@ extension MyCollectionViewController {
       let isNumber = String(elementIcon.atomicNumber).contains(searchText)
       let isGroup = elementIcon.elementGroup.lowercased().contains(searchText.lowercased()) || elementIcon.localizedGroup.lowercased().contains(searchText.lowercased()) || elementIcon.elementIUPAC.lowercased().contains(searchText.lowercased()) || elementIcon.localizedIUPAC.lowercased().contains(searchText.lowercased())
       let showElement = isName || isSymbol || isNumber || isGroup
+      
       return showElement
     })
     collectionView?.reloadData()
