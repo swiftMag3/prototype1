@@ -10,18 +10,19 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 internal let targetData = URL(fileURLWithPath: "data",
-                             relativeTo: FileManager.documentDirectoryURL)
+                              relativeTo: FileManager.documentDirectoryURL)
   .appendingPathExtension("json")
 
 
 
 class MyCollectionViewController: UICollectionViewController {
+  @IBOutlet weak var noResultLabel: UILabel!
   
   let searchController = UISearchController(searchResultsController: nil)
   private var elementIcons: [ElementIcon] = [ElementIcon()]
   private var filteredElements: [ElementIcon] = []
-  var groupDictionary = [String: [ElementIcon]]()
-  var groupTitles = ["nonmetal".localize(withComment: "Section Header"),
+  private var groupDictionary = [String: [ElementIcon]]()
+  private var groupTitles = ["nonmetal".localize(withComment: "Section Header"),
                      "alkali metal".localize(withComment: "Section Header"),
                      "alkaline earth metal".localize(withComment: "Section Header"),
                      "metalloid".localize(withComment: "Section Header"),
@@ -31,10 +32,11 @@ class MyCollectionViewController: UICollectionViewController {
                      "lanthanoid".localize(withComment: "Section Header"),
                      "actinoid".localize(withComment: "Section Header"),
                      "post-transition metal".localize(withComment: "Section Header")
-                     ]
+  ]
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    noResultLabel.isHidden = true
     // Setup the database
     loadIconData(to: &elementIcons)
     createGroupDictionary() // Creating groups
@@ -43,6 +45,7 @@ class MyCollectionViewController: UICollectionViewController {
     let width = (view.frame.size.width - 60) / 5
     let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
     layout.itemSize = CGSize(width: width, height: width)
+    layout.sectionHeadersPinToVisibleBounds = true
     
     // Setup the Search Controller
     navigationController?.navigationBar.prefersLargeTitles = true
@@ -52,8 +55,28 @@ class MyCollectionViewController: UICollectionViewController {
     navigationItem.searchController = searchController
     definesPresentationContext = true
     
+    
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowDetail" {
+      if let detailVC = segue.destination as? DetailViewController, let index = sender as? IndexPath {
+        var elementIconData = ElementIcon()
+        
+        if isFiltering() {
+          elementIconData = filteredElements[index.row]
+        } else {
+          let groupName = groupTitles[index.section]
+          if let elementsGrouped = groupDictionary[groupName] {
+            elementIconData = elementsGrouped[index.row]
+          }
+        }
+        detailVC.atomicNumber = elementIconData.atomicNumber
+      }
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -81,7 +104,7 @@ class MyCollectionViewController: UICollectionViewController {
       return groupTitles.count
     }
   }
-
+  
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if isFiltering() {
       return filteredElements.count
@@ -102,11 +125,16 @@ class MyCollectionViewController: UICollectionViewController {
       if let elementsGrouped = groupDictionary[groupName] {
         elementIconData = elementsGrouped[indexPath.row]
       }
+      noResultLabel.isHidden = true
     }
     cpkColor = elementIconData.cpkColor
     cell.label.text = elementIconData.elementSymbol
     cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
     cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+    // corner radius
+    let width = (view.frame.size.width - 60) / 5
+    cell.layer.cornerRadius = CGFloat(Int(width / 4))
+    cell.layer.masksToBounds = true
     
     return cell
   }
@@ -118,16 +146,15 @@ class MyCollectionViewController: UICollectionViewController {
     } else {
       sectionHeader.title = groupTitles[indexPath.section].capitalized
     }
-
+    
+    
     return sectionHeader
   }
   // MARK: UICollectionViewDelegate
   
-  //  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-  //    let item = elementIcons[indexPath.row]
-  //    let name = item.elementName
-  //    print(name)
-  //  }
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+  }
   
   /*
    // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -227,6 +254,13 @@ extension MyCollectionViewController {
       
       return showElement
     })
+    // No Result Label
+    if isFiltering() && filteredElements.count == 0 {
+      noResultLabel.text = "No result found for \"\(searchText)\"\n\n Please try another keyword, using the atomic number, name, group or symbol of the elements".localize(withComment: "No Result Text")
+      noResultLabel.isHidden = false
+    } else {
+      noResultLabel.isHidden = true
+    }
     collectionView?.reloadData()
   }
   

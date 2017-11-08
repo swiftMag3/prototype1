@@ -1,0 +1,9 @@
+{
+  "commitish" : "58a8d292c91e88b39ec661ba347580be145f18be",
+  "iOS" : [
+    {
+      "hash" : "6892118e158194c9e9fadedc7be3f89c65e368553229bd78dba140a6c9195812",
+      "name" : "HandyUIKit"
+    }
+  ]
+}
