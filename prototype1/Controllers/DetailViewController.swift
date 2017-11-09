@@ -11,7 +11,7 @@ import SwiftyJSON
 
 
 
-enum CellType: String {
+private enum CellType: String {
   case Cell = "Cell"
   case MoreCell = "MoreCell"
   case CollectionCell = "CollectionCell"
@@ -19,31 +19,29 @@ enum CellType: String {
 
 class DetailViewController: UITableViewController {
   
-  var atomicNumber: Int!
-  private var element: Element!
   private let unitDictionary: [String: String?] = [Properties.symbol: nil,
-                                       Properties.atomicNumber: nil,
-                                       Properties.groupPeriod: nil,
-                                       Properties.atomicMass: nil,
-                                       Properties.standarState: nil,
-                                       Properties.elementCategory: nil,
-                                       Properties.yearDiscovered: nil,
-                                       Properties.density: "kg/m{3}",
-                                       Properties.electronConfiguration: nil,
-                                       Properties.valence: nil,
-                                       Properties.electronegativity: nil,
-                                       Properties.electronAffinity: "kJ/mol",
-                                       Properties.ionizationEnergy: "kJ/mol",
-                                       Properties.oxidationState: nil,
-                                       Properties.bondingType: nil,
-                                       Properties.meltingPoint: "K",
-                                       Properties.boilingPoint: "K",
-                                       Properties.atomicRadius: nil,
-                                       Properties.hardness: nil,
-                                       Properties.modulus: nil,
-                                       Properties.conductivity: nil,
-                                       Properties.heat: nil,
-                                       Properties.abundance: nil
+                                                   Properties.atomicNumber: nil,
+                                                   Properties.groupPeriod: nil,
+                                                   Properties.atomicMass: nil,
+                                                   Properties.standarState: nil,
+                                                   Properties.elementCategory: nil,
+                                                   Properties.yearDiscovered: nil,
+                                                   Properties.density: "kg/m{3}",
+                                                   Properties.electronConfiguration: nil,
+                                                   Properties.valence: nil,
+                                                   Properties.electronegativity: nil,
+                                                   Properties.electronAffinity: "kJ/mol",
+                                                   Properties.ionizationEnergy: "kJ/mol",
+                                                   Properties.oxidationState: nil,
+                                                   Properties.bondingType: nil,
+                                                   Properties.meltingPoint: "K",
+                                                   Properties.boilingPoint: "K",
+                                                   Properties.atomicRadius: nil,
+                                                   Properties.hardness: nil,
+                                                   Properties.modulus: nil,
+                                                   Properties.conductivity: nil,
+                                                   Properties.heat: nil,
+                                                   Properties.abundance: nil
   ]
   private let propertiesName: [String] = [Properties.symbol,
                                           Properties.atomicNumber,
@@ -70,99 +68,128 @@ class DetailViewController: UITableViewController {
                                           Properties.abundance
   ]
   
-  private var propertiesDictionary: [String: Any?] = [:]
   
+  private var element: Element!
+  private var propertiesValueDictionary: [String: Any?] = [:]
   private var filteredProperty: [String] = []
+  var atomicNumber: Int!
+  // For Collection Views
+  private var elements = [ElementIcon]()
+  private var elementsFilteredByGroup = [ElementIcon]()
+  private var elementsFilteredByPeriod = [ElementIcon]()
+  private var collectionViewIsLoaded = false
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     element = loadElement(number: atomicNumber).first
     title = element?.elementID.localizedName
-    propertiesDictionary = createPropertiesDictionary()
+    propertiesValueDictionary = createPropertiesValueDictionary()
+    collectionViewIsLoaded = false
     
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    guard let tableViewCell = cell as? SameGroupElementCell else { return }
+    if !collectionViewIsLoaded {
+      elements = loadIconData()
+      elementsFilteredByGroup = elements.filter({ (theElement) -> Bool in
+        theElement.elementLocation.column == element.elementID.elementPosition.column && theElement.elementSymbol != element.elementID.symbol
+      })
+      elementsFilteredByPeriod = elements.filter({ (theElement) -> Bool in
+        theElement.elementLocation.row == element.elementID.elementPosition.row && theElement.elementSymbol != element.elementID.symbol
+      })
+      collectionViewIsLoaded = true
+    }
+    
+    if indexPath.row >= propertiesName.count {
+      tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+    }
   }
   
-  // MARK: - Table view data source
-  /*
-   override func numberOfSections(in tableView: UITableView) -> Int {
-   // #warning Incomplete implementation, return the number of sections
-   return 0
-   }
-   */
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return propertiesName.count
+    return propertiesName.count + 2
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch indexPath.row {
+    case propertiesName.count... :
+      return 83
+    default:
+      return tableView.rowHeight
+    }
+    
   }
   
   // TODO: - Make the properties Searchable
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let property = propertiesName[indexPath.row]
-    let value = propertiesDictionary[property]!
-    let unit = unitDictionary[property]!
-    
-    switch property {
-    case Properties.atomicRadius, Properties.hardness, Properties.modulus, Properties.conductivity, Properties.heat, Properties.abundance:
-      return makeAPropertyCell(indexPath: indexPath, identifier: CellType.MoreCell.rawValue, for: property, with: value, unit: unit)
-    default:
-      return makeAPropertyCell(indexPath: indexPath, identifier: CellType.Cell.rawValue, for: property, with: value, unit: unit)
+    if indexPath.row < propertiesName.count {
+      let property = propertiesName[indexPath.row]
+      let value = propertiesValueDictionary[property]!
+      let unit = unitDictionary[property]!
+      
+      switch property {
+      case Properties.atomicRadius, Properties.hardness, Properties.modulus, Properties.conductivity, Properties.heat, Properties.abundance:
+        return makeAPropertyCell(indexPath: indexPath, identifier: CellType.MoreCell.rawValue, for: property, with: value, unit: unit)
+      default:
+        return makeAPropertyCell(indexPath: indexPath, identifier: CellType.Cell.rawValue, for: property, with: value, unit: unit)
+      }
+    } else {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath) as! SameGroupElementCell
+      return cell
     }
   }
   
-  /*
-   // Override to support conditional editing of the table view.
-   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the specified item to be editable.
-   return true
-   }
-   */
   
-  /*
-   // Override to support editing the table view.
-   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-   if editingStyle == .delete {
-   // Delete the row from the data source
-   tableView.deleteRows(at: [indexPath], with: .fade)
-   } else if editingStyle == .insert {
-   // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-   }
-   }
-   */
+  // MARK: - Navigation
   
-  /*
-   // Override to support rearranging the table view.
-   override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-   
-   }
-   */
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "MoreDetail" {
+      if let moreDetailVC = segue.destination as? MoreDetailViewController {
+        let indexPath = tableView.indexPathsForSelectedRows!.first!
+        let cell = tableView.cellForRow(at: indexPath)!
+        let label = cell.textLabel!.text!
+        moreDetailVC.propertyName = label
+        moreDetailVC.element = element
+      }
+    }
+  }
   
-  /*
-   // Override to support conditional rearranging of the table view.
-   override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-   // Return false if you do not want the item to be re-orderable.
-   return true
-   }
-   */
+}
+
+// MARK: - Collection View Data Source & Delegate
+// MARK: - DataSource and Delegate Methods
+extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    switch collectionView.tag {
+    case propertiesName.count:
+      return elementsFilteredByGroup.count
+    default:
+      return elementsFilteredByPeriod.count
+    }
+  }
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//    let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//    let width = tableView.rowHeight - 40
+//    layout.itemSize = CGSize(width: width, height: width)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ElementCell", for: indexPath) as! GroupedCollectionViewCell
+    let width = (view.frame.size.width - 60) / 5
+    cell.layer.cornerRadius = CGFloat(Int(width / 4))
+    cell.layer.masksToBounds = true
+    
+    
+    switch collectionView.tag {
+    case propertiesName.count:
+      cell.elementLabel.text = elementsFilteredByGroup[indexPath.row].elementSymbol
+      cell.backgroundColor = UIColor(hex:  elementsFilteredByGroup[indexPath.row].cpkColor ?? "ffffff")
+      return cell
+    default:
+      cell.elementLabel.text = elementsFilteredByPeriod[indexPath.row].elementSymbol
+      cell.backgroundColor = UIColor(hex:  elementsFilteredByPeriod[indexPath.row].cpkColor ?? "ffffff")
+      return cell
+    }
+  }
   
 }
 
@@ -178,7 +205,7 @@ extension DetailViewController {
     cell.textLabel?.text = property
     cell.textLabel?.textColor = UIColor.gray
     cell.detailTextLabel?.numberOfLines = 0
-
+    
     switch property {
     case Properties.electronConfiguration:
       if let value = value {
@@ -206,7 +233,7 @@ extension DetailViewController {
     }
   }
   
-  private func createPropertiesDictionary() -> [String: Any?] {
+  private func createPropertiesValueDictionary() -> [String: Any?] {
     let dictionary: [String: Any?] = [ Properties.symbol: element.elementID.symbol,
                                        Properties.atomicNumber: element.elementID.atomicNumber,
                                        Properties.groupPeriod: element.elementID.elementPosition,
@@ -233,7 +260,7 @@ extension DetailViewController {
     ]
     return dictionary
   }
-
+  
 }
 
 // Load the element data
@@ -364,6 +391,37 @@ extension DetailViewController {
     elements.append(newElement)
     return elements
   }
+  
+  
+  func loadIconData() -> [ElementIcon] {
+    guard let data = try? Data(contentsOf: targetData) else {
+      print("Error: Could not load the data.json in document directory".localize(withComment: "Error message"))
+      return []
+    }
+    
+    var iconsData: [ElementIcon] = []
+    
+    let json = JSON(data)
+    let totalElements = json["result"].arrayValue.count
+    
+    for index in 0..<totalElements {
+      let result = json["result"][index]
+      let atomicNumber = result["atomicNumber"].intValue
+      let elementSymbol = result["symbol"].stringValue
+      let elementName = result["name"].stringValue
+      let elementGroup = result["groupBlock", "legacy"].stringValue
+      let elementIUPAC = result["groupBlock", "iupac"].string ?? "Unknown"
+      let tableRow = result["location", "row"].intValue
+      let tableColumn = result["location", "column"].intValue
+      let elementLocation = TableLocation(row: tableRow, column: tableColumn)
+      let cpkColor = result["cpkHexColor"].string
+      
+      let iconData = ElementIcon(atomicNumber: atomicNumber, elementSymbol: elementSymbol, elementName: elementName, elementGroup: elementGroup, elementIUPAC: elementIUPAC, elementLocation: elementLocation, cpkColor: cpkColor)
+      iconsData.append(iconData)
+    }
+    return iconsData
+  }
+  
 }
 
 

@@ -9,5 +9,9 @@
 import UIKit
 
 class MyCollectionViewCell: UICollectionViewCell {
-  @IBOutlet weak var label: UILabel!    
+  @IBOutlet weak var label: UILabel!
+  
+  override func prepareForReuse() {
+    label.text = ""
+  }
 }

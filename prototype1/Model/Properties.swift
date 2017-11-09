@@ -86,7 +86,7 @@ struct Properties {
   }
   
   static var density: String {
-    return "Density".localize(withComment: "detailView properties")
+    return "Density (STP)".localize(withComment: "detailView properties")
   }
   
   static var conductivity: String {
@@ -98,6 +98,6 @@ struct Properties {
   }
   
   static var abundance: String {
-    return "Abundance".localize(withComment: "detailView properties")
+    return "Abundance (by mass)".localize(withComment: "detailView properties")
   }
 }
