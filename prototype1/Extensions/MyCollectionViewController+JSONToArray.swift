@@ -13,7 +13,7 @@ extension MyCollectionViewController {
   
   func loadIconsData() -> [ElementIcon] {
     guard let data = try? Data(contentsOf: targetData) else {
-      print("Error: Could not load the data.json in document directory".localize(withComment: "Error message"))
+      debugPrint("Error: Could not load the data.json in document directory".localize(withComment: "Error message"))
       return []
     }
     
@@ -33,8 +33,9 @@ extension MyCollectionViewController {
       let tableColumn = result["location", "column"].intValue
       let elementLocation = TableLocation(row: tableRow, column: tableColumn)
       let cpkColor = result["cpkHexColor"].string
+      let atomicMass = result["atomicMass"].doubleValue
       
-      let iconData = ElementIcon(atomicNumber: atomicNumber, elementSymbol: elementSymbol, elementName: elementName, elementGroup: elementGroup, elementIUPAC: elementIUPAC, elementLocation: elementLocation, cpkColor: cpkColor)
+      let iconData = ElementIcon(atomicNumber: atomicNumber, elementSymbol: elementSymbol, elementName: elementName, elementGroup: elementGroup, elementIUPAC: elementIUPAC, elementLocation: elementLocation, cpkColor: cpkColor, atomicMass: atomicMass)
       iconsData.append(iconData)
     }
     

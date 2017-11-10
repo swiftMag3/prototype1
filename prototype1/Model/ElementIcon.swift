@@ -16,6 +16,7 @@ class ElementIcon {
   let elementIUPAC: String
   let elementLocation: TableLocation
   let cpkColor: String?
+  let atomicMass: Double
   
   /// Localized version of name properties
   var localizedName: String {
@@ -38,7 +39,7 @@ class ElementIcon {
   
   
   
-  init(atomicNumber: Int, elementSymbol: String, elementName: String, elementGroup: String, elementIUPAC: String, elementLocation: TableLocation, cpkColor: String?) {
+  init(atomicNumber: Int, elementSymbol: String, elementName: String, elementGroup: String, elementIUPAC: String, elementLocation: TableLocation, cpkColor: String?, atomicMass: Double) {
     self.atomicNumber = atomicNumber
     self.elementSymbol = elementSymbol
     self.elementName = elementName
@@ -46,9 +47,10 @@ class ElementIcon {
     self.elementIUPAC = elementIUPAC
     self.elementLocation = elementLocation
     self.cpkColor = cpkColor
+    self.atomicMass = atomicMass
   }
   
   convenience init() {
-    self.init(atomicNumber: 0, elementSymbol: "", elementName: "", elementGroup: "", elementIUPAC: "", elementLocation: TableLocation(row: 0, column: 0), cpkColor: nil)
+    self.init(atomicNumber: 0, elementSymbol: "", elementName: "", elementGroup: "", elementIUPAC: "", elementLocation: TableLocation(row: 0, column: 0), cpkColor: nil, atomicMass: 0)
   }
 }

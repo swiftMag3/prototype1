@@ -38,6 +38,7 @@ class MyCollectionViewController: UICollectionViewController {
     super.viewDidLoad()
     noResultLabel.isHidden = true
     // Setup the database
+
     loadIconData(to: &elementIcons)
     createGroupDictionary() // Creating groups
     
@@ -46,6 +47,7 @@ class MyCollectionViewController: UICollectionViewController {
     let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
     layout.itemSize = CGSize(width: width, height: width)
     layout.sectionHeadersPinToVisibleBounds = true
+    collectionView?.showsVerticalScrollIndicator = false
     
     // Setup the Search Controller
     navigationController?.navigationBar.prefersLargeTitles = true
@@ -106,7 +108,7 @@ class MyCollectionViewController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-    var elementIconData = ElementIcon()
+    var elementIconData: ElementIcon?
     let cpkColor: String?
     if isFiltering() {
       elementIconData = filteredElements[indexPath.row]
@@ -117,14 +119,21 @@ class MyCollectionViewController: UICollectionViewController {
       }
       noResultLabel.isHidden = true
     }
-    cpkColor = elementIconData.cpkColor
-    cell.label.text = elementIconData.elementSymbol
-    cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
-    cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-    // corner radius
-    let width = (view.frame.size.width - 60) / 5
-    cell.layer.cornerRadius = CGFloat(Int(width / 4))
-    cell.layer.masksToBounds = true
+    if let elementIconData = elementIconData {
+      cell.loadingIndicator.alpha = 0
+      cpkColor = elementIconData.cpkColor
+      cell.label.text = elementIconData.elementSymbol
+      cell.atomicMassLabel.text = String(format: "%.0f", elementIconData.atomicMass)
+      cell.atomicNumberLabel.text =  "\(elementIconData.atomicNumber)"
+      cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
+      cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      // corner radius
+      let width = (view.frame.size.width - 60) / 5
+      cell.layer.cornerRadius = CGFloat(Int(width / 4))
+      cell.layer.masksToBounds = true
+    }
     
     return cell
   }
@@ -184,13 +193,13 @@ extension MyCollectionViewController {
     guard let bundledJSON = Bundle.main.url(forResource: "data",
                                             withExtension: "json"),
       let jsonData = try? Data(contentsOf: bundledJSON) else {
-        print("data.json is not in the bundle")
+        debugPrint("data.json is not in the bundle")
         return
     }
     
     do {
       try jsonData.write(to: targetData, options: .atomic)
-      print("file copied successfully")
+      debugPrint("file copied successfully")
     } catch let error as NSError{
       print(error)
     }
@@ -199,7 +208,7 @@ extension MyCollectionViewController {
   // load database to elements array
   func loadIconData(to array: inout [ElementIcon]) {
     guard array.count != 118 else {
-      print("array already exists")
+      debugPrint("array already exists")
       return
     }
     
@@ -208,7 +217,7 @@ extension MyCollectionViewController {
     if !FileManager.default.fileExists(atPath: targetData.path) {
       copyLocalJSONtoDocumentDirectory()
     } else {
-      print("data.json already exists")
+      debugPrint("data.json already exists")
     }
     array = loadIconsData()
   }

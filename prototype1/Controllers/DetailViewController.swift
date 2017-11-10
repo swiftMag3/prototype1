@@ -78,14 +78,43 @@ class DetailViewController: UITableViewController {
   private var elementsFilteredByGroup = [ElementIcon]()
   private var elementsFilteredByPeriod = [ElementIcon]()
   private var collectionViewIsLoaded = false
+ 
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
+  override func viewDidLoad() {
+    super.viewDidLoad()
     element = loadElement(number: atomicNumber).first
     title = element?.elementID.localizedName
     propertiesValueDictionary = createPropertiesValueDictionary()
     collectionViewIsLoaded = false
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(popControllers))
     
+//    DispatchQueue.global(qos: .userInteractive).async {
+//      if !self.collectionViewIsLoaded {
+//        self.elements = self.loadIconData()
+//        self.elementsFilteredByGroup = self.elements.filter({ (theElement) -> Bool in
+//          theElement.elementLocation.column == self.element.elementID.elementPosition.column && theElement.elementSymbol != self.element.elementID.symbol
+//        })
+//        self.elementsFilteredByPeriod = self.elements.filter({ (theElement) -> Bool in
+//          theElement.elementLocation.row == self.element.elementID.elementPosition.row && theElement.elementSymbol != self.element.elementID.symbol
+//        })
+//        self.collectionViewIsLoaded = true
+//        DispatchQueue.main.async {
+//          let indexPath1 = IndexPath(row: self.propertiesName.count, section: 1)
+//          let indexPath2 = IndexPath(row: self.propertiesName.count + 1, section: 1)
+//          self.tableView.reloadRows(at: [indexPath1, indexPath2], with: .automatic)
+//
+//        }
+//      }
+//    }
+  }
+  
+  // remove all the controller and go to root controllers
+  @objc func popControllers() {
+    navigationController?.popToRootViewController(animated: true)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
   }
   
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -136,6 +165,7 @@ class DetailViewController: UITableViewController {
       }
     } else {
       let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath) as! SameGroupElementCell
+      cell.stickySectionHeader()
       return cell
     }
   }
@@ -152,13 +182,12 @@ class DetailViewController: UITableViewController {
         moreDetailVC.propertyName = label
         moreDetailVC.element = element
       }
-    }
+    } 
   }
   
 }
 
 // MARK: - Collection View Data Source & Delegate
-// MARK: - DataSource and Delegate Methods
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch collectionView.tag {
@@ -170,27 +199,64 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//    let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//    let width = tableView.rowHeight - 40
-//    layout.itemSize = CGSize(width: width, height: width)
+
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ElementCell", for: indexPath) as! GroupedCollectionViewCell
     let width = (view.frame.size.width - 60) / 5
     cell.layer.cornerRadius = CGFloat(Int(width / 4))
     cell.layer.masksToBounds = true
+    collectionView.showsHorizontalScrollIndicator = false
     
     
     switch collectionView.tag {
     case propertiesName.count:
       cell.elementLabel.text = elementsFilteredByGroup[indexPath.row].elementSymbol
+      cell.atomicNumberLabel.text = "\(elementsFilteredByGroup[indexPath.row].atomicNumber)"
+      cell.atomicMassLabel.text = String(format: "%.0f", elementsFilteredByGroup[indexPath.row].atomicMass)
       cell.backgroundColor = UIColor(hex:  elementsFilteredByGroup[indexPath.row].cpkColor ?? "ffffff")
+      cell.elementLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
       return cell
     default:
       cell.elementLabel.text = elementsFilteredByPeriod[indexPath.row].elementSymbol
+      cell.atomicNumberLabel.text = "\(elementsFilteredByPeriod[indexPath.row].atomicNumber)"
+      cell.atomicMassLabel.text = String(format: "%.0f", elementsFilteredByPeriod[indexPath.row].atomicMass)
       cell.backgroundColor = UIColor(hex:  elementsFilteredByPeriod[indexPath.row].cpkColor ?? "ffffff")
+      cell.elementLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
       return cell
     }
   }
   
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! SectionHeaderForDetailView
+    sectionHeader.rotateLabel()
+    switch collectionView.tag {
+    case propertiesName.count:
+      sectionHeader.title = "Group \(element.elementID.elementPosition.column)".localize(withComment: "Section Header")
+    default:
+      sectionHeader.title = "Period \(element.elementID.elementPosition.row)".localize(withComment: "Section Header")
+    }
+  
+    return sectionHeader
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    var elementIconData: ElementIcon
+    
+    switch collectionView.tag {
+    case propertiesName.count:
+      elementIconData = elementsFilteredByGroup[indexPath.row]
+    default:
+      elementIconData = elementsFilteredByPeriod[indexPath.row]
+    }
+    
+    let vc = storyboard.instantiateViewController(withIdentifier: "ElementDetail") as! DetailViewController
+    vc.atomicNumber = elementIconData.atomicNumber
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
 }
 
 // MARK: Extension Helper methods
@@ -415,8 +481,9 @@ extension DetailViewController {
       let tableColumn = result["location", "column"].intValue
       let elementLocation = TableLocation(row: tableRow, column: tableColumn)
       let cpkColor = result["cpkHexColor"].string
+      let atomicMass = result["atomicMass"].doubleValue
       
-      let iconData = ElementIcon(atomicNumber: atomicNumber, elementSymbol: elementSymbol, elementName: elementName, elementGroup: elementGroup, elementIUPAC: elementIUPAC, elementLocation: elementLocation, cpkColor: cpkColor)
+      let iconData = ElementIcon(atomicNumber: atomicNumber, elementSymbol: elementSymbol, elementName: elementName, elementGroup: elementGroup, elementIUPAC: elementIUPAC, elementLocation: elementLocation, cpkColor: cpkColor, atomicMass: atomicMass)
       iconsData.append(iconData)
     }
     return iconsData

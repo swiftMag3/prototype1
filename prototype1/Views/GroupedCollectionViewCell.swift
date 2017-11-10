@@ -10,6 +10,8 @@ import UIKit
 
 class GroupedCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var elementLabel: UILabel!
+  @IBOutlet weak var atomicNumberLabel: UILabel!
+  @IBOutlet weak var atomicMassLabel: UILabel!
   
   override func prepareForReuse() {
     elementLabel.text = ""
