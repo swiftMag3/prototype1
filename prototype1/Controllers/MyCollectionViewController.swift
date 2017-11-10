@@ -40,6 +40,7 @@ class MyCollectionViewController: UICollectionViewController {
     // Setup the database
 
     loadIconData(to: &elementIcons)
+
     createGroupDictionary() // Creating groups
     
     // Setup the cell size
@@ -110,6 +111,7 @@ class MyCollectionViewController: UICollectionViewController {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
     var elementIconData: ElementIcon?
     let cpkColor: String?
+    
     if isFiltering() {
       elementIconData = filteredElements[indexPath.row]
     } else {
@@ -129,12 +131,12 @@ class MyCollectionViewController: UICollectionViewController {
       cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
       cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
       cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+
       // corner radius
       let width = (view.frame.size.width - 60) / 5
       cell.layer.cornerRadius = CGFloat(Int(width / 4))
       cell.layer.masksToBounds = true
     }
-    
     return cell
   }
   
