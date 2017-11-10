@@ -38,7 +38,8 @@ class MyCollectionViewController: UICollectionViewController {
     super.viewDidLoad()
     noResultLabel.isHidden = true
     // Setup the database
-    loadIconData(to: &elementIcons)
+    loadIconData(to: &self.elementIcons)
+    
     createGroupDictionary() // Creating groups
     
     // Setup the cell size
@@ -106,8 +107,9 @@ class MyCollectionViewController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-    var elementIconData = ElementIcon()
+    var elementIconData: ElementIcon?
     let cpkColor: String?
+    
     if isFiltering() {
       elementIconData = filteredElements[indexPath.row]
     } else {
@@ -117,14 +119,18 @@ class MyCollectionViewController: UICollectionViewController {
       }
       noResultLabel.isHidden = true
     }
-    cpkColor = elementIconData.cpkColor
-    cell.label.text = elementIconData.elementSymbol
-    cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
-    cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-    // corner radius
-    let width = (view.frame.size.width - 60) / 5
-    cell.layer.cornerRadius = CGFloat(Int(width / 4))
-    cell.layer.masksToBounds = true
+    if let elementIconData = elementIconData {
+      cpkColor = elementIconData.cpkColor
+      cell.label.text = elementIconData.elementSymbol
+      cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
+      cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      // corner radius
+      let width = (view.frame.size.width - 60) / 5
+      cell.layer.cornerRadius = CGFloat(Int(width / 4))
+      cell.layer.masksToBounds = true
+    } else {
+      
+    }
     
     return cell
   }
