@@ -23,6 +23,8 @@
 		6FA489801FA946D300C2E067 /* MyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA4897F1FA946D300C2E067 /* MyCollectionViewController.swift */; };
 		6FA489821FA94B9700C2E067 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA489811FA94B9700C2E067 /* MyCollectionViewCell.swift */; };
 		6FA489841FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA489831FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift */; };
+		6FAA79E61FB67B34004C9CDE /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA79E51FB67B34004C9CDE /* MyCollectionView.swift */; };
+		6FAA79E81FB6820F004C9CDE /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA79E71FB6820F004C9CDE /* MyView.swift */; };
 		6FD137971FAD5B280034246A /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD137961FAD5B280034246A /* SectionHeader.swift */; };
 		6FDAA07F1FB4914A0099D90E /* SectionHeaderForDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDAA07E1FB4914A0099D90E /* SectionHeaderForDetailView.swift */; };
 		6FDC8F291FA125BE0020A7D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDC8F281FA125BE0020A7D7 /* AppDelegate.swift */; };
@@ -70,6 +72,8 @@
 		6FA4897F1FA946D300C2E067 /* MyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewController.swift; sourceTree = "<group>"; };
 		6FA489811FA94B9700C2E067 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FA489831FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexToUIColor.swift"; sourceTree = "<group>"; };
+		6FAA79E51FB67B34004C9CDE /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
+		6FAA79E71FB6820F004C9CDE /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		6FD137961FAD5B280034246A /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		6FDAA07E1FB4914A0099D90E /* SectionHeaderForDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderForDetailView.swift; sourceTree = "<group>"; };
 		6FDC8F251FA125BE0020A7D7 /* prototype1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototype1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,8 @@
 				6FDC8F2C1FA125BE0020A7D7 /* Main.storyboard */,
 				6FDC8F311FA125BE0020A7D7 /* LaunchScreen.storyboard */,
 				6FA489811FA94B9700C2E067 /* MyCollectionViewCell.swift */,
+				6FAA79E51FB67B34004C9CDE /* MyCollectionView.swift */,
+				6FAA79E71FB6820F004C9CDE /* MyView.swift */,
 				6FD137961FAD5B280034246A /* SectionHeader.swift */,
 				6FDAA07E1FB4914A0099D90E /* SectionHeaderForDetailView.swift */,
 				6F86CDF41FB38BFF00B92581 /* GroupedCollectionViewCell.swift */,
@@ -280,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FAA79E81FB6820F004C9CDE /* MyView.swift in Sources */,
 				6FA489841FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift in Sources */,
 				6FDC8F431FA1384A0020A7D7 /* FileManager+DocumentDirectory.swift in Sources */,
 				6FA489821FA94B9700C2E067 /* MyCollectionViewCell.swift in Sources */,
@@ -292,6 +299,7 @@
 				6F4C0F161FB29FB7004CFD83 /* Properties.swift in Sources */,
 				6F549CA81FA226AE00E9823A /* ElementProperties.swift in Sources */,
 				6FDC8F481FA162520020A7D7 /* Element.swift in Sources */,
+				6FAA79E61FB67B34004C9CDE /* MyCollectionView.swift in Sources */,
 				6FDAA07F1FB4914A0099D90E /* SectionHeaderForDetailView.swift in Sources */,
 				6FD137971FAD5B280034246A /* SectionHeader.swift in Sources */,
 				6FDC8F291FA125BE0020A7D7 /* AppDelegate.swift in Sources */,

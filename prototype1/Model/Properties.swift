@@ -18,7 +18,7 @@ struct Properties {
   }
   
   static var groupPeriod: String {
-    return "Group, Period".localize(withComment: "detailView properties")
+    return "Period, Group".localize(withComment: "detailView properties")
   }
   
   static var atomicMass: String {

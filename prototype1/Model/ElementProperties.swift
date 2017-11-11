@@ -62,7 +62,7 @@ struct TableLocation: CustomStringConvertible {
   let column: Int
   
   var description: String {
-    return "\(row), \(column)"
+    return "(\(row), \(column))"
   }
 
   

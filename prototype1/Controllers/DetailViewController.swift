@@ -74,7 +74,7 @@ class DetailViewController: UITableViewController {
   private var filteredProperty: [String] = []
   var atomicNumber: Int!
   // For Collection Views
-  private var elements = [ElementIcon]()
+  private var elements: [ElementIcon] = []
   private var elementsFilteredByGroup = [ElementIcon]()
   private var elementsFilteredByPeriod = [ElementIcon]()
   private var collectionViewIsLoaded = false
@@ -119,19 +119,30 @@ class DetailViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     guard let tableViewCell = cell as? SameGroupElementCell else { return }
-    if !collectionViewIsLoaded {
-      elements = loadIconData()
-      elementsFilteredByGroup = elements.filter({ (theElement) -> Bool in
-        theElement.elementLocation.column == element.elementID.elementPosition.column && theElement.elementSymbol != element.elementID.symbol
-      })
-      elementsFilteredByPeriod = elements.filter({ (theElement) -> Bool in
-        theElement.elementLocation.row == element.elementID.elementPosition.row && theElement.elementSymbol != element.elementID.symbol
-      })
-      collectionViewIsLoaded = true
-    }
+
     
     if indexPath.row >= propertiesName.count {
       tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+      
+      
+//      if !collectionViewIsLoaded {
+//        loadIconsData(handler: { [unowned self] (results) in
+//          DispatchQueue.main.async {
+//            self.elements = results
+//            self.elementsFilteredByGroup = self.elements.filter({ (theElement) -> Bool in
+//              theElement.elementLocation.column == self.element.elementID.elementPosition.column && theElement.elementSymbol != self.element.elementID.symbol
+//            })
+//            self.elementsFilteredByPeriod = self.elements.filter({ (theElement) -> Bool in
+//              theElement.elementLocation.row == self.element.elementID.elementPosition.row && theElement.elementSymbol != self.element.elementID.symbol
+//            })
+//            self.collectionViewIsLoaded = true
+//            tableViewCell.collectionView.reloadData()
+//
+//          }
+//        })
+//      }
+      
+      
     }
   }
   
@@ -166,6 +177,31 @@ class DetailViewController: UITableViewController {
     } else {
       let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath) as! SameGroupElementCell
       cell.stickySectionHeader()
+//      _ = cell.collectionView.dequeueReusableCell(withReuseIdentifier: "ElementCell", for: indexPath) as! GroupedCollectionViewCell
+      cell.loadingIndicator.alpha = 1
+      cell.loadingIndicator.startAnimating()
+      
+      if !collectionViewIsLoaded {
+        DispatchQueue.global(qos: .userInteractive).async {
+          self.loadIconsData(handler: { [unowned self] (results) in
+            DispatchQueue.main.async {
+              self.elements = results
+              self.elementsFilteredByGroup = self.elements.filter({ (theElement) -> Bool in
+                theElement.elementLocation.column == self.element.elementID.elementPosition.column && theElement.elementSymbol != self.element.elementID.symbol
+              })
+              self.elementsFilteredByPeriod = self.elements.filter({ (theElement) -> Bool in
+                theElement.elementLocation.row == self.element.elementID.elementPosition.row && theElement.elementSymbol != self.element.elementID.symbol
+              })
+              self.collectionViewIsLoaded = true
+              cell.loadingIndicator.alpha = 0
+              cell.loadingIndicator.stopAnimating()
+              cell.reloadCollectionView()
+            }
+          })
+        }
+      }
+      
+      
       return cell
     }
   }
@@ -198,6 +234,30 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
   }
   
+//  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//    guard cell is GroupedCollectionViewCell else { return }
+//
+//    if !collectionViewIsLoaded {
+//      loadIconsData(handler: { [unowned self] (results) in
+//        DispatchQueue.main.async {
+//          self.elements = results
+//          self.elementsFilteredByGroup = self.elements.filter({ (theElement) -> Bool in
+//            theElement.elementLocation.column == self.element.elementID.elementPosition.column && theElement.elementSymbol != self.element.elementID.symbol
+//          })
+//          self.elementsFilteredByPeriod = self.elements.filter({ (theElement) -> Bool in
+//            theElement.elementLocation.row == self.element.elementID.elementPosition.row && theElement.elementSymbol != self.element.elementID.symbol
+//          })
+//          self.collectionViewIsLoaded = true
+//          collectionView.reloadData()
+//
+//          let indexPath1 = IndexPath(row: self.propertiesName.count, section: 1)
+//          let indexPath2 = IndexPath(row: self.propertiesName.count + 1, section: 1)
+//          self.tableView.reloadRows(at: [indexPath1, indexPath2], with: .automatic)
+//        }
+//      })
+//    }
+//  }
+  
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ElementCell", for: indexPath) as! GroupedCollectionViewCell
@@ -206,27 +266,29 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     cell.layer.masksToBounds = true
     collectionView.showsHorizontalScrollIndicator = false
     
-    
-    switch collectionView.tag {
-    case propertiesName.count:
-      cell.elementLabel.text = elementsFilteredByGroup[indexPath.row].elementSymbol
-      cell.atomicNumberLabel.text = "\(elementsFilteredByGroup[indexPath.row].atomicNumber)"
-      cell.atomicMassLabel.text = String(format: "%.0f", elementsFilteredByGroup[indexPath.row].atomicMass)
-      cell.backgroundColor = UIColor(hex:  elementsFilteredByGroup[indexPath.row].cpkColor ?? "ffffff")
-      cell.elementLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      return cell
-    default:
-      cell.elementLabel.text = elementsFilteredByPeriod[indexPath.row].elementSymbol
-      cell.atomicNumberLabel.text = "\(elementsFilteredByPeriod[indexPath.row].atomicNumber)"
-      cell.atomicMassLabel.text = String(format: "%.0f", elementsFilteredByPeriod[indexPath.row].atomicMass)
-      cell.backgroundColor = UIColor(hex:  elementsFilteredByPeriod[indexPath.row].cpkColor ?? "ffffff")
-      cell.elementLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      return cell
+    if !elements.isEmpty {
+      switch collectionView.tag {
+      case propertiesName.count:
+        cell.elementLabel.text = elementsFilteredByGroup[indexPath.row].elementSymbol
+        cell.atomicNumberLabel.text = "\(elementsFilteredByGroup[indexPath.row].atomicNumber)"
+        cell.atomicMassLabel.text = String(format: "%.0f", elementsFilteredByGroup[indexPath.row].atomicMass)
+        cell.backgroundColor = UIColor(hex:  elementsFilteredByGroup[indexPath.row].cpkColor ?? "ffffff")
+        cell.elementLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+        cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+        cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+        return cell
+      default:
+        cell.elementLabel.text = elementsFilteredByPeriod[indexPath.row].elementSymbol
+        cell.atomicNumberLabel.text = "\(elementsFilteredByPeriod[indexPath.row].atomicNumber)"
+        cell.atomicMassLabel.text = String(format: "%.0f", elementsFilteredByPeriod[indexPath.row].atomicMass)
+        cell.backgroundColor = UIColor(hex:  elementsFilteredByPeriod[indexPath.row].cpkColor ?? "ffffff")
+        cell.elementLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+        cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+        cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
+      }
     }
+    return cell
+
   }
   
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -459,10 +521,11 @@ extension DetailViewController {
   }
   
   
-  func loadIconData() -> [ElementIcon] {
+  func loadIconsData(handler: @escaping ([ElementIcon]) -> ()) {
+    
     guard let data = try? Data(contentsOf: targetData) else {
-      print("Error: Could not load the data.json in document directory".localize(withComment: "Error message"))
-      return []
+      debugPrint("Error: Could not load the data.json in document directory".localize(withComment: "Error message"))
+      return
     }
     
     var iconsData: [ElementIcon] = []
@@ -486,7 +549,8 @@ extension DetailViewController {
       let iconData = ElementIcon(atomicNumber: atomicNumber, elementSymbol: elementSymbol, elementName: elementName, elementGroup: elementGroup, elementIUPAC: elementIUPAC, elementLocation: elementLocation, cpkColor: cpkColor, atomicMass: atomicMass)
       iconsData.append(iconData)
     }
-    return iconsData
+    
+    handler(iconsData)
   }
   
 }

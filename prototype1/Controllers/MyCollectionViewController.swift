@@ -16,7 +16,6 @@ internal let targetData = URL(fileURLWithPath: "data",
 
 
 class MyCollectionViewController: UICollectionViewController {
-  @IBOutlet weak var noResultLabel: UILabel!
   
   let searchController = UISearchController(searchResultsController: nil)
   private var elementIcons: [ElementIcon] = [ElementIcon()]
@@ -36,12 +35,12 @@ class MyCollectionViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    noResultLabel.isHidden = true
+    let myCollecetionView = collectionView as? MyCollectionView
+    myCollecetionView?.helperView.noResultLabel.isHidden = true
     // Setup the database
+    loadIconData()
 
-    loadIconData(to: &elementIcons)
-
-    createGroupDictionary() // Creating groups
+    //createGroupDictionary() // Creating groups
     
     // Setup the cell size
     let width = (view.frame.size.width - 60) / 5
@@ -119,10 +118,10 @@ class MyCollectionViewController: UICollectionViewController {
       if let elementsGrouped = groupDictionary[groupName] {
         elementIconData = elementsGrouped[indexPath.row]
       }
-      noResultLabel.isHidden = true
+      let myCollectionView = collectionView as? MyCollectionView
+      myCollectionView?.helperView.noResultLabel.isHidden = true
     }
     if let elementIconData = elementIconData {
-      cell.loadingIndicator.alpha = 0
       cpkColor = elementIconData.cpkColor
       cell.label.text = elementIconData.elementSymbol
       cell.atomicMassLabel.text = String(format: "%.0f", elementIconData.atomicMass)
@@ -208,8 +207,8 @@ extension MyCollectionViewController {
   }
   
   // load database to elements array
-  func loadIconData(to array: inout [ElementIcon]) {
-    guard array.count != 118 else {
+  func loadIconData() {
+    guard self.elementIcons.count != 118 else {
       debugPrint("array already exists")
       return
     }
@@ -221,7 +220,23 @@ extension MyCollectionViewController {
     } else {
       debugPrint("data.json already exists")
     }
-    array = loadIconsData()
+    let myCollectionView = collectionView as? MyCollectionView
+    myCollectionView?.helperView.loadingIndicator.alpha = 1
+    myCollectionView?.helperView.loadingIndicator.startAnimating()
+    
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.loadIconsData { (results) -> () in
+        DispatchQueue.main.async { [unowned self] in
+          self.elementIcons = results
+          self.createGroupDictionary()
+          self.collectionView?.reloadData()
+          myCollectionView?.helperView.loadingIndicator.alpha = 0
+          myCollectionView?.helperView.loadingIndicator.stopAnimating()
+        }
+      }
+    }
+    
+    
   }
   
   // Create dictionary for sectioning
@@ -256,11 +271,12 @@ extension MyCollectionViewController {
       return showElement
     })
     // No Result Label
+    let myCollectionView = collectionView as? MyCollectionView
     if isFiltering() && filteredElements.count == 0 {
-      noResultLabel.text = "No result found for \"\(searchText)\"\n\n Please try another keyword, using the atomic number, name, group or symbol of the elements".localize(withComment: "No Result Text")
-      noResultLabel.isHidden = false
+      myCollectionView?.helperView.noResultLabel.text = "No result found for \"\(searchText)\"\n\n Please try another keyword, using the atomic number, name, group or symbol of the elements".localize(withComment: "No Result Text")
+      myCollectionView?.helperView.noResultLabel.isHidden = false
     } else {
-      noResultLabel.isHidden = true
+      myCollectionView?.helperView.noResultLabel.isHidden = true
     }
     collectionView?.reloadData()
   }

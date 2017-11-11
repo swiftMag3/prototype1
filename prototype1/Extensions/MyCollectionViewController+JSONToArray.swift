@@ -11,10 +11,11 @@ import SwiftyJSON
 
 extension MyCollectionViewController {
   
-  func loadIconsData() -> [ElementIcon] {
+  func loadIconsData(handler: @escaping ([ElementIcon]) -> ()) {
+
     guard let data = try? Data(contentsOf: targetData) else {
       debugPrint("Error: Could not load the data.json in document directory".localize(withComment: "Error message"))
-      return []
+      return
     }
     
     var iconsData: [ElementIcon] = []
@@ -39,7 +40,7 @@ extension MyCollectionViewController {
       iconsData.append(iconData)
     }
     
-    return iconsData
+    handler(iconsData)
   }
 }
 
