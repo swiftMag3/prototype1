@@ -182,7 +182,7 @@ class DetailViewController: UITableViewController {
       cell.loadingIndicator.startAnimating()
       
       if !collectionViewIsLoaded {
-        DispatchQueue.global(qos: .userInteractive).async {
+        DispatchQueue.global(qos: .default).async {
           self.loadIconsData(handler: { [unowned self] (results) in
             DispatchQueue.main.async {
               self.elements = results

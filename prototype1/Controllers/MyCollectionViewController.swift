@@ -33,6 +33,8 @@ class MyCollectionViewController: UICollectionViewController {
                      "post-transition metal".localize(withComment: "Section Header")
   ]
   
+  private var dataIsLoaded = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     let myCollecetionView = collectionView as? MyCollectionView
@@ -121,6 +123,7 @@ class MyCollectionViewController: UICollectionViewController {
       let myCollectionView = collectionView as? MyCollectionView
       myCollectionView?.helperView.noResultLabel.isHidden = true
     }
+    
     if let elementIconData = elementIconData {
       cpkColor = elementIconData.cpkColor
       cell.label.text = elementIconData.elementSymbol
@@ -133,18 +136,29 @@ class MyCollectionViewController: UICollectionViewController {
 
       // corner radius
       let width = (view.frame.size.width - 60) / 5
+//      cell.shadowView.layer.cornerRadius = CGFloat(Int(width / 4))
+//      cell.shadowView.layer.masksToBounds = true
       cell.layer.cornerRadius = CGFloat(Int(width / 4))
       cell.layer.masksToBounds = true
     }
+    
+//    cell.addShadow()
     return cell
   }
   
   override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
     if isFiltering() {
+      sectionHeader.isHidden = false
       sectionHeader.title = "Search Result".localize(withComment: "Search result section header")
     } else {
-      sectionHeader.title = groupTitles[indexPath.section].capitalized
+      if dataIsLoaded {
+        sectionHeader.isHidden = false
+        sectionHeader.title = groupTitles[indexPath.section].capitalized
+      } else {
+        sectionHeader.isHidden = true
+      }
+      
     }
     
     
@@ -232,6 +246,7 @@ extension MyCollectionViewController {
           self.collectionView?.reloadData()
           myCollectionView?.helperView.loadingIndicator.alpha = 0
           myCollectionView?.helperView.loadingIndicator.stopAnimating()
+          self.dataIsLoaded = true
         }
       }
     }

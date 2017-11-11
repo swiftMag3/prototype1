@@ -60,7 +60,19 @@
                                     <subviews>
                                         <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4O-jB-uME">
                                             <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                            <subviews>
+                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcD-MW-Z9u">
+                                                    <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                                    <color key="backgroundColor" red="0.84705882352941175" green="0.87450980392156863" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
                                             <color key="backgroundColor" red="0.84705882352941175" green="0.87450980392156863" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <constraints>
+                                                <constraint firstItem="xcD-MW-Z9u" firstAttribute="top" secondItem="H4O-jB-uME" secondAttribute="top" id="86l-3D-l7m"/>
+                                                <constraint firstAttribute="bottom" secondItem="xcD-MW-Z9u" secondAttribute="bottom" id="DME-gd-jDP"/>
+                                                <constraint firstAttribute="trailing" secondItem="xcD-MW-Z9u" secondAttribute="trailing" id="G7W-8M-Nlx"/>
+                                                <constraint firstItem="xcD-MW-Z9u" firstAttribute="leading" secondItem="H4O-jB-uME" secondAttribute="leading" id="nxw-MM-K1j"/>
+                                            </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123.66" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzL-j4-PHb">
                                             <rect key="frame" x="15" y="47" width="33" height="12"/>
@@ -99,6 +111,7 @@
                                     <outlet property="atomicMassLabel" destination="KzL-j4-PHb" id="lQz-53-vin"/>
                                     <outlet property="atomicNumberLabel" destination="ayY-TV-lB2" id="S7o-f5-HNc"/>
                                     <outlet property="label" destination="b0C-H2-Obq" id="0gM-ve-Xpu"/>
+                                    <outlet property="shadowView" destination="xcD-MW-Z9u" id="cHL-Ih-z3B"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
