@@ -9,15 +9,63 @@
 import UIKit
 
 class MyCollectionViewCell: UICollectionViewCell {
-  @IBOutlet weak var label: UILabel!
-  @IBOutlet weak var atomicNumberLabel: UILabel!
-  @IBOutlet weak var atomicMassLabel: UILabel!
-  @IBOutlet weak var shadowView: UIView!
+  @IBOutlet private weak var label: UILabel!
+  @IBOutlet private weak var atomicNumberLabel: UILabel!
+  @IBOutlet private weak var atomicMassLabel: UILabel!
+  @IBOutlet private weak var shadowView: UIView!
+  @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
   
-  var element: ElementIcon?
+  var element: Element_?
   
   override func prepareForReuse() {
-    label.text = ""
+    DispatchQueue.main.async {
+      self.displayElement(nil)
+    }
+  }
+  
+  func updateAppearanceFor(_ element: Element_?, animated: Bool = true) {
+    DispatchQueue.main.async {
+      if animated {
+        UIView.animate(withDuration: 0.25) {
+          self.displayElement(element)
+        }
+      } else {
+        self.displayElement(element)
+      }
+    }
+  }
+  
+  private func displayElement(_ element: Element_?) {
+    self.element = element
+    var cpkColor: String
+    let width = contentView.frame.width
+    layer.cornerRadius = CGFloat(Int(width/4))
+    layer.masksToBounds = true
+    
+    
+    if let theElement = element {
+      cpkColor = theElement.cpkHexColor
+      backgroundColor = UIColor(hex: cpkColor)
+      label.text = theElement.symbol
+      label.alpha = 1.0
+      atomicNumberLabel.text = "\(theElement.atomicNumber)"
+      atomicNumberLabel.alpha = 1.0
+      atomicMassLabel.text = String(format: "%.0f", theElement.atomicMass)
+      atomicMassLabel.alpha = 1.0
+      loadingIndicator?.alpha = 0
+      loadingIndicator?.stopAnimating()
+      label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: backgroundColor!)
+      atomicMassLabel.textColor = label.textColor
+      atomicNumberLabel.textColor = label.textColor
+    } else {
+      backgroundColor = UIColor.lightGray
+      label.alpha = 0.0
+      atomicNumberLabel.alpha = 0.0
+      atomicMassLabel.alpha = 0.0
+      loadingIndicator?.alpha = 1.0
+      loadingIndicator?.startAnimating()
+    }
+    
   }
   
   func addShadow() {

@@ -28,34 +28,34 @@ struct UnknownValue {
 // MARK: - STRUCTS
 
 
-struct ElementID {
-  let atomicNumber: Int
-  let symbol: String
-  let name: String
-  let cpkHexColor: String?
-  let iupacBlock: String?
-  let legacyBlock: String
-  let yearDiscovered: String
-  let elementPosition: TableLocation
-  
-  /// Localized version of name properties
-  var localizedName: String {
-    let name = self.name
-    return nameForElement[name] ?? name
-  }
-  
-  /// Localized version of group
-  var localizedGroup: String {
-    let group = self.legacyBlock
-    return groupForElement[group] ?? group
-  }
-  
-  /// Localized version of iupac name
-  var localizedIUPAC: String {
-    let iupac = self.iupacBlock ?? "Unknown".localize(withComment: "Unknown Value")
-    return iupacForElement[iupac] ?? "Unknown".localize(withComment: "Unknown Value")
-  }
-}
+//struct ElementID {
+//  let atomicNumber: Int
+//  let symbol: String
+//  let name: String
+//  let cpkHexColor: String?
+//  let iupacBlock: String?
+//  let legacyBlock: String
+//  let yearDiscovered: String
+//  let elementPosition: TableLocation
+//  
+//  /// Localized version of name properties
+//  var localizedName: String {
+//    let name = self.name
+//    return nameForElement[name] ?? name
+//  }
+//  
+//  /// Localized version of group
+//  var localizedGroup: String {
+//    let group = self.legacyBlock
+//    return groupForElement[group] ?? group
+//  }
+//  
+//  /// Localized version of iupac name
+//  var localizedIUPAC: String {
+//    let iupac = self.iupacBlock ?? "Unknown".localize(withComment: "Unknown Value")
+//    return iupacForElement[iupac] ?? "Unknown".localize(withComment: "Unknown Value")
+//  }
+//}
 
 struct TableLocation: CustomStringConvertible {
   let row: Int
@@ -68,29 +68,29 @@ struct TableLocation: CustomStringConvertible {
   
 }
 
-// Basic Properties
-struct BasicProperties {
-  let atomicMass: Double
-  let standardState: String
-  let density: Double?
-  let electronicConfiguration: String
-  let valence: Int
-  let meltingPoint: Double?
-  let boilingPoint: Double?
-  let bondingType: String?
-  
-  /// Localized version of standard state
-  var localizedState: String {
-    let state = self.standardState
-    return stateForElement[state] ?? state
-  }
-  
-  /// Localized version of bonding type
-  var localizedBondingType: String {
-    let bondingType = self.bondingType ?? "Unknown".localize(withComment: "Unknown Value")
-    return bondingTypeForElement[bondingType] ?? "Unknown".localize(withComment: "Unknown Value")
-  }
-}
+//// Basic Properties
+//struct BasicProperties {
+//  let atomicMass: Double
+//  let standardState: String
+//  let density: Double?
+//  let electronicConfiguration: String
+//  let valence: Int
+//  let meltingPoint: Double?
+//  let boilingPoint: Double?
+//  let bondingType: String?
+//
+//  /// Localized version of standard state
+//  var localizedState: String {
+//    let state = self.standardState
+//    return stateForElement[state] ?? state
+//  }
+//
+//  /// Localized version of bonding type
+//  var localizedBondingType: String {
+//    let bondingType = self.bondingType ?? "Unknown".localize(withComment: "Unknown Value")
+//    return bondingTypeForElement[bondingType] ?? "Unknown".localize(withComment: "Unknown Value")
+//  }
+//}
 
 
 // Advanced Properties

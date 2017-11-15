@@ -17,77 +17,30 @@ internal let targetData = URL(fileURLWithPath: "data",
 
 class MyCollectionViewController: UICollectionViewController {
   
-  let searchController = UISearchController(searchResultsController: nil)
-  private var elementIcons: [ElementIcon] = [ElementIcon()]
-  private var filteredElements: [ElementIcon] = []
-  private var groupDictionary = [String: [ElementIcon]]()
-  private var groupTitles = ["nonmetal".localize(withComment: "Section Header"),
-                     "alkali metal".localize(withComment: "Section Header"),
-                     "alkaline earth metal".localize(withComment: "Section Header"),
-                     "metalloid".localize(withComment: "Section Header"),
-                     "metal".localize(withComment: "Section Header"),
-                     "transition metal".localize(withComment: "Section Header"),
-                     "noble gas".localize(withComment: "Section Header"),
-                     "lanthanoid".localize(withComment: "Section Header"),
-                     "actinoid".localize(withComment: "Section Header"),
-                     "post-transition metal".localize(withComment: "Section Header")
-  ]
+  var elementsDataSource = ElementsDataSource()
+  var loadingQueue = OperationQueue()
+  var loadingOperations = [IndexPath: DataLoadOperation]()
   
+  let searchController = UISearchController(searchResultsController: nil)
+  private var filteredElements: [Element_] = []
   private var dataIsLoaded = false
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let myCollecetionView = collectionView as? MyCollectionView
-    myCollecetionView?.helperView.noResultLabel.isHidden = true
-    // Setup the database
-    loadIconData()
+    setUpDisplay()
+  }
+  
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "ShowDetail" {
+//      let detailVC = segue.destination as! DetailViewController
+//      detailVC.theElement = sender as? Element_
+//    }
+//  }
+}
 
-    //createGroupDictionary() // Creating groups
-    
-    // Setup the cell size
-    let width = (view.frame.size.width - 60) / 5
-    let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-    layout.itemSize = CGSize(width: width, height: width)
-    layout.sectionHeadersPinToVisibleBounds = true
-    collectionView?.showsVerticalScrollIndicator = false
-    
-    // Setup the Search Controller
-    navigationController?.navigationBar.prefersLargeTitles = true
-    searchController.searchResultsUpdater = self
-    searchController.obscuresBackgroundDuringPresentation = false
-    searchController.searchBar.placeholder = "Search element".localize(withComment: "Search bar placeholder")
-    navigationItem.searchController = searchController
-    definesPresentationContext = true
-    
-    
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "ShowDetail" {
-      if let detailVC = segue.destination as? DetailViewController, let index = sender as? IndexPath {
-        var elementIconData = ElementIcon()
-        
-        if isFiltering() {
-          elementIconData = filteredElements[index.row]
-        } else {
-          let groupName = groupTitles[index.section]
-          if let elementsGrouped = groupDictionary[groupName] {
-            elementIconData = elementsGrouped[index.row]
-          }
-        }
-        detailVC.atomicNumber = elementIconData.atomicNumber
-      }
-    }
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
+// MARK: UICollectionViewDataSource
+extension MyCollectionViewController {
   // MARK: UICollectionViewDataSource
   
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -95,54 +48,21 @@ class MyCollectionViewController: UICollectionViewController {
     if isFiltering() {
       return 1
     } else {
-      return groupTitles.count
+      return elementsDataSource.numbersOfSection
     }
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if isFiltering() {
       return filteredElements.count
+    } else {
+      return elementsDataSource.numberOfElementsInSection(section)
     }
-    let groupName = groupTitles[section]
-    guard let elementsGrouped = groupDictionary[groupName] else { return 0 }
-    return elementsGrouped.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-    var elementIconData: ElementIcon?
-    let cpkColor: String?
-    
-    if isFiltering() {
-      elementIconData = filteredElements[indexPath.row]
-    } else {
-      let groupName = groupTitles[indexPath.section]
-      if let elementsGrouped = groupDictionary[groupName] {
-        elementIconData = elementsGrouped[indexPath.row]
-      }
-      let myCollectionView = collectionView as? MyCollectionView
-      myCollectionView?.helperView.noResultLabel.isHidden = true
-    }
-    
-    if let elementIconData = elementIconData {
-      cpkColor = elementIconData.cpkColor
-      cell.label.text = elementIconData.elementSymbol
-      cell.atomicMassLabel.text = String(format: "%.0f", elementIconData.atomicMass)
-      cell.atomicNumberLabel.text =  "\(elementIconData.atomicNumber)"
-      cell.backgroundColor = UIColor(hex: cpkColor ?? "ffffff")
-      cell.label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      cell.atomicMassLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-      cell.atomicNumberLabel.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: cell.backgroundColor!)
-
-      // corner radius
-      let width = (view.frame.size.width - 60) / 5
-//      cell.shadowView.layer.cornerRadius = CGFloat(Int(width / 4))
-//      cell.shadowView.layer.masksToBounds = true
-      cell.layer.cornerRadius = CGFloat(Int(width / 4))
-      cell.layer.masksToBounds = true
-    }
-    
-//    cell.addShadow()
+    cell.updateAppearanceFor(nil, animated: false)
     return cell
   }
   
@@ -154,119 +74,79 @@ class MyCollectionViewController: UICollectionViewController {
     } else {
       if dataIsLoaded {
         sectionHeader.isHidden = false
-        sectionHeader.title = groupTitles[indexPath.section].capitalized
+        sectionHeader.title = elementsDataSource.titleForSectionAtIndexPath(indexPath).capitalized
       } else {
         sectionHeader.isHidden = true
       }
-      
     }
-    
-    
     return sectionHeader
   }
   // MARK: UICollectionViewDelegate
-  
+}
+
+// MARK:- UICollectionViewDelegate
+extension MyCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+    
+    if var element = elementsDataSource.elementForItemAtIndexPath(indexPath) {
+      if isFiltering() {
+        element = filteredElements[indexPath.row]
+      }
+      print(element.localizedGroup, element.name)
+      // performSegue(withIdentifier: "ShowDetail", sender: element)
+    }
   }
   
-  /*
-   // Uncomment this method to specify if the specified item should be highlighted during tracking
-   override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-   return true
-   }
-   */
+  override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    
+    guard let cell = cell as? MyCollectionViewCell else { return }
+    dataIsLoaded = false
+    
+    // How should the operation update the cell once the data has been loaded?
+    let updateCellClosure: (Element_?) -> () = { [unowned self] (element) in
+      cell.updateAppearanceFor(element, animated: true)
+      self.loadingOperations.removeValue(forKey: indexPath)
+    }
+    
+    // Try to find an existing data loader
+    if let dataLoader = loadingOperations[indexPath] {
+      // Has the data already been loaded?
+      if let theElement = dataLoader.element {
+        cell.updateAppearanceFor(theElement, animated: false)
+        loadingOperations.removeValue(forKey: indexPath)
+      } else {
+        // No data loaded yet, so add the completion closure to update the cell once the data arrives
+        dataLoader.loadingCompleteHandler = updateCellClosure
+      }
+    } else {
+      // Need to create a data loaded for this index path
+      var dataLoader = DataLoadOperation(Element_())
+      if isFiltering() {
+        dataLoader = DataLoadOperation(filteredElements[indexPath.row])
+      } else {
+        if let theElement = elementsDataSource.elementForItemAtIndexPath(indexPath) {
+          dataLoader = DataLoadOperation(theElement)
+        }
+      }
+      // Provide the completion closure, and kick off the loading operation
+      dataLoader.loadingCompleteHandler = updateCellClosure
+      loadingQueue.addOperation(dataLoader)
+      loadingOperations[indexPath] = dataLoader
+    }
+    dataIsLoaded = true
+  }
   
-  /*
-   // Uncomment this method to specify if the specified item should be selected
-   override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-   return true
-   }
-   */
-  
-  /*
-   // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-   override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-   return false
-   }
-   
-   override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-   return false
-   }
-   
-   override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-   
-   }
-   */
-  
+  override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    // If there's a data loader for this index path we don't need it any more. Cancel and dispose
+    if let dataLoader = loadingOperations[indexPath] {
+      dataLoader.cancel()
+      loadingOperations.removeValue(forKey: indexPath)
+    }
+  }
 }
 
 // MARK: - Helper Methods
 extension MyCollectionViewController {
-  // Copy bundled json to docdirectory
-  func copyLocalJSONtoDocumentDirectory() {
-    guard let bundledJSON = Bundle.main.url(forResource: "data",
-                                            withExtension: "json"),
-      let jsonData = try? Data(contentsOf: bundledJSON) else {
-        debugPrint("data.json is not in the bundle")
-        return
-    }
-    
-    do {
-      try jsonData.write(to: targetData, options: .atomic)
-      debugPrint("file copied successfully")
-    } catch let error as NSError{
-      print(error)
-    }
-  }
-  
-  // load database to elements array
-  func loadIconData() {
-    guard self.elementIcons.count != 118 else {
-      debugPrint("array already exists")
-      return
-    }
-    
-    print("array is empty")
-    
-    if !FileManager.default.fileExists(atPath: targetData.path) {
-      copyLocalJSONtoDocumentDirectory()
-    } else {
-      debugPrint("data.json already exists")
-    }
-    let myCollectionView = collectionView as? MyCollectionView
-    myCollectionView?.helperView.loadingIndicator.alpha = 1
-    myCollectionView?.helperView.loadingIndicator.startAnimating()
-    
-    DispatchQueue.global(qos: .userInteractive).async {
-      self.loadIconsData { (results) -> () in
-        DispatchQueue.main.async { [unowned self] in
-          self.elementIcons = results
-          self.createGroupDictionary()
-          self.collectionView?.reloadData()
-          myCollectionView?.helperView.loadingIndicator.alpha = 0
-          myCollectionView?.helperView.loadingIndicator.stopAnimating()
-          self.dataIsLoaded = true
-        }
-      }
-    }
-    
-    
-  }
-  
-  // Create dictionary for sectioning
-  func createGroupDictionary() {
-    for element in elementIcons {
-      let groupName = element.localizedGroup
-      
-      if var elementsGrouped = groupDictionary[groupName] {
-        elementsGrouped.append(element)
-        groupDictionary[groupName] = elementsGrouped
-      } else {
-        groupDictionary[groupName] = [element]
-      }
-    }
-  }
   
   // MARK: - Search Bar Helper Methods
   func searchBarIsEmpty() -> Bool {
@@ -275,16 +155,17 @@ extension MyCollectionViewController {
   }
   
   func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-    filteredElements = elementIcons.filter({ (elementIcon: ElementIcon) -> Bool in
-      let isName = elementIcon.elementName.lowercased().contains(searchText.lowercased())
-        || elementIcon.localizedName.lowercased().contains(searchText.lowercased())
-      let isSymbol = elementIcon.elementSymbol.lowercased().contains(searchText.lowercased())
-      let isNumber = String(elementIcon.atomicNumber).contains(searchText)
-      let isGroup = elementIcon.elementGroup.lowercased().contains(searchText.lowercased()) || elementIcon.localizedGroup.lowercased().contains(searchText.lowercased()) || elementIcon.elementIUPAC.lowercased().contains(searchText.lowercased()) || elementIcon.localizedIUPAC.lowercased().contains(searchText.lowercased())
+    filteredElements = elementsDataSource.allElements.filter({ (element: Element_) -> Bool in
+      let isName = element.name.lowercased().contains(searchText.lowercased())
+        || element.localizedName.lowercased().contains(searchText.lowercased())
+      let isSymbol = element.symbol.lowercased().contains(searchText.lowercased())
+      let isNumber = String(element.atomicNumber).contains(searchText)
+      let isGroup = element.legacyBlock.lowercased().contains(searchText.lowercased()) || element.localizedGroup.lowercased().contains(searchText.lowercased()) || element.iupacBlock.lowercased().contains(searchText.lowercased()) || element.localizedIUPAC.lowercased().contains(searchText.lowercased())
       let showElement = isName || isSymbol || isNumber || isGroup
       
       return showElement
     })
+    
     // No Result Label
     let myCollectionView = collectionView as? MyCollectionView
     if isFiltering() && filteredElements.count == 0 {
@@ -298,6 +179,24 @@ extension MyCollectionViewController {
   
   func isFiltering() -> Bool {
     return searchController.isActive && !searchBarIsEmpty()
+  }
+  
+  private func setUpDisplay() {
+    let myCollecetionView = collectionView as? MyCollectionView
+    myCollecetionView?.helperView.noResultLabel.isHidden = true
+    let width = (view.frame.size.width - 60) / 5
+    let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+    layout.itemSize = CGSize(width: width, height: width)
+    layout.sectionHeadersPinToVisibleBounds = true
+    collectionView?.showsVerticalScrollIndicator = false
+    
+    // Setup the Search Controller
+    navigationController?.navigationBar.prefersLargeTitles = true
+    searchController.searchResultsUpdater = self
+    searchController.obscuresBackgroundDuringPresentation = false
+    searchController.searchBar.placeholder = "Search element".localize(withComment: "Search bar placeholder")
+    navigationItem.searchController = searchController
+    definesPresentationContext = true
   }
 }
 

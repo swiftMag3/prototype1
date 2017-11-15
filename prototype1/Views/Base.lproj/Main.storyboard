@@ -28,9 +28,6 @@
                             <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sen-az-btI">
-                                    <rect key="frame" x="177" y="323" width="20" height="20"/>
-                                </activityIndicatorView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3R-Sr-t1e">
                                     <rect key="frame" x="166" y="323" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -40,13 +37,10 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="sen-az-btI" firstAttribute="centerX" secondItem="GxD-Rc-anQ" secondAttribute="centerX" id="MK2-7M-1JD"/>
                                 <constraint firstItem="R3R-Sr-t1e" firstAttribute="centerY" secondItem="GxD-Rc-anQ" secondAttribute="centerY" id="MzB-J1-qeX"/>
-                                <constraint firstItem="sen-az-btI" firstAttribute="centerY" secondItem="GxD-Rc-anQ" secondAttribute="centerY" id="jqn-tA-YQq"/>
                                 <constraint firstItem="R3R-Sr-t1e" firstAttribute="centerX" secondItem="GxD-Rc-anQ" secondAttribute="centerX" id="zQu-PH-JGL"/>
                             </constraints>
                             <connections>
-                                <outlet property="loadingIndicator" destination="sen-az-btI" id="DSY-H8-1Tn"/>
                                 <outlet property="noResultLabel" destination="R3R-Sr-t1e" id="TOh-9C-YLY"/>
                             </connections>
                         </view>
@@ -92,6 +86,10 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XwX-Du-atF">
+                                            <rect key="frame" x="21" y="21" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -111,6 +109,7 @@
                                     <outlet property="atomicMassLabel" destination="KzL-j4-PHb" id="lQz-53-vin"/>
                                     <outlet property="atomicNumberLabel" destination="ayY-TV-lB2" id="S7o-f5-HNc"/>
                                     <outlet property="label" destination="b0C-H2-Obq" id="0gM-ve-Xpu"/>
+                                    <outlet property="loadingIndicator" destination="XwX-Du-atF" id="429-oO-ACv"/>
                                     <outlet property="shadowView" destination="xcD-MW-Z9u" id="cHL-Ih-z3B"/>
                                 </connections>
                             </collectionViewCell>
