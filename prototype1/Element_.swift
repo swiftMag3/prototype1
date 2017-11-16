@@ -147,3 +147,97 @@ class Element_  {
     return bondingTypeForElement[bondingType] ?? UnknownValue.string
   }
 }
+
+// MARK: - Extension for Properties
+extension Element_: Any {
+  enum Properties {
+    case symbol
+    case atomicNumber
+    case groupPeriod
+    case atomicMass
+    case standardState
+    case elementCategory
+    case yearDiscovered
+    case electronConfiguration
+    case valence
+    case electronegativity
+    case electronAffinity
+    case ionizationEnergy
+    case oxidationState
+    case bondingType
+    case meltingPoint
+    case boilingPoint
+    case atomicRadius
+    case hardness
+    case modulus
+    case density
+    case conductivity
+    case heat
+    case abundance
+    
+    var name: String {
+      switch self {
+      case .symbol:
+        return "Symbol".localize(withComment: "detailView properties")
+      case .atomicNumber:
+        return "Atomic Number".localize(withComment: "detailView properties")
+      case .groupPeriod:
+        return "Period, Group".localize(withComment: "detailView properties")
+      case .atomicMass:
+        return "Atomic Mass".localize(withComment: "detailView properties")
+      case .standardState:
+        return   "Standard State ( at 273 K)".localize(withComment: "detailView properties")
+      case .elementCategory:
+        return "Element Category".localize(withComment: "detailView properties")
+      case .yearDiscovered:
+        return "Year Discovered".localize(withComment: "detailView properties")
+      case .electronConfiguration:
+        return "Electron Configuration".localize(withComment: "detailView properties")
+      case .valence:
+        return "Valence".localize(withComment: "detailView properties")
+      case .electronegativity:
+        return "Electronegativity".localize(withComment: "detailView properties")
+      case .electronAffinity:
+        return "Electron Affinity".localize(withComment: "detailView properties")
+      case .ionizationEnergy:
+        return "Ionization Energy".localize(withComment: "detailView properties")
+      case .oxidationState:
+        return "Oxidation State".localize(withComment: "detailView properties")
+      case .bondingType:
+        return "Bonding Type".localize(withComment: "detailView properties")
+      case .meltingPoint:
+        return "Melting Point".localize(withComment: "detailView properties")
+      case .boilingPoint:
+        return "Boiling Point".localize(withComment: "detailView properties")
+      case .atomicRadius:
+        return "Atomic Radius".localize(withComment: "detailView properties")
+      case .hardness:
+        return "Hardness".localize(withComment: "detailView properties")
+      case .modulus:
+        return "Modulus".localize(withComment: "detailView properties")
+      case .density:
+        return "Density (STP)".localize(withComment: "detailView properties")
+      case .conductivity:
+        return "Conductivity".localize(withComment: "detailView properties")
+      case .heat:
+        return "Heat".localize(withComment: "detailView properties")
+      case .abundance:
+        return "Abundance (by mass)".localize(withComment: "detailView properties")
+      }
+    }
+    
+    var unit: String? {
+      switch self {
+      case .symbol, .atomicNumber, .groupPeriod, .atomicMass, .standardState, .elementCategory, .yearDiscovered, .electronConfiguration, .valence, .electronegativity, .oxidationState, .bondingType, .atomicRadius, .hardness, .modulus, .conductivity, .heat, .abundance:
+        return nil
+      case .density:
+        return "kg/m{3}"
+      case .electronAffinity, .ionizationEnergy:
+        return "kJ/mol"
+      case .meltingPoint, .boilingPoint:
+        return "K"
+      }
+    }
+    
+  }
+}

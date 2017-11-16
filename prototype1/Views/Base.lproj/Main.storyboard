@@ -80,7 +80,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="118" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-TV-lB2">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="118" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-TV-lB2">
                                             <rect key="frame" x="10" y="5" width="16.5" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
@@ -250,25 +250,33 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pVS-Fo-JJs">
+                                                                <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                                            </activityIndicatorView>
                                                         </subviews>
                                                     </view>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="pVS-Fo-JJs" secondAttribute="trailing" id="582-HE-2Wd"/>
                                                         <constraint firstAttribute="bottom" secondItem="DCZ-Se-NDi" secondAttribute="bottom" constant="4" id="9EL-9K-5E7"/>
                                                         <constraint firstItem="Edc-yA-LBm" firstAttribute="top" secondItem="6XY-Ze-h1V" secondAttribute="top" id="9Fr-Pm-RdO"/>
                                                         <constraint firstItem="sBA-tf-ftf" firstAttribute="centerY" secondItem="6XY-Ze-h1V" secondAttribute="centerY" id="AML-LV-0NY"/>
                                                         <constraint firstItem="Edc-yA-LBm" firstAttribute="leading" secondItem="6XY-Ze-h1V" secondAttribute="leading" id="JX9-vi-UbL"/>
                                                         <constraint firstItem="DCZ-Se-NDi" firstAttribute="centerX" secondItem="6XY-Ze-h1V" secondAttribute="centerX" id="LCr-9x-Pg1"/>
                                                         <constraint firstAttribute="bottom" secondItem="Edc-yA-LBm" secondAttribute="bottom" id="PlT-xO-D0A"/>
+                                                        <constraint firstItem="pVS-Fo-JJs" firstAttribute="top" secondItem="6XY-Ze-h1V" secondAttribute="top" id="Qew-gE-kud"/>
                                                         <constraint firstItem="I9U-Ml-iXN" firstAttribute="leading" secondItem="6XY-Ze-h1V" secondAttribute="leading" constant="10" id="Tqr-fP-uiR"/>
+                                                        <constraint firstItem="pVS-Fo-JJs" firstAttribute="leading" secondItem="6XY-Ze-h1V" secondAttribute="leading" id="VnE-D4-0ei"/>
                                                         <constraint firstItem="I9U-Ml-iXN" firstAttribute="top" secondItem="6XY-Ze-h1V" secondAttribute="top" constant="4" id="YXP-EP-aQn"/>
                                                         <constraint firstAttribute="trailing" secondItem="Edc-yA-LBm" secondAttribute="trailing" id="jQu-Ld-Out"/>
                                                         <constraint firstItem="sBA-tf-ftf" firstAttribute="centerX" secondItem="6XY-Ze-h1V" secondAttribute="centerX" id="qgA-xu-Zls"/>
+                                                        <constraint firstAttribute="bottom" secondItem="pVS-Fo-JJs" secondAttribute="bottom" id="uKr-Xk-tpS"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I9U-Ml-iXN" secondAttribute="trailing" constant="5" id="ynh-BW-2Cc"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="atomicMassLabel" destination="DCZ-Se-NDi" id="KO7-LX-s5O"/>
                                                         <outlet property="atomicNumberLabel" destination="I9U-Ml-iXN" id="Waj-8T-aTR"/>
-                                                        <outlet property="elementLabel" destination="sBA-tf-ftf" id="jt3-4C-1pb"/>
+                                                        <outlet property="label" destination="sBA-tf-ftf" id="VfP-Du-2Ns"/>
+                                                        <outlet property="loadingIndicator" destination="pVS-Fo-JJs" id="gQT-8r-Sfx"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -277,7 +285,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUK-Dy-5rn">
-                                                        <rect key="frame" x="4" y="8" width="42" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="100"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -285,17 +293,17 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="MUK-Dy-5rn" secondAttribute="bottom" constant="7.5" id="4C9-KC-Go9"/>
-                                                    <constraint firstAttribute="trailing" secondItem="MUK-Dy-5rn" secondAttribute="trailing" constant="4" id="Rbc-kB-naF"/>
-                                                    <constraint firstItem="MUK-Dy-5rn" firstAttribute="top" secondItem="A28-PW-zYo" secondAttribute="top" constant="8" id="dqd-5n-9At"/>
-                                                    <constraint firstItem="MUK-Dy-5rn" firstAttribute="leading" secondItem="A28-PW-zYo" secondAttribute="leading" constant="4" id="t08-G3-Bt3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="MUK-Dy-5rn" secondAttribute="bottom" constant="-0.5" id="4C9-KC-Go9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MUK-Dy-5rn" secondAttribute="trailing" id="Rbc-kB-naF"/>
+                                                    <constraint firstItem="MUK-Dy-5rn" firstAttribute="top" secondItem="A28-PW-zYo" secondAttribute="top" id="dqd-5n-9At"/>
+                                                    <constraint firstItem="MUK-Dy-5rn" firstAttribute="leading" secondItem="A28-PW-zYo" secondAttribute="leading" id="t08-G3-Bt3"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="label" destination="MUK-Dy-5rn" id="hX3-Nw-mXv"/>
                                                 </connections>
                                             </collectionReusableView>
                                         </collectionView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pVS-Fo-JJs">
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="r9d-yg-mcK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </activityIndicatorView>
@@ -309,7 +317,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="collectionView" destination="Ip9-0j-hLV" id="57g-m0-yEK"/>
-                                    <outlet property="loadingIndicator" destination="pVS-Fo-JJs" id="RDm-Ms-NHG"/>
+                                    <outlet property="loadingIndicator" destination="r9d-yg-mcK" id="nlj-oQ-D8Z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

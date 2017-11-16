@@ -31,12 +31,12 @@ class MyCollectionViewController: UICollectionViewController {
     setUpDisplay()
   }
   
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "ShowDetail" {
-//      let detailVC = segue.destination as! DetailViewController
-//      detailVC.theElement = sender as? Element_
-//    }
-//  }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowDetail" {
+      let detailVC = segue.destination as! DetailViewController
+      detailVC.theElement = sender as? Element_
+    }
+  }
 }
 
 // MARK: UICollectionViewDataSource
@@ -87,14 +87,14 @@ extension MyCollectionViewController {
 // MARK:- UICollectionViewDelegate
 extension MyCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
-    if var element = elementsDataSource.elementForItemAtIndexPath(indexPath) {
-      if isFiltering() {
-        element = filteredElements[indexPath.row]
-      }
-      print(element.localizedGroup, element.name)
-      // performSegue(withIdentifier: "ShowDetail", sender: element)
+    var element: Element_
+    if isFiltering() {
+      element = filteredElements[indexPath.row]
+    } else {
+      element = elementsDataSource.elementForItemAtIndexPath(indexPath)!
     }
+    performSegue(withIdentifier: "ShowDetail", sender: element)
+    
   }
   
   override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -104,7 +104,7 @@ extension MyCollectionViewController {
     
     // How should the operation update the cell once the data has been loaded?
     let updateCellClosure: (Element_?) -> () = { [unowned self] (element) in
-      cell.updateAppearanceFor(element, animated: true)
+      cell.updateAppearanceFor(element, animated: false)
       self.loadingOperations.removeValue(forKey: indexPath)
     }
     
@@ -184,7 +184,7 @@ extension MyCollectionViewController {
   private func setUpDisplay() {
     let myCollecetionView = collectionView as? MyCollectionView
     myCollecetionView?.helperView.noResultLabel.isHidden = true
-    let width = (view.frame.size.width - 60) / 5
+    let width = 63
     let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
     layout.itemSize = CGSize(width: width, height: width)
     layout.sectionHeadersPinToVisibleBounds = true

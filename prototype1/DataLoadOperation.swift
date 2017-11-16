@@ -11,6 +11,7 @@ import Foundation
 class DataLoadOperation: Operation {
   var element: Element_?
   var loadingCompleteHandler: ((Element_) -> ())?
+  var backgroundOperation: ((Element_) -> ())?
   private let _element: Element_
   
   init(_ element: Element_) {
@@ -18,8 +19,8 @@ class DataLoadOperation: Operation {
   }
   
   override func main() {
-//    if isCancelled { return }
-//    usleep(800 * 1000)
+    //    if isCancelled { return }
+    //    usleep(800 * 1000)
     
     if isCancelled { return }
     self.element = _element
@@ -30,5 +31,4 @@ class DataLoadOperation: Operation {
       }
     }
   }
-  
 }

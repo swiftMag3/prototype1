@@ -66,13 +66,9 @@ class ElementsDataSource {
     let elementsInSection = elements.filter { (element: Element_) -> Bool in
       return element.localizedGroup.lowercased() == section
     }
-    if index == 0 {
-      for item in elementsInSection {
-        print(item.name, item.localizedGroup)
-      }
-    }
     return elementsInSection
   }
+  
   
   private func copyLocalJSONtoDocumentDirectory() {
     guard let bundledJSON = Bundle.main.url(forResource: "data",

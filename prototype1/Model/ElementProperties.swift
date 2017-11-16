@@ -153,3 +153,19 @@ struct Abundance {
   let inOcean: Double?
   let inHuman: Double?
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

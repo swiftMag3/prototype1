@@ -9,6 +9,5 @@
 import UIKit
 
 class MyCollectionView: UICollectionView {
-  
   @IBOutlet weak var helperView: MyView!
 }
