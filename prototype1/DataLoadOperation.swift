@@ -11,7 +11,6 @@ import Foundation
 class DataLoadOperation: Operation {
   var element: Element_?
   var loadingCompleteHandler: ((Element_) -> ())?
-  var backgroundOperation: ((Element_) -> ())?
   private let _element: Element_
   
   init(_ element: Element_) {

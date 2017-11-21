@@ -16,10 +16,8 @@ private enum CellType: String {
 
 class DetailViewController: UITableViewController {
   
-  lazy var elementsDataSource = ElementsDataSource()
-  var loadingQueue = OperationQueue()
-  var loadingOperations = [IndexPath: DataLoadOperation]()
-
+  lazy var allElements = ElementsDataSource().allElements
+  private var filterBlockOperation = BlockOperation()
 
   // Collection View Cell properties
   private var elementsFilteredByGroup = [Element_]()
@@ -55,21 +53,7 @@ class DetailViewController: UITableViewController {
                                                    Element_.Properties.heat,
                                                    Element_.Properties.abundance]
   
-  var theElement: Element_? {
-    didSet {
-      DispatchQueue.global().async { [unowned self] in
-        self.filteringSamePeriodAndGroup(handler: { (finished) in
-          DispatchQueue.main.async {
-            if !self.isFiltering() {
-              let indexPath1 = IndexPath(row: self.properties.count, section: 0)
-              let indexPath2 = IndexPath(row: self.properties.count + 1, section: 0)
-              self.tableView.reloadRows(at: [indexPath1, indexPath2], with: .automatic)
-            }
-          }
-        })
-      }
-    }
-  }
+  var theElement: Element_?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -82,20 +66,69 @@ class DetailViewController: UITableViewController {
     searchController.searchBar.placeholder = "Search property".localize(withComment: "Search bar placeholder")
     navigationItem.searchController = searchController
     definesPresentationContext = true
+    
+    filteringSameElements()
   }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    filterBlockOperation.cancel()
+  }
+  
+  private func filteringSameElements() {
+//    let allElements = elementsDataSource.allElements
+    
+    filterBlockOperation.addExecutionBlock { [unowned self] in
+      if self.filterBlockOperation.isCancelled { print("GOT CANCELLED1"); return }
+      guard let theElement = self.theElement else { return }
+      for element in self.allElements {
+        if self.filterBlockOperation.isCancelled { print("GOT CANCELLED2"); return }
+        if element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol {
+          if self.filterBlockOperation.isCancelled { print("GOT CANCELLED3"); return }
+          self.elementsFilteredByGroup.append(element)
+        }
+      }
+    }
+    
+    filterBlockOperation.addExecutionBlock { [unowned self] in
+      if self.filterBlockOperation.isCancelled { print("GOT CANCELLED1"); return }
+      guard let theElement = self.theElement else { return }
+      for element in self.allElements {
+        if self.filterBlockOperation.isCancelled { print("GOT CANCELLED5"); return }
+        if element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol {
+          if self.filterBlockOperation.isCancelled { print("GOT CANCELLED6"); return }
+          self.elementsFilteredByPeriod.append(element)
+        }
+      }
+    }
+    
+    filterBlockOperation.completionBlock = {
+      DispatchQueue.main.async { [unowned self] in
+        if !self.isFiltering() {
+          self.collectionViewIsLoaded = true
+          let indexPath1 = IndexPath(row: self.properties.count, section: 0)
+          let indexPath2 = IndexPath(row: self.properties.count + 1, section: 0)
+          self.tableView.reloadRows(at: [indexPath1, indexPath2], with: .automatic)
+        }
+      }
+    }
+    DispatchQueue.global().async { [unowned self] in
+      self.filterBlockOperation.start()
+    }
+  }
+
 
   // remove all the controller and go to root controllers
   @objc private func popControllers() {
     navigationController?.popToRootViewController(animated: true)
   }
   
-  private func filteringSamePeriodAndGroup(handler: (Bool) -> ()) {
+  func filteringSamePeriodAndGroup(handler: (Bool) -> ()) {
     guard let theElement = theElement else { return }
-    let elements = elementsDataSource.allElements
-    elementsFilteredByGroup = elements.filter({ (element) -> Bool in
+//    let elements = elementsDataSource.allElements
+    elementsFilteredByGroup = allElements.filter({ (element) -> Bool in
       element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol
     })
-    elementsFilteredByPeriod = elements.filter({ (element) -> Bool in
+    elementsFilteredByPeriod = allElements.filter({ (element) -> Bool in
       element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol
     })
     collectionViewIsLoaded = true
@@ -168,21 +201,20 @@ class DetailViewController: UITableViewController {
       }
     }
   }
-
-
+  
   // MARK: - Navigation
-
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "MoreDetail" {
-//      if let moreDetailVC = segue.destination as? MoreDetailViewController {
-//        let indexPath = tableView.indexPathsForSelectedRows!.first!
-//        let cell = tableView.cellForRow(at: indexPath)!
-//        let label = cell.textLabel!.text!
-//        moreDetailVC.propertyName = label
-//        moreDetailVC.element = element
-//      }
-//    }
-//  }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "MoreDetail" {
+      let moreDetailVC = segue.destination as! MoreDetailViewController
+      let indexPath = tableView.indexPathsForSelectedRows!.first!
+      if isFiltering() {
+        moreDetailVC.property = filteredProperties[indexPath.row]
+      } else {
+        moreDetailVC.property = properties[indexPath.row]
+      }
+      moreDetailVC.theElement = theElement
+    }
+  }
 
 }
 
@@ -227,21 +259,21 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     return sectionHeader
   }
 
-//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//    var elementIconData: Element_
-//
-//    switch collectionView.tag {
-//    case propertiesName.count:
-//      elementIconData = elementsFilteredByGroup[indexPath.row]
-//    default:
-//      elementIconData = elementsFilteredByPeriod[indexPath.row]
-//    }
-//
-//    let vc = storyboard.instantiateViewController(withIdentifier: "ElementDetail") as! DetailViewController
-//    vc.atomicNumber = elementIconData.atomicNumber
-//    self.navigationController?.pushViewController(vc, animated: true)
-//  }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    var element: Element_
+
+    switch collectionView.tag {
+    case properties.count:
+      element = elementsFilteredByGroup[indexPath.row]
+    default:
+      element = elementsFilteredByPeriod[indexPath.row]
+    }
+
+    let vc = storyboard.instantiateViewController(withIdentifier: "ElementDetail") as! DetailViewController
+    vc.theElement = element
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
 }
 
 // MARK: Extension Helper methods
@@ -262,9 +294,12 @@ extension DetailViewController {
         var text = ""
         if var newValue = Double(value) {
           newValue = newValue * 1000
-          text += String("\(newValue)").capitalized + " \(unit ?? "")"
+          text += String("\(newValue)") + " \(unit ?? "")"
         } else {
           text += value
+          if text == UnknownValue.string {
+            cell.detailTextLabel?.textColor = UIColor.lightGray
+          }
         }
         return text
       }
@@ -272,7 +307,7 @@ extension DetailViewController {
       cell.detailTextLabel?.attributedText = finalSuperscriptText
       return cell
     default:
-      if value == "Unknown" {
+      if value == UnknownValue.string {
         cell.detailTextLabel?.text = value.capitalized
         cell.detailTextLabel?.textColor = UIColor.lightGray
       } else {
@@ -283,34 +318,32 @@ extension DetailViewController {
   }
 
   private func valueForProperty(_ property: Element_.Properties) -> String {
-    if let element = theElement {
-      let dictionary: [Element_.Properties: String] = [ Element_.Properties.symbol: element.symbol,
-                                           Element_.Properties.atomicNumber: "\(element.atomicNumber)",
-        Element_.Properties.groupPeriod: "\(element.elementPosition)",
-        Element_.Properties.atomicMass: "\(element.atomicMass)",
-        Element_.Properties.standardState: element.localizedState,
-        Element_.Properties.elementCategory: element.localizedGroup,
-        Element_.Properties.yearDiscovered: element.yearDiscovered,
-        Element_.Properties.density: element.density != nil ? "\(element.density!)" : UnknownValue.string,
-        Element_.Properties.electronConfiguration: element.electronicConfiguration,
-        Element_.Properties.valence: "\(element.valence)",
-        Element_.Properties.electronegativity: element.electronegativity != nil ? "\(element.electronegativity!)" : UnknownValue.string,
-        Element_.Properties.electronAffinity: element.electronAffinity != nil ? "\(element.electronAffinity!)" : UnknownValue.string,
-        Element_.Properties.ionizationEnergy: element.ionizationEnergy != nil ? "\(element.ionizationEnergy!)" : UnknownValue.string,
-        Element_.Properties.oxidationState: element.oxidationStates,
-        Element_.Properties.bondingType: element.bondingType,
-        Element_.Properties.meltingPoint: element.meltingPoint != nil ? "\(element.meltingPoint!)" : UnknownValue.string,
-        Element_.Properties.boilingPoint: element.boilingPoint != nil ? "\(element.boilingPoint!)" : UnknownValue.string,
-        Element_.Properties.atomicRadius: "",
-        Element_.Properties.hardness: "",
-        Element_.Properties.modulus: "",
-        Element_.Properties.conductivity: "",
-        Element_.Properties.heat: "",
-        Element_.Properties.abundance: ""
-      ]
+    guard let element = theElement else { return "" }
+    let dictionary: [Element_.Properties: String] = [ Element_.Properties.symbol: element.symbol,
+                                                      Element_.Properties.atomicNumber: "\(element.atomicNumber)",
+      Element_.Properties.groupPeriod: "\(element.elementPosition)",
+      Element_.Properties.atomicMass: "\(element.atomicMass)",
+      Element_.Properties.standardState: element.localizedState,
+      Element_.Properties.elementCategory: element.localizedGroup,
+      Element_.Properties.yearDiscovered: element.yearDiscovered,
+      Element_.Properties.density: element.density != nil ? "\(element.density!)" : UnknownValue.string,
+      Element_.Properties.electronConfiguration: element.electronicConfiguration,
+      Element_.Properties.valence: "\(element.valence)",
+      Element_.Properties.electronegativity: element.electronegativity != nil ? "\(element.electronegativity!)" : UnknownValue.string,
+      Element_.Properties.electronAffinity: element.electronAffinity != nil ? "\(element.electronAffinity!)" : UnknownValue.string,
+      Element_.Properties.ionizationEnergy: element.ionizationEnergy != nil ? "\(element.ionizationEnergy!)" : UnknownValue.string,
+      Element_.Properties.oxidationState: element.oxidationStates,
+      Element_.Properties.bondingType: element.bondingType,
+      Element_.Properties.meltingPoint: element.meltingPoint != nil ? "\(element.meltingPoint!)" : UnknownValue.string,
+      Element_.Properties.boilingPoint: element.boilingPoint != nil ? "\(element.boilingPoint!)" : UnknownValue.string,
+      Element_.Properties.atomicRadius: "",
+      Element_.Properties.hardness: "",
+      Element_.Properties.modulus: "",
+      Element_.Properties.conductivity: "",
+      Element_.Properties.heat: "",
+      Element_.Properties.abundance: ""
+    ]
     return dictionary[property]!
-    }
-    return ""
   }
 }
 

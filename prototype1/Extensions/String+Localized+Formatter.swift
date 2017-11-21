@@ -19,3 +19,20 @@ extension String {
   }
 }
 
+extension Formatter {
+  static let decimal: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.usesSignificantDigits = true
+    formatter.minimumSignificantDigits = 1
+    formatter.maximumSignificantDigits = 4
+    return formatter
+  }()
+}
+
+extension Numeric {
+  var decimalFormatted: String {
+    return Formatter.decimal.string(for: self) ?? ""
+  }
+}
+

@@ -17,7 +17,7 @@ internal let targetData = URL(fileURLWithPath: "data",
 
 class MyCollectionViewController: UICollectionViewController {
   
-  var elementsDataSource = ElementsDataSource()
+  lazy var elementsDataSource = ElementsDataSource()
   var loadingQueue = OperationQueue()
   var loadingOperations = [IndexPath: DataLoadOperation]()
   
@@ -30,7 +30,7 @@ class MyCollectionViewController: UICollectionViewController {
     super.viewDidLoad()
     setUpDisplay()
   }
-  
+    
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowDetail" {
       let detailVC = segue.destination as! DetailViewController
@@ -62,6 +62,9 @@ extension MyCollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
+    let width = view.frame.width / 5 - 12
+    cell.layer.cornerRadius = CGFloat(Int(width/4))
+    cell.layer.masksToBounds = true
     cell.updateAppearanceFor(nil, animated: false)
     return cell
   }
@@ -184,7 +187,7 @@ extension MyCollectionViewController {
   private func setUpDisplay() {
     let myCollecetionView = collectionView as? MyCollectionView
     myCollecetionView?.helperView.noResultLabel.isHidden = true
-    let width = 63
+    let width = view.frame.width / 5 - 12
     let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
     layout.itemSize = CGSize(width: width, height: width)
     layout.sectionHeadersPinToVisibleBounds = true

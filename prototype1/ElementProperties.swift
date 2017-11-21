@@ -37,19 +37,19 @@ struct UnknownValue {
 //  let legacyBlock: String
 //  let yearDiscovered: String
 //  let elementPosition: TableLocation
-//  
+//
 //  /// Localized version of name properties
 //  var localizedName: String {
 //    let name = self.name
 //    return nameForElement[name] ?? name
 //  }
-//  
+//
 //  /// Localized version of group
 //  var localizedGroup: String {
 //    let group = self.legacyBlock
 //    return groupForElement[group] ?? group
 //  }
-//  
+//
 //  /// Localized version of iupac name
 //  var localizedIUPAC: String {
 //    let iupac = self.iupacBlock ?? "Unknown".localize(withComment: "Unknown Value")
@@ -60,12 +60,12 @@ struct UnknownValue {
 struct TableLocation: CustomStringConvertible {
   let row: Int
   let column: Int
-  
+
   var description: String {
     return "(\(row), \(column))"
   }
 
-  
+
 }
 
 //// Basic Properties
@@ -128,7 +128,7 @@ struct Modulus {
   let young: Double?
   let shear: Double?
   let bulk: Double?
-  
+
 }
 
 // Conductivity
@@ -153,6 +153,7 @@ struct Abundance {
   let inOcean: Double?
   let inHuman: Double?
 }
+
 
 
 

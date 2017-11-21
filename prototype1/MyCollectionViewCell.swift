@@ -19,20 +19,12 @@ class MyCollectionViewCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     DispatchQueue.main.async {
-      let width = 63
-      self.layer.cornerRadius = CGFloat(Int(width/4))
-      self.layer.masksToBounds = true
-
       self.displayElement(nil)
     }
   }
   
   func updateAppearanceFor(_ element: Element_?, animated: Bool = false) {
     DispatchQueue.main.async {
-      let width = 63
-      self.layer.cornerRadius = CGFloat(Int(width/4))
-      self.layer.masksToBounds = true
-
       if animated {
         UIView.animate(withDuration: 0.25) {
           self.displayElement(element)
