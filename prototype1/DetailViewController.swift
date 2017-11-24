@@ -66,11 +66,25 @@ class DetailViewController: UITableViewController {
     searchController.searchBar.placeholder = "Search property".localize(withComment: "Search bar placeholder")
     navigationItem.searchController = searchController
     definesPresentationContext = true
-    
     filteringSameElements()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+//    print(collectionViewIsLoaded)
+//    if !collectionViewIsLoaded {
+//      DispatchQueue.global().async { [unowned self] in
+//        self.filterBlockOperation.start()
+//      }
+//    }
+  }
+  
   override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
     filterBlockOperation.cancel()
   }
   
@@ -102,6 +116,7 @@ class DetailViewController: UITableViewController {
     }
     
     filterBlockOperation.completionBlock = {
+      if self.filterBlockOperation.isCancelled { print("GOT CANCELLED7"); return }
       DispatchQueue.main.async { [unowned self] in
         if !self.isFiltering() {
           self.collectionViewIsLoaded = true
@@ -122,18 +137,18 @@ class DetailViewController: UITableViewController {
     navigationController?.popToRootViewController(animated: true)
   }
   
-  func filteringSamePeriodAndGroup(handler: (Bool) -> ()) {
-    guard let theElement = theElement else { return }
-//    let elements = elementsDataSource.allElements
-    elementsFilteredByGroup = allElements.filter({ (element) -> Bool in
-      element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol
-    })
-    elementsFilteredByPeriod = allElements.filter({ (element) -> Bool in
-      element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol
-    })
-    collectionViewIsLoaded = true
-    handler(true)
-  }
+//  func filteringSamePeriodAndGroup(handler: (Bool) -> ()) {
+//    guard let theElement = theElement else { return }
+////    let elements = elementsDataSource.allElements
+//    elementsFilteredByGroup = allElements.filter({ (element) -> Bool in
+//      element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol
+//    })
+//    elementsFilteredByPeriod = allElements.filter({ (element) -> Bool in
+//      element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol
+//    })
+//    collectionViewIsLoaded = true
+//    handler(true)
+//  }
 
 
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
