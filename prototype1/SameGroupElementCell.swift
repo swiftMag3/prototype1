@@ -31,14 +31,21 @@ class SameGroupElementCell: UITableViewCell {
     collectionView.tag = row
     collectionView.reloadData()
   }
-  
-  func stickySectionHeader() {
-    let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-    layout.sectionHeadersPinToVisibleBounds = true
-  }
-  
+    
   func reloadCollectionView() {
     collectionView.reloadData()
+  }
+  
+  func updateAppearance(isLoaded: Bool) {
+    let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+    layout.sectionHeadersPinToVisibleBounds = true
+    if isLoaded {
+      loadingIndicator.isHidden = true
+      loadingIndicator.stopAnimating()
+    } else {
+      loadingIndicator.isHidden = false
+      loadingIndicator.startAnimating()
+    }
   }
   
 }

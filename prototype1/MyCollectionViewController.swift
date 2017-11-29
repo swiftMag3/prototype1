@@ -103,7 +103,7 @@ extension MyCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     
     guard let cell = cell as? MyCollectionViewCell else { return }
-    dataIsLoaded = false
+//    dataIsLoaded = false
     
     // How should the operation update the cell once the data has been loaded?
     let updateCellClosure: (Element_?) -> () = { [unowned self] (element) in

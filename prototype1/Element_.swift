@@ -342,3 +342,11 @@ extension Element_: Any {
     }
   }
 }
+
+
+// MARK: - Element_ extension EQUATABLE Protocol
+extension Element_: Equatable {
+  static func ==(lhs: Element_, rhs: Element_) -> Bool {
+    return lhs.atomicMass == rhs.atomicMass
+  }
+}

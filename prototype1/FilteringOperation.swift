@@ -8,45 +8,84 @@
 
 import UIKit
 
-class FilteringOperation: AsyncOperation {
-  var theElement: Element_?
-  var inputElements: [Element_]?
-  var outputElementsForGroup: [Element_]?
-  var outputElementsForPeriod: [Element_]?
+class FilteringOperation: Operation {
+  var element: Element_?
+  var loadingCompletionHandler: (([Element_]) -> Void)?// TODO
+//  var filteringTask: ((Element_) -> Void)? //TODO
+  var indexPath: IndexPath
+  var elementsFiltered: [Element_]?
   
-  init(inputElements: [Element_]?, with element: Element_?) {
-    self.inputElements = inputElements
-    self.theElement = element
+  init(element: Element_, indexPath: IndexPath) {
+    self.element = element
+    self.indexPath = indexPath
+  }
+  
+  private func filter(completion: (([Element_]) -> Void)? ) {
+    if isCancelled { return }
+    let allElements = ElementsDataSource().allElements
+    var elements: [Element_]
+    guard let theElement = element else { return }
+    if indexPath.row == 23 {
+      if isCancelled { return }
+
+      elements = allElements.filter({ (element) -> Bool in
+        element.elementPosition.column == theElement.elementPosition.column
+      })
+      elements.remove(at: elements.index(of: theElement)!)
+    } else {
+      if isCancelled { return }
+
+      elements = allElements.filter({ (element) -> Bool in
+        element.elementPosition.row == theElement.elementPosition.row
+      })
+      elements.remove(at: elements.index(of: theElement)!)
+    }
+    elementsFiltered = elements
+    completion?(elements)
   }
   
   override func main() {
+    
+    // Edit here
     if isCancelled { return }
-    DispatchQueue.global().async {
-      guard let inputElements = self.inputElements , let theElement = self.theElement else { return }
-      for element in inputElements {
-        if self.isCancelled { return }
-        if element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol {
-          self.outputElementsForGroup?.append(element)
-        }
-      }
-      for element in inputElements {
-        if self.isCancelled { return }
-        if element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol {
-          self.outputElementsForPeriod?.append(element)
+    filter { (elements) in
+      if let loadingCompletionHandler = self.loadingCompletionHandler {
+        DispatchQueue.main.async {
+          loadingCompletionHandler(elements)
         }
       }
     }
+    
+    
+    
+    
+    /*
+     if isCancelled { return }
+     self.element = theElement
+     
+     if let filteringTask = filteringTask /*, let loadingCompleteHandler = loadingCompleteHandler*/ {
+     //DispatchQueue.global(qos: .utility).async {
+     if isCancelled { return }
+     filteringTask(self.theElement)
+     //        DispatchQueue.main.async {
+     //          loadingCompleteHandler(self.theElement)
+     //        }
+     
+     //}
+     }
+     */
   }
 }
 
 
-class FilteringBlockOperation: BlockOperation {
-  var state: Bool = false
-  override func cancel() {
-    state = false
-  }
-  
-  override var isCancelled: Bool {
-    return state
-  }
-}
+//class FilteringBlockOperation: BlockOperation {
+//  var state: Bool = false
+//  override func cancel() {
+//    state = false
+//  }
+//
+//  override var isCancelled: Bool {
+//    return state
+//  }
+//}
+

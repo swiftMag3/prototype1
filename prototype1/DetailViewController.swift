@@ -14,10 +14,17 @@ private enum CellType: String {
   case CollectionCell = "CollectionCell"
 }
 
+enum Constant: CGFloat {
+  case tableViewCellHeightForCollectionView = 83
+  case collectionViewCellWidth = 62
+}
+
 class DetailViewController: UITableViewController {
   
   lazy var allElements = ElementsDataSource().allElements
   private var filterBlockOperation = BlockOperation()
+  var loadingQueue = OperationQueue() // C
+  var loadingOperations = [IndexPath: FilteringOperation]() // C
 
   // Collection View Cell properties
   private var elementsFilteredByGroup = [Element_]()
@@ -27,6 +34,7 @@ class DetailViewController: UITableViewController {
   let searchController = UISearchController(searchResultsController: nil)
   private var filteredProperties: [Element_.Properties] = []
   private let noResultLabel = UILabel()
+  private var cellAtIndexPathRowLoaded: [Int: Bool] = [:]
   
   
   private let properties: [Element_.Properties] = [Element_.Properties.symbol,
@@ -66,106 +74,113 @@ class DetailViewController: UITableViewController {
     searchController.searchBar.placeholder = "Search property".localize(withComment: "Search bar placeholder")
     navigationItem.searchController = searchController
     definesPresentationContext = true
-    filteringSameElements()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-//    print(collectionViewIsLoaded)
-//    if !collectionViewIsLoaded {
-//      DispatchQueue.global().async { [unowned self] in
-//        self.filterBlockOperation.start()
-//      }
-//    }
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    filterBlockOperation.cancel()
+    loadingQueue.cancelAllOperations()
   }
   
-  private func filteringSameElements() {
-//    let allElements = elementsDataSource.allElements
-    
-    filterBlockOperation.addExecutionBlock { [unowned self] in
-      if self.filterBlockOperation.isCancelled { print("GOT CANCELLED1"); return }
-      guard let theElement = self.theElement else { return }
-      for element in self.allElements {
-        if self.filterBlockOperation.isCancelled { print("GOT CANCELLED2"); return }
-        if element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol {
-          if self.filterBlockOperation.isCancelled { print("GOT CANCELLED3"); return }
-          self.elementsFilteredByGroup.append(element)
-        }
-      }
-    }
-    
-    filterBlockOperation.addExecutionBlock { [unowned self] in
-      if self.filterBlockOperation.isCancelled { print("GOT CANCELLED1"); return }
-      guard let theElement = self.theElement else { return }
-      for element in self.allElements {
-        if self.filterBlockOperation.isCancelled { print("GOT CANCELLED5"); return }
-        if element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol {
-          if self.filterBlockOperation.isCancelled { print("GOT CANCELLED6"); return }
-          self.elementsFilteredByPeriod.append(element)
-        }
-      }
-    }
-    
-    filterBlockOperation.completionBlock = {
-      if self.filterBlockOperation.isCancelled { print("GOT CANCELLED7"); return }
-      DispatchQueue.main.async { [unowned self] in
-        if !self.isFiltering() {
-          self.collectionViewIsLoaded = true
-          let indexPath1 = IndexPath(row: self.properties.count, section: 0)
-          let indexPath2 = IndexPath(row: self.properties.count + 1, section: 0)
-          self.tableView.reloadRows(at: [indexPath1, indexPath2], with: .automatic)
-        }
-      }
-    }
-    DispatchQueue.global().async { [unowned self] in
-      self.filterBlockOperation.start()
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if !loadingOperations.isEmpty {
+      tableView.reloadData()
     }
   }
-
 
   // remove all the controller and go to root controllers
   @objc private func popControllers() {
     navigationController?.popToRootViewController(animated: true)
   }
+
+  private func setTheArray(elements: [Element_], at indexPath: IndexPath) {
+    guard let _ = self.theElement else { return }
+    if !self.isFiltering() {
+      if let loaded = cellAtIndexPathRowLoaded[indexPath.row] {
+        if loaded { return }
+      } else {
+        cellAtIndexPathRowLoaded[indexPath.row] = false
+      }
+      switch indexPath.row {
+      case self.properties.count:
+        self.elementsFilteredByGroup = elements
+      case self.properties.count + 1:
+        self.elementsFilteredByPeriod = elements
+      default:
+        return
+      }
+      self.collectionViewIsLoaded = true
+      cellAtIndexPathRowLoaded[indexPath.row] = true
+      self.tableView.reloadRows(at: [indexPath], with: .automatic)
+      self.loadingOperations.removeValue(forKey: indexPath)
+    }
+
+  }
   
-//  func filteringSamePeriodAndGroup(handler: (Bool) -> ()) {
-//    guard let theElement = theElement else { return }
-////    let elements = elementsDataSource.allElements
-//    elementsFilteredByGroup = allElements.filter({ (element) -> Bool in
-//      element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol
-//    })
-//    elementsFilteredByPeriod = allElements.filter({ (element) -> Bool in
-//      element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol
-//    })
-//    collectionViewIsLoaded = true
-//    handler(true)
-//  }
-
-
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     if !isFiltering() {
       if indexPath.row >= properties.count {
-        guard let tableViewCell = cell as? SameGroupElementCell else { return }
-        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-        
-        if collectionViewIsLoaded {
-          tableViewCell.loadingIndicator.isHidden = true
-          tableViewCell.loadingIndicator.stopAnimating()
+        guard let cell = cell as? SameGroupElementCell else { return }
+        cell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+        // C - TODO
+        // How should the operation update the cell once the data has been loaded?
+        let loadingCompletionHandler: ([Element_]) -> () = { [unowned self] (elements) in
+          self.setTheArray(elements: elements, at: indexPath)
+        }
+                
+        // Try to find existing data loader
+        if let dataLoader = loadingOperations[indexPath] {
+          // Has the data already been loaded?
+          if let elements = dataLoader.elementsFiltered {
+            self.setTheArray(elements: elements, at: indexPath)
+          } else {
+            // No data loaded yet, so add the completion closure to update the cell once the data arrives
+            dataLoader.loadingCompletionHandler = loadingCompletionHandler
+          }
         } else {
-          tableViewCell.loadingIndicator.isHidden = false
-          tableViewCell.loadingIndicator.startAnimating()
+          // Need to create a data loaded for this indexpath
+          var dataLoader = FilteringOperation(element: Element_(), indexPath: indexPath)
+          if !isFiltering() {
+            dataLoader = FilteringOperation(element: theElement!, indexPath: indexPath)
+          }
+          dataLoader.loadingCompletionHandler = loadingCompletionHandler
+          // Check if the data is displayed already
+          if let loaded = cellAtIndexPathRowLoaded[indexPath.row] {
+            if loaded { return }
+          } else {
+            loadingQueue.addOperation(dataLoader)
+          }
+          loadingOperations[indexPath] = dataLoader
         }
       }
     }
+  }
+  
+  override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if !isFiltering() {
+      if indexPath.row >= properties.count {
+        if let dataLoader = loadingOperations[indexPath] {
+          dataLoader.cancel()
+          loadingOperations.removeValue(forKey: indexPath)
+        }
+      }
+    }
+  }
+  
+  func filterTheGroupAndPeriod(for theElement: Element_, atIndexPath indexPath: IndexPath, handler: ((Bool) -> ())?) {
+    var finished = false
+    if indexPath.row == properties.count {
+      elementsFilteredByGroup = allElements.filter({ (element) -> Bool in
+        element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol
+      })
+    } else {
+      elementsFilteredByPeriod = allElements.filter({ (element) -> Bool in
+        element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol
+      })
+    }
+    finished = true
+    guard let handler = handler else { return }
+    handler(finished)
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -179,13 +194,12 @@ class DetailViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.row {
     case properties.count... :
-      return 83
+      return Constant.tableViewCellHeightForCollectionView.rawValue
     default:
       return UITableViewAutomaticDimension
     }
   }
 
-  // TODO: - Make the properties Searchable
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if isFiltering() {
       let property = filteredProperties[indexPath.row]
@@ -211,7 +225,7 @@ class DetailViewController: UITableViewController {
         }
       } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellType.CollectionCell.rawValue, for: indexPath) as! SameGroupElementCell
-        cell.stickySectionHeader()
+        cell.updateAppearance(isLoaded: collectionViewIsLoaded)
         return cell
       }
     }
@@ -257,7 +271,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
       element = elementsFilteredByPeriod[indexPath.row]
     }
     cell.updateAppearanceFor(element)
-    collectionViewIsLoaded = true
+
     return cell
   }
 

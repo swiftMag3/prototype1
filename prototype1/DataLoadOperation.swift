@@ -18,9 +18,6 @@ class DataLoadOperation: Operation {
   }
   
   override func main() {
-    //    if isCancelled { return }
-    //    usleep(800 * 1000)
-    
     if isCancelled { return }
     self.element = _element
     

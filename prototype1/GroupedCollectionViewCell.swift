@@ -18,7 +18,7 @@ class GroupedCollectionViewCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     DispatchQueue.main.async {
-      let width = 63
+      let width = Constant.collectionViewCellWidth.rawValue
       self.layer.cornerRadius = CGFloat(Int(width/4))
       self.layer.masksToBounds = true
       self.displayElement(nil)
@@ -27,7 +27,7 @@ class GroupedCollectionViewCell: UICollectionViewCell {
   
   func updateAppearanceFor(_ element: Element_?, animated: Bool = true) {
     DispatchQueue.main.async {
-      let width = 63
+      let width = Constant.collectionViewCellWidth.rawValue
       self.layer.cornerRadius = CGFloat(Int(width/4))
       self.layer.masksToBounds = true
       if animated {
