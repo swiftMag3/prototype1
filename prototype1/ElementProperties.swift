@@ -58,7 +58,7 @@ struct UnknownValue {
 //}
 
 struct TableLocation: CustomStringConvertible {
-  let row: Int
+  var row: Int
   let column: Int
 
   var description: String {
