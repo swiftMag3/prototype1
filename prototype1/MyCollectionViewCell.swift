@@ -15,7 +15,7 @@ class MyCollectionViewCell: UICollectionViewCell {
   @IBOutlet private weak var shadowView: UIView!
   @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
   
-  var element: Element_?
+  var element: ElementRealm?
   
   override func prepareForReuse() {
     DispatchQueue.main.async {
@@ -23,7 +23,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func updateAppearanceFor(_ element: Element_?, animated: Bool = false) {
+  func updateAppearanceFor(_ element: ElementRealm?, animated: Bool = false) {
     DispatchQueue.main.async {
       if animated {
         UIView.animate(withDuration: 0.25) {
@@ -35,7 +35,7 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  private func displayElement(_ element: Element_?) {
+  private func displayElement(_ element: ElementRealm?) {
     self.element = element
     var cpkColor: String
     

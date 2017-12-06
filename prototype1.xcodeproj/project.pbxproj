@@ -16,6 +16,7 @@
 		6F13CFDC1FD6C8590023A953 /* ElementRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F13CFDB1FD6C8590023A953 /* ElementRealm.swift */; };
 		6F3DD4871FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3DD4861FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift */; };
 		6F3DD4891FAAADAF00CCB804 /* String+Localized+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3DD4881FAAADAF00CCB804 /* String+Localized+Formatter.swift */; };
+		6F4EB58F1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */; };
 		6F549CA81FA226AE00E9823A /* ElementProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F549CA71FA226AE00E9823A /* ElementProperties.swift */; };
 		6F6321B91FBAFCB20046B717 /* Element_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6321B81FBAFCB20046B717 /* Element_.swift */; };
 		6F6321C01FBB0C070046B717 /* ElementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6321BF1FBB0C070046B717 /* ElementsDataSource.swift */; };
@@ -72,6 +73,7 @@
 		6F3DD4861FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCollectionViewController+JSONToArray.swift"; sourceTree = "<group>"; };
 		6F3DD4881FAAADAF00CCB804 /* String+Localized+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized+Formatter.swift"; sourceTree = "<group>"; };
 		6F4C0F171FB30ED7004CFD83 /* HandyUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HandyUIKit.framework; path = Carthage/Build/iOS/HandyUIKit.framework; sourceTree = "<group>"; };
+		6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsRealmDataSource.swift; sourceTree = "<group>"; };
 		6F549CA71FA226AE00E9823A /* ElementProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementProperties.swift; sourceTree = "<group>"; };
 		6F6321B81FBAFCB20046B717 /* Element_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element_.swift; sourceTree = "<group>"; };
 		6F6321BF1FBB0C070046B717 /* ElementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsDataSource.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				6F6321BF1FBB0C070046B717 /* ElementsDataSource.swift */,
+				6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */,
 				6F6321C11FBB242A0046B717 /* DataLoadOperation.swift */,
 				6FE799C21FBF621900A973D9 /* FilteringOperation.swift */,
 				6F9D9A951FC443CE0065873D /* AsyncOperation.swift */,
@@ -333,6 +336,7 @@
 				6F9D9A961FC443CE0065873D /* AsyncOperation.swift in Sources */,
 				6F6321C01FBB0C070046B717 /* ElementsDataSource.swift in Sources */,
 				6F797D491FB0997B005A0278 /* DetailViewController.swift in Sources */,
+				6F4EB58F1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift in Sources */,
 				6F3DD4891FAAADAF00CCB804 /* String+Localized+Formatter.swift in Sources */,
 				6FA489801FA946D300C2E067 /* MyCollectionViewController.swift in Sources */,
 				6FE799C31FBF621900A973D9 /* FilteringOperation.swift in Sources */,

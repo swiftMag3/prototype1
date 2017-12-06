@@ -7,38 +7,33 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FilteringOperation: Operation {
-  var element: Element_?
-  var loadingCompletionHandler: (([Element_]) -> Void)?// TODO
+  var element: ElementRealm?
+  var loadingCompletionHandler: ((Results<ElementRealm>) -> Void)?// TODO
 //  var filteringTask: ((Element_) -> Void)? //TODO
   var indexPath: IndexPath
-  var elementsFiltered: [Element_]?
+  var elementsFiltered: Results<ElementRealm>?
   
-  init(element: Element_, indexPath: IndexPath) {
+  init(element: ElementRealm, indexPath: IndexPath) {
     self.element = element
     self.indexPath = indexPath
   }
   
-  private func filter(completion: (([Element_]) -> Void)? ) {
+  private func filter(completion: ((Results<ElementRealm>) -> Void)? ) {
     if isCancelled { return }
-    let allElements = ElementsDataSource().allElements
-    var elements: [Element_]
+    let allElements = try! Realm().objects(ElementRealm.self)
+    var elements: Results<ElementRealm>
     guard let theElement = element else { return }
     if indexPath.row == 23 {
       if isCancelled { return }
 
-      elements = allElements.filter({ (element) -> Bool in
-        element.elementPosition.column == theElement.elementPosition.column
-      })
-      elements.remove(at: elements.index(of: theElement)!)
+      elements = allElements.filter("elementColumn = \(theElement.elementColumn) AND atomicNumber != \(theElement.atomicNumber)")
     } else {
       if isCancelled { return }
 
-      elements = allElements.filter({ (element) -> Bool in
-        element.elementPosition.row == theElement.elementPosition.row
-      })
-      elements.remove(at: elements.index(of: theElement)!)
+      elements = allElements.filter("elementRow = \(theElement.elementRow) AND atomicNumber != \(theElement.atomicNumber)")
     }
     elementsFiltered = elements
     completion?(elements)

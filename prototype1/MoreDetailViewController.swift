@@ -8,43 +8,44 @@
 
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 class MoreDetailViewController: UITableViewController {
 
   
-  private let propertiesNameDictionary: [Element_.Properties: [Element_.MoreProperties]] = [
-    Element_.Properties.hardness: [Element_.MoreProperties.vickers,
-                          Element_.MoreProperties.mohs,
-                          Element_.MoreProperties.brinell],
-    Element_.Properties.atomicRadius: [Element_.MoreProperties.covalentRadius,
-                              Element_.MoreProperties.empiricalRadius,
-                              Element_.MoreProperties.vanDerWaalsRadius,
-                              Element_.MoreProperties.calculatedRadius,
-                              Element_.MoreProperties.ionRadius],
-    Element_.Properties.modulus: [Element_.MoreProperties.youngModulus,
-                         Element_.MoreProperties.shearModulus,
-                         Element_.MoreProperties.bulkModulus],
-    Element_.Properties.conductivity: [Element_.MoreProperties.electricalConductivity,
-                              Element_.MoreProperties.thermalConductivity],
-    Element_.Properties.heat: [Element_.MoreProperties.specificHeat,
-                      Element_.MoreProperties.vaporHeat,
-                      Element_.MoreProperties.fusionHeat],
-    Element_.Properties.abundance: [Element_.MoreProperties.universeAbundance,
-                           Element_.MoreProperties.solarAbundance,
-                           Element_.MoreProperties.meteorAbundance,
-                           Element_.MoreProperties.crustAbundance,
-                           Element_.MoreProperties.oceanAbundance,
-                           Element_.MoreProperties.humanAbundance]]
+  private let propertiesNameDictionary: [ElementRealm.Properties: [ElementRealm.MoreProperties]] = [
+    ElementRealm.Properties.hardness: [ElementRealm.MoreProperties.vickers,
+                          ElementRealm.MoreProperties.mohs,
+                          ElementRealm.MoreProperties.brinell],
+    ElementRealm.Properties.atomicRadius: [ElementRealm.MoreProperties.covalentRadius,
+                              ElementRealm.MoreProperties.empiricalRadius,
+                              ElementRealm.MoreProperties.vanDerWaalsRadius,
+                              ElementRealm.MoreProperties.calculatedRadius,
+                              ElementRealm.MoreProperties.ionRadius],
+    ElementRealm.Properties.modulus: [ElementRealm.MoreProperties.youngModulus,
+                         ElementRealm.MoreProperties.shearModulus,
+                         ElementRealm.MoreProperties.bulkModulus],
+    ElementRealm.Properties.conductivity: [ElementRealm.MoreProperties.electricalConductivity,
+                              ElementRealm.MoreProperties.thermalConductivity],
+    ElementRealm.Properties.heat: [ElementRealm.MoreProperties.specificHeat,
+                      ElementRealm.MoreProperties.vaporHeat,
+                      ElementRealm.MoreProperties.fusionHeat],
+    ElementRealm.Properties.abundance: [ElementRealm.MoreProperties.universeAbundance,
+                           ElementRealm.MoreProperties.solarAbundance,
+                           ElementRealm.MoreProperties.meteorAbundance,
+                           ElementRealm.MoreProperties.crustAbundance,
+                           ElementRealm.MoreProperties.oceanAbundance,
+                           ElementRealm.MoreProperties.humanAbundance]]
   
   
-  var property: Element_.Properties! {
+  var property: ElementRealm.Properties! {
     didSet {
       self.title = property.name
     }
   }
   
-  var theElement: Element_!
-  private lazy var properties = { () -> [Element_.MoreProperties] in
+  var theElement: ElementRealm!
+  private lazy var properties = { () -> [ElementRealm.MoreProperties] in
     return propertiesNameDictionary[property]!
   }()
   
@@ -73,7 +74,7 @@ extension MoreDetailViewController {
     cell.detailTextLabel?.textColor = UIColor.gray
   }
   
-  private func makeAPropertyCell(indexPath: IndexPath, for property: Element_.MoreProperties, with value: String, unit: Unit.RawValue) -> UITableViewCell {
+  private func makeAPropertyCell(indexPath: IndexPath, for property: ElementRealm.MoreProperties, with value: String, unit: Unit.RawValue) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     cell.textLabel?.text = property.name
     cell.textLabel?.textColor = UIColor.gray
@@ -87,7 +88,7 @@ extension MoreDetailViewController {
     return cell
   }
   
-  private func valueForProperty(_ moreProperty: Element_.MoreProperties) -> String {
+  private func valueForProperty(_ moreProperty: ElementRealm.MoreProperties) -> String {
     guard let element = theElement else { return "" }
     
     func abundancePercentage(_ value: Double?) -> String {
@@ -96,13 +97,14 @@ extension MoreDetailViewController {
       return value.decimalFormatted
     }
     
-    func ionRadiusToString(_ dict: [String:Double]?) -> String {
+    func ionRadiusToString(_ dict: List<IonRadius>?) -> String {
       guard let dict = dict else { return UnknownValue.string }
-      var stringText = String()
-      for (key, item) in dict {
-        let ionName = key
-        let radius  = item
-        stringText = "((\(ionName)) : \(radius))" // NO DATA SHOWS IT HAS MORE THAN ONE, needs to be changed if in the future there is
+      var stringText = ""
+      for ionRadius in dict {
+        let ionName = ionRadius.ion
+        let radius  = ionRadius.radius
+        let text = "((\(ionName)) : \(radius))" // NO DATA SHOWS MORE THAN ONE, needs to be changed if in the future there is more than one
+        stringText += text + "\n"
       }
       if stringText.isEmpty {
         return UnknownValue.string
@@ -116,32 +118,34 @@ extension MoreDetailViewController {
       return String(value)
     }
     
-    let dictionary: [Element_.MoreProperties: String] = [Element_.MoreProperties.vickers: makeAStringFrom(element.hardness.vickers),
-      Element_.MoreProperties.mohs: makeAStringFrom(element.hardness.mohs),
-      Element_.MoreProperties.brinell: makeAStringFrom(element.hardness.brinell),
-      Element_.MoreProperties.covalentRadius: makeAStringFrom(element.atomicRadius.covalent),
-      Element_.MoreProperties.empiricalRadius: makeAStringFrom(element.atomicRadius.empirical),
-      Element_.MoreProperties.vanDerWaalsRadius: makeAStringFrom(element.atomicRadius.vanDerWaals),
-      Element_.MoreProperties.calculatedRadius: makeAStringFrom(element.atomicRadius.calculated),
-      Element_.MoreProperties.ionRadius: ionRadiusToString(element.atomicRadius.ion),
-      Element_.MoreProperties.youngModulus: makeAStringFrom(element.modulus.young),
-      Element_.MoreProperties.shearModulus: makeAStringFrom(element.modulus.shear),
-      Element_.MoreProperties.bulkModulus: makeAStringFrom(element.modulus.bulk),
-      Element_.MoreProperties.electricalConductivity: makeAStringFrom(element.conductivity.electric),
-      Element_.MoreProperties.thermalConductivity: makeAStringFrom(element.conductivity.thermal),
-      Element_.MoreProperties.specificHeat: makeAStringFrom(element.heatProperties.specificHeat),
-      Element_.MoreProperties.vaporHeat: makeAStringFrom(element.heatProperties.vaporizationHeat),
-      Element_.MoreProperties.fusionHeat: makeAStringFrom(element.heatProperties.fusionHeat),
-      Element_.MoreProperties.universeAbundance: abundancePercentage(element.abundance.inUniverse),
-      Element_.MoreProperties.solarAbundance: abundancePercentage(element.abundance.inUniverse),
-      Element_.MoreProperties.meteorAbundance: abundancePercentage(element.abundance.inMeteor),
-      Element_.MoreProperties.crustAbundance: abundancePercentage(element.abundance.inCrust),
-      Element_.MoreProperties.oceanAbundance: abundancePercentage(element.abundance.inOcean),
-      Element_.MoreProperties.humanAbundance: abundancePercentage(element.abundance.inHuman)]
+    let dictionary: [ElementRealm.MoreProperties: String] = [ElementRealm.MoreProperties.vickers: makeAStringFrom(element.vickersHardness.value),
+      ElementRealm.MoreProperties.mohs: makeAStringFrom(element.mohsHardness.value),
+      ElementRealm.MoreProperties.brinell: makeAStringFrom(element.brinellHardness.value),
+      ElementRealm.MoreProperties.covalentRadius: makeAStringFrom(element.covalentRadius.value),
+      ElementRealm.MoreProperties.empiricalRadius: makeAStringFrom(element.empiricalRadius.value),
+      ElementRealm.MoreProperties.vanDerWaalsRadius: makeAStringFrom(element.vanDerWaalsRadius.value),
+      ElementRealm.MoreProperties.calculatedRadius: makeAStringFrom(element.calculatedRadius.value),
+      ElementRealm.MoreProperties.ionRadius: ionRadiusToString(element.ionRadius),
+      ElementRealm.MoreProperties.youngModulus: makeAStringFrom(element.youngModulus.value),
+      ElementRealm.MoreProperties.shearModulus: makeAStringFrom(element.shearModulus.value),
+      ElementRealm.MoreProperties.bulkModulus: makeAStringFrom(element.bulkModulus.value),
+      ElementRealm.MoreProperties.electricalConductivity: makeAStringFrom(element.electricalConductivity.value),
+      ElementRealm.MoreProperties.thermalConductivity: makeAStringFrom(element.thermalConductivity.value),
+      ElementRealm.MoreProperties.specificHeat: makeAStringFrom(element.specifictHeat.value),
+      ElementRealm.MoreProperties.vaporHeat: makeAStringFrom(element.vaporizationHeat.value),
+      ElementRealm.MoreProperties.fusionHeat: makeAStringFrom(element.fusionHeat.value),
+      ElementRealm.MoreProperties.universeAbundance: abundancePercentage(element.abundanceInUniverse.value),
+      ElementRealm.MoreProperties.solarAbundance: abundancePercentage(element.abundanceInSolar.value),
+      ElementRealm.MoreProperties.meteorAbundance: abundancePercentage(element.abundanceInMeteor.value),
+      ElementRealm.MoreProperties.crustAbundance: abundancePercentage(element.abundanceInCrust.value),
+      ElementRealm.MoreProperties.oceanAbundance: abundancePercentage(element.abundanceInOcean.value),
+      ElementRealm.MoreProperties.humanAbundance: abundancePercentage(element.abundaceInHuman.value)]
     
     return dictionary[moreProperty]!
   }
   
   
 }
+
+
 

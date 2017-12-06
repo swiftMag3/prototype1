@@ -14,7 +14,7 @@ class GroupedCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var atomicMassLabel: UILabel!
   @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
   
-  var element: Element_?
+  var element: ElementRealm?
   
   override func prepareForReuse() {
     DispatchQueue.main.async {
@@ -25,7 +25,7 @@ class GroupedCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  func updateAppearanceFor(_ element: Element_?, animated: Bool = true) {
+  func updateAppearanceFor(_ element: ElementRealm?, animated: Bool = true) {
     DispatchQueue.main.async {
       let width = Constant.collectionViewCellWidth.rawValue
       self.layer.cornerRadius = CGFloat(Int(width/4))
@@ -40,7 +40,7 @@ class GroupedCollectionViewCell: UICollectionViewCell {
     }
   }
   
-  private func displayElement(_ element: Element_?) {
+  private func displayElement(_ element: ElementRealm?) {
     self.element = element
     var cpkColor: String
     

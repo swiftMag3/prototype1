@@ -8,12 +8,20 @@
 
 import Foundation
 import RealmSwift
+
 class IonRadius: Object {
+  
+  convenience init(ion: String, radius: Double) {
+    self.init()
+    self.ion = ion
+    self.radius = radius
+  }
+  
   @objc dynamic var ion = ""
   @objc dynamic var radius = 0.0
 }
 
-class ELementRealm: Object {
+class ElementRealm: Object {
   
   @objc dynamic var atomicNumber = 0
   @objc dynamic var symbol = ""
@@ -30,6 +38,7 @@ class ELementRealm: Object {
   @objc dynamic var valence = 0
   @objc dynamic var bondingType = ""
   @objc dynamic var oxidationStates = ""
+  @objc dynamic var isBookmarked = false
   
   
   let density = RealmOptional<Double>()
@@ -61,7 +70,41 @@ class ELementRealm: Object {
   let abundanceInOcean = RealmOptional<Double>()
   let abundaceInHuman = RealmOptional<Double>()
   
+  /// Localized version of name properties
+  var localizedName: String {
+    let name = self.name
+    return nameForElement[name] ?? name
+  }
+  
+  /// Localized version of group
+  var localizedGroup: String {
+    let group = self.legacyBlock
+    return groupForElement[group] ?? group
+  }
+  
+  /// Localized version of iupac name
+  var localizedIUPAC: String {
+    let iupac = self.iupacBlock
+    return iupacForElement[iupac] ?? UnknownValue.string
+  }
+  
+  /// Localized version of standard state
+  var localizedState: String {
+    let state = self.standardState
+    return stateForElement[state] ?? state
+  }
+  
+  /// Localized version of bonding type
+  var localizedBondingType: String {
+    let bondingType = self.bondingType
+    return bondingTypeForElement[bondingType] ?? UnknownValue.string
+  }
+  
+  
   override static func primaryKey() -> String? {
     return "atomicNumber"
   }
 }
+
+
+

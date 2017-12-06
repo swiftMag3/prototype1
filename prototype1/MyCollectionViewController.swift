@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 internal let targetData = URL(fileURLWithPath: "data",
@@ -17,24 +18,28 @@ internal let targetData = URL(fileURLWithPath: "data",
 
 class MyCollectionViewController: UICollectionViewController {
   
-  lazy var elementsDataSource = ElementsDataSource()
+//  lazy var elementsDataSource = ElementsDataSource()
+  var elementsRealmDataSource: ElementsRealmDataSource!
   var loadingQueue = OperationQueue()
   var loadingOperations = [IndexPath: DataLoadOperation]()
   
   let searchController = UISearchController(searchResultsController: nil)
-  private var filteredElements: [Element_] = []
+//  private var filteredElements: [Element_] = []
+  private var filteredElements: [ElementRealm] = []
+
   private var dataIsLoaded = false
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    elementsRealmDataSource = ElementsRealmDataSource()
     setUpDisplay()
   }
     
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowDetail" {
       let detailVC = segue.destination as! DetailViewController
-      detailVC.theElement = sender as? Element_
+      detailVC.theElement = sender as? ElementRealm
     }
   }
 }
@@ -48,7 +53,7 @@ extension MyCollectionViewController {
     if isFiltering() {
       return 1
     } else {
-      return elementsDataSource.numbersOfSection
+      return elementsRealmDataSource.numbersOfSection
     }
   }
   
@@ -56,7 +61,7 @@ extension MyCollectionViewController {
     if isFiltering() {
       return filteredElements.count
     } else {
-      return elementsDataSource.numberOfElementsInSection(section)
+      return elementsRealmDataSource.numberOfElementsInSection(section)
     }
   }
   
@@ -77,7 +82,7 @@ extension MyCollectionViewController {
     } else {
       if dataIsLoaded {
         sectionHeader.isHidden = false
-        sectionHeader.title = elementsDataSource.titleForSectionAtIndexPath(indexPath).capitalized
+        sectionHeader.title = elementsRealmDataSource.titleForSectionAtIndexPath(indexPath).capitalized
       } else {
         sectionHeader.isHidden = true
       }
@@ -90,11 +95,11 @@ extension MyCollectionViewController {
 // MARK:- UICollectionViewDelegate
 extension MyCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    var element: Element_
+    var element: ElementRealm
     if isFiltering() {
       element = filteredElements[indexPath.row]
     } else {
-      element = elementsDataSource.elementForItemAtIndexPath(indexPath)!
+      element = elementsRealmDataSource.elementForItemAtIndexPath(indexPath)!
     }
     performSegue(withIdentifier: "ShowDetail", sender: element)
     
@@ -106,7 +111,7 @@ extension MyCollectionViewController {
 //    dataIsLoaded = false
     
     // How should the operation update the cell once the data has been loaded?
-    let updateCellClosure: (Element_?) -> () = { [unowned self] (element) in
+    let updateCellClosure: (ElementRealm?) -> () = { [unowned self] (element) in
       cell.updateAppearanceFor(element, animated: false)
       self.loadingOperations.removeValue(forKey: indexPath)
     }
@@ -123,11 +128,11 @@ extension MyCollectionViewController {
       }
     } else {
       // Need to create a data loaded for this index path
-      var dataLoader = DataLoadOperation(Element_())
+      var dataLoader = DataLoadOperation(ElementRealm())
       if isFiltering() {
-        dataLoader = DataLoadOperation(filteredElements[indexPath.row])
+        dataLoader = DataLoadOperation(filteredElements[indexPath.item])
       } else {
-        if let theElement = elementsDataSource.elementForItemAtIndexPath(indexPath) {
+        if let theElement = elementsRealmDataSource.elementForItemAtIndexPath(indexPath) {
           dataLoader = DataLoadOperation(theElement)
         }
       }
@@ -158,7 +163,8 @@ extension MyCollectionViewController {
   }
   
   func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-    filteredElements = elementsDataSource.allElements.filter({ (element: Element_) -> Bool in
+    let realm = try! Realm()
+    filteredElements = realm.objects(ElementRealm.self).filter({ (element) -> Bool in
       let isName = element.name.lowercased().contains(searchText.lowercased())
         || element.localizedName.lowercased().contains(searchText.lowercased())
       let isSymbol = element.symbol.lowercased().contains(searchText.lowercased())

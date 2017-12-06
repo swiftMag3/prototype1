@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private enum CellType: String {
   case Cell = "Cell"
@@ -21,47 +22,42 @@ enum Constant: CGFloat {
 
 class DetailViewController: UITableViewController {
   
-  lazy var allElements = ElementsDataSource().allElements
-  private var filterBlockOperation = BlockOperation()
-  var loadingQueue = OperationQueue() // C
-  var loadingOperations = [IndexPath: FilteringOperation]() // C
-
   // Collection View Cell properties
-  private var elementsFilteredByGroup = [Element_]()
-  private var elementsFilteredByPeriod = [Element_]()
-  private var collectionViewIsLoaded = false
+  private var elementsFilteredByGroup: Results<ElementRealm>!
+  private var elementsFilteredByPeriod: Results<ElementRealm>!
+
   // Search Result Controller
   let searchController = UISearchController(searchResultsController: nil)
-  private var filteredProperties: [Element_.Properties] = []
+  private var filteredProperties: [ElementRealm.Properties] = []
   private let noResultLabel = UILabel()
   private var cellAtIndexPathRowLoaded: [Int: Bool] = [:]
   
   
-  private let properties: [Element_.Properties] = [Element_.Properties.symbol,
-                                                   Element_.Properties.atomicNumber,
-                                                   Element_.Properties.groupPeriod,
-                                                   Element_.Properties.atomicMass,
-                                                   Element_.Properties.standardState,
-                                                   Element_.Properties.elementCategory,
-                                                   Element_.Properties.yearDiscovered,
-                                                   Element_.Properties.density,
-                                                   Element_.Properties.electronConfiguration,
-                                                   Element_.Properties.valence,
-                                                   Element_.Properties.electronegativity,
-                                                   Element_.Properties.electronAffinity,
-                                                   Element_.Properties.ionizationEnergy,
-                                                   Element_.Properties.oxidationState,
-                                                   Element_.Properties.bondingType,
-                                                   Element_.Properties.meltingPoint,
-                                                   Element_.Properties.boilingPoint,
-                                                   Element_.Properties.atomicRadius,
-                                                   Element_.Properties.hardness,
-                                                   Element_.Properties.modulus,
-                                                   Element_.Properties.conductivity,
-                                                   Element_.Properties.heat,
-                                                   Element_.Properties.abundance]
+  private let properties: [ElementRealm.Properties] = [ElementRealm.Properties.symbol,
+                                                       ElementRealm.Properties.atomicNumber,
+                                                       ElementRealm.Properties.groupPeriod,
+                                                       ElementRealm.Properties.atomicMass,
+                                                       ElementRealm.Properties.standardState,
+                                                       ElementRealm.Properties.elementCategory,
+                                                       ElementRealm.Properties.yearDiscovered,
+                                                       ElementRealm.Properties.density,
+                                                       ElementRealm.Properties.electronConfiguration,
+                                                       ElementRealm.Properties.valence,
+                                                       ElementRealm.Properties.electronegativity,
+                                                       ElementRealm.Properties.electronAffinity,
+                                                       ElementRealm.Properties.ionizationEnergy,
+                                                       ElementRealm.Properties.oxidationState,
+                                                       ElementRealm.Properties.bondingType,
+                                                       ElementRealm.Properties.meltingPoint,
+                                                       ElementRealm.Properties.boilingPoint,
+                                                       ElementRealm.Properties.atomicRadius,
+                                                       ElementRealm.Properties.hardness,
+                                                       ElementRealm.Properties.modulus,
+                                                       ElementRealm.Properties.conductivity,
+                                                       ElementRealm.Properties.heat,
+                                                       ElementRealm.Properties.abundance]
   
-  var theElement: Element_?
+  var theElement: ElementRealm?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -75,112 +71,26 @@ class DetailViewController: UITableViewController {
     navigationItem.searchController = searchController
     definesPresentationContext = true
   }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    loadingQueue.cancelAllOperations()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    if !loadingOperations.isEmpty {
-      tableView.reloadData()
-    }
-  }
 
   // remove all the controller and go to root controllers
   @objc private func popControllers() {
     navigationController?.popToRootViewController(animated: true)
   }
-
-  private func setTheArray(elements: [Element_], at indexPath: IndexPath) {
-    guard let _ = self.theElement else { return }
-    if !self.isFiltering() {
-      if let loaded = cellAtIndexPathRowLoaded[indexPath.row] {
-        if loaded { return }
-      } else {
-        cellAtIndexPathRowLoaded[indexPath.row] = false
-      }
-      switch indexPath.row {
-      case self.properties.count:
-        self.elementsFilteredByGroup = elements
-      case self.properties.count + 1:
-        self.elementsFilteredByPeriod = elements
-      default:
-        return
-      }
-      self.collectionViewIsLoaded = true
-      cellAtIndexPathRowLoaded[indexPath.row] = true
-      self.tableView.reloadRows(at: [indexPath], with: .automatic)
-      self.loadingOperations.removeValue(forKey: indexPath)
-    }
-
-  }
   
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     if !isFiltering() {
+      // Set Up datasource and delegate for collection View
       if indexPath.row >= properties.count {
         guard let cell = cell as? SameGroupElementCell else { return }
         cell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-        // C - TODO
-        // How should the operation update the cell once the data has been loaded?
-        let loadingCompletionHandler: ([Element_]) -> () = { [unowned self] (elements) in
-          self.setTheArray(elements: elements, at: indexPath)
-        }
-                
-        // Try to find existing data loader
-        if let dataLoader = loadingOperations[indexPath] {
-          // Has the data already been loaded?
-          if let elements = dataLoader.elementsFiltered {
-            self.setTheArray(elements: elements, at: indexPath)
-          } else {
-            // No data loaded yet, so add the completion closure to update the cell once the data arrives
-            dataLoader.loadingCompletionHandler = loadingCompletionHandler
-          }
-        } else {
-          // Need to create a data loaded for this indexpath
-          var dataLoader = FilteringOperation(element: Element_(), indexPath: indexPath)
-          if !isFiltering() {
-            dataLoader = FilteringOperation(element: theElement!, indexPath: indexPath)
-          }
-          dataLoader.loadingCompletionHandler = loadingCompletionHandler
-          // Check if the data is displayed already
-          if let loaded = cellAtIndexPathRowLoaded[indexPath.row] {
-            if loaded { return }
-          } else {
-            loadingQueue.addOperation(dataLoader)
-          }
-          loadingOperations[indexPath] = dataLoader
-        }
+      }
+      // query for same group and period
+      if indexPath.row == properties.count {
+        elementsFilteredByGroup = try! Realm().objects(ElementRealm.self).filter("elementColumn = \(theElement!.elementColumn) AND atomicNumber != \(theElement!.atomicNumber)")
+      } else if indexPath.row == properties.count + 1 {
+        elementsFilteredByPeriod = try! Realm().objects(ElementRealm.self).filter("elementRow = \(theElement!.elementRow) AND atomicNumber != \(theElement!.atomicNumber)")
       }
     }
-  }
-  
-  override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if !isFiltering() {
-      if indexPath.row >= properties.count {
-        if let dataLoader = loadingOperations[indexPath] {
-          dataLoader.cancel()
-          loadingOperations.removeValue(forKey: indexPath)
-        }
-      }
-    }
-  }
-  
-  func filterTheGroupAndPeriod(for theElement: Element_, atIndexPath indexPath: IndexPath, handler: ((Bool) -> ())?) {
-    var finished = false
-    if indexPath.row == properties.count {
-      elementsFilteredByGroup = allElements.filter({ (element) -> Bool in
-        element.elementPosition.column == theElement.elementPosition.column && element.symbol != theElement.symbol
-      })
-    } else {
-      elementsFilteredByPeriod = allElements.filter({ (element) -> Bool in
-        element.elementPosition.row == theElement.elementPosition.row && element.symbol != theElement.symbol
-      })
-    }
-    finished = true
-    guard let handler = handler else { return }
-    handler(finished)
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -225,7 +135,7 @@ class DetailViewController: UITableViewController {
         }
       } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellType.CollectionCell.rawValue, for: indexPath) as! SameGroupElementCell
-        cell.updateAppearance(isLoaded: collectionViewIsLoaded)
+        cell.updateAppearance()
         return cell
       }
     }
@@ -263,7 +173,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ElementCell", for: indexPath) as! GroupedCollectionViewCell
     collectionView.showsHorizontalScrollIndicator = false
-    var element: Element_?
+    var element: ElementRealm?
     switch collectionView.tag {
     case properties.count:
       element = elementsFilteredByGroup[indexPath.row]
@@ -281,16 +191,16 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     sectionHeader.rotateLabel()
     switch collectionView.tag {
     case properties.count:
-      sectionHeader.title = "Group \(element.elementPosition.column)".localize(withComment: "Section Header")
+      sectionHeader.title = "Group \(element.elementColumn)".localize(withComment: "Section Header")
     default:
-      sectionHeader.title = "Period \(element.elementPosition.row)".localize(withComment: "Section Header")
+      sectionHeader.title = "Period \(element.elementRow)".localize(withComment: "Section Header")
     }
     return sectionHeader
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    var element: Element_
+    var element: ElementRealm
 
     switch collectionView.tag {
     case properties.count:
@@ -308,7 +218,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
 // MARK: Extension Helper methods
 extension DetailViewController {
 
-  private func makeAPropertyCell(indexPath: IndexPath, identifier: CellType, for property: Element_.Properties, with value: String, unit: String?) -> UITableViewCell {
+  private func makeAPropertyCell(indexPath: IndexPath, identifier: CellType, for property: ElementRealm.Properties, with value: String, unit: String?) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: identifier.rawValue, for: indexPath)
     cell.textLabel?.text = property.name
     cell.textLabel?.textColor = UIColor.gray
@@ -346,31 +256,31 @@ extension DetailViewController {
     }
   }
 
-  private func valueForProperty(_ property: Element_.Properties) -> String {
+  private func valueForProperty(_ property: ElementRealm.Properties) -> String {
     guard let element = theElement else { return "" }
-    let dictionary: [Element_.Properties: String] = [ Element_.Properties.symbol: element.symbol,
-                                                      Element_.Properties.atomicNumber: "\(element.atomicNumber)",
-      Element_.Properties.groupPeriod: "\(element.elementPosition)",
-      Element_.Properties.atomicMass: "\(element.atomicMass)",
-      Element_.Properties.standardState: element.localizedState,
-      Element_.Properties.elementCategory: element.localizedGroup,
-      Element_.Properties.yearDiscovered: element.yearDiscovered,
-      Element_.Properties.density: element.density != nil ? "\(element.density!)" : UnknownValue.string,
-      Element_.Properties.electronConfiguration: element.electronicConfiguration,
-      Element_.Properties.valence: "\(element.valence)",
-      Element_.Properties.electronegativity: element.electronegativity != nil ? "\(element.electronegativity!)" : UnknownValue.string,
-      Element_.Properties.electronAffinity: element.electronAffinity != nil ? "\(element.electronAffinity!)" : UnknownValue.string,
-      Element_.Properties.ionizationEnergy: element.ionizationEnergy != nil ? "\(element.ionizationEnergy!)" : UnknownValue.string,
-      Element_.Properties.oxidationState: element.oxidationStates,
-      Element_.Properties.bondingType: element.bondingType,
-      Element_.Properties.meltingPoint: element.meltingPoint != nil ? "\(element.meltingPoint!)" : UnknownValue.string,
-      Element_.Properties.boilingPoint: element.boilingPoint != nil ? "\(element.boilingPoint!)" : UnknownValue.string,
-      Element_.Properties.atomicRadius: "",
-      Element_.Properties.hardness: "",
-      Element_.Properties.modulus: "",
-      Element_.Properties.conductivity: "",
-      Element_.Properties.heat: "",
-      Element_.Properties.abundance: ""
+    let dictionary: [ElementRealm.Properties: String] = [ ElementRealm.Properties.symbol: element.symbol,
+                                                      ElementRealm.Properties.atomicNumber: "\(element.atomicNumber)",
+      ElementRealm.Properties.groupPeriod: "(\(element.elementRow), \(element.elementColumn))",
+      ElementRealm.Properties.atomicMass: "\(element.atomicMass)",
+      ElementRealm.Properties.standardState: element.localizedState,
+      ElementRealm.Properties.elementCategory: element.localizedGroup,
+      ElementRealm.Properties.yearDiscovered: element.yearDiscovered,
+      ElementRealm.Properties.density: element.density.value != nil ? "\(element.density.value!)" : UnknownValue.string,
+      ElementRealm.Properties.electronConfiguration: element.electronicConfiguration,
+      ElementRealm.Properties.valence: "\(element.valence)",
+      ElementRealm.Properties.electronegativity: element.electronegativity.value != nil ? "\(element.electronegativity.value!)" : UnknownValue.string,
+      ElementRealm.Properties.electronAffinity: element.electronAffinity.value != nil ? "\(element.electronAffinity.value!)" : UnknownValue.string,
+      ElementRealm.Properties.ionizationEnergy: element.ionizationEnergy.value != nil ? "\(element.ionizationEnergy.value!)" : UnknownValue.string,
+      ElementRealm.Properties.oxidationState: element.oxidationStates,
+      ElementRealm.Properties.bondingType: element.bondingType,
+      ElementRealm.Properties.meltingPoint: element.meltingPoint.value != nil ? "\(element.meltingPoint.value!)" : UnknownValue.string,
+      ElementRealm.Properties.boilingPoint: element.boilingPoint.value != nil ? "\(element.boilingPoint.value!)" : UnknownValue.string,
+      ElementRealm.Properties.atomicRadius: "",
+      ElementRealm.Properties.hardness: "",
+      ElementRealm.Properties.modulus: "",
+      ElementRealm.Properties.conductivity: "",
+      ElementRealm.Properties.heat: "",
+      ElementRealm.Properties.abundance: ""
     ]
     return dictionary[property]!
   }
@@ -393,7 +303,7 @@ extension DetailViewController: UISearchResultsUpdating {
   }
   
   func filterPropertyForSearchText(_ searchText: String, scope: String = "All") {
-    filteredProperties = properties.filter { (property: Element_.Properties) -> Bool in
+    filteredProperties = properties.filter { (property: ElementRealm.Properties) -> Bool in
       let show = property.name.lowercased().contains(searchText.lowercased())
       return show
     }
@@ -417,4 +327,6 @@ extension DetailViewController: UISearchResultsUpdating {
     tableView.reloadData()
   }
 }
+
+
 

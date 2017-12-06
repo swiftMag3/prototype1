@@ -36,7 +36,7 @@ class SameGroupElementCell: UITableViewCell {
     collectionView.reloadData()
   }
   
-  func updateAppearance(isLoaded: Bool) {
+  func updateAppearance(isLoaded: Bool = true) {
     let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
     layout.sectionHeadersPinToVisibleBounds = true
     if isLoaded {
