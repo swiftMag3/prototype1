@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bHY-qY-Gu3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kzl-nV-0ui">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,7 +61,7 @@
                                                     <color key="backgroundColor" red="0.84705882352941175" green="0.87450980392156863" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.84705882352941175" green="0.87450980392156863" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.84699999999999998" green="0.87450980392156863" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="xcD-MW-Z9u" firstAttribute="top" secondItem="H4O-jB-uME" secondAttribute="top" id="86l-3D-l7m"/>
                                                 <constraint firstAttribute="bottom" secondItem="xcD-MW-Z9u" secondAttribute="bottom" id="DME-gd-jDP"/>
@@ -142,7 +143,13 @@
                             <outlet property="helperView" destination="GxD-Rc-anQ" id="lWG-ET-8CV"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Elements" id="E2p-UF-AEq"/>
+                    <navigationItem key="navigationItem" title="Elements" id="E2p-UF-AEq">
+                        <barButtonItem key="rightBarButtonItem" title="Table" id="n1W-iv-pnW">
+                            <connections>
+                                <segue destination="4o7-Uv-6RR" kind="presentation" id="VGp-ym-pGe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="tZy-IU-FzZ" kind="show" identifier="ShowDetail" id="gIT-hD-vCc"/>
                     </connections>
@@ -150,6 +157,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8C-US-M1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1344.8" y="859.52023988005999"/>
+        </scene>
+        <!--Periodic Table View Controller-->
+        <scene sceneID="Xss-0T-CDt">
+            <objects>
+                <viewController id="4o7-Uv-6RR" customClass="PeriodicTableViewController" customModule="prototype1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ev-gx-GCp" customClass="PeriodicTableBackgroundView" customModule="prototype1" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZW-CZ-b1f">
+                                <rect key="frame" x="316" y="592" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="dismissViewController:" destination="4o7-Uv-6RR" eventType="touchUpInside" id="dc7-dx-25X"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZvM-Sn-rPJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="homeButton" destination="eZW-CZ-b1f" id="Zm0-5f-nC2"/>
+                        <segue destination="Kzl-nV-0ui" kind="presentation" identifier="TableToHome" id="ukS-5R-yUd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uc3-vs-bQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="1877"/>
         </scene>
         <!--Element-->
         <scene sceneID="QZS-Vz-iBA">
@@ -327,12 +363,30 @@
                             <outlet property="delegate" destination="tZy-IU-FzZ" id="oQO-vN-hKG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Element" id="FsQ-8J-8Wm"/>
+                    <navigationItem key="navigationItem" title="Element" id="FsQ-8J-8Wm">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Table" id="PxU-al-KDx">
+                                <connections>
+                                    <segue destination="4o7-Uv-6RR" kind="presentation" id="Uti-zY-X2h"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Home" id="j4g-GW-MkQ">
+                                <connections>
+                                    <action selector="goToHome:" destination="tZy-IU-FzZ" id="Eqk-lr-cUU"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="view.backgroundColor">
                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="homeButton" destination="j4g-GW-MkQ" id="Kkv-Gl-ZzI"/>
+                        <outlet property="periodicTableViewButton" destination="PxU-al-KDx" id="Ng4-XJ-zot"/>
+                        <segue destination="4o7-Uv-6RR" kind="presentation" identifier="ToTable" id="Tad-WP-pNw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFJ-lw-g2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -402,23 +456,8 @@
             </objects>
             <point key="canvasLocation" x="356" y="859.52023988005999"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="dvc-BW-Rwa">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bHY-qY-Gu3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2e2-qc-28e">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="Kzl-nV-0ui" kind="relationship" relationship="viewControllers" id="jq5-II-YpI"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M9c-Zh-rog" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-454" y="860"/>
-        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tad-WP-pNw"/>
+    </inferredMetricsTieBreakers>
 </document>

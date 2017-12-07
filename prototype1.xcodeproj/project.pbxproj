@@ -28,6 +28,10 @@
 		6F86CDF11FB3833E00B92581 /* GroupCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CDF01FB3833E00B92581 /* GroupCellCollectionView.swift */; };
 		6F86CDF31FB3876F00B92581 /* SameGroupElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CDF21FB3876F00B92581 /* SameGroupElementCell.swift */; };
 		6F86CDF51FB38BFF00B92581 /* GroupedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F86CDF41FB38BFF00B92581 /* GroupedCollectionViewCell.swift */; };
+		6F9948791FD8108C004441F6 /* PeriodicTableBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9948781FD8108C004441F6 /* PeriodicTableBackground.swift */; };
+		6F99487B1FD81193004441F6 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99487A1FD81193004441F6 /* PeriodicTableViewController.swift */; };
+		6F99487D1FD811BC004441F6 /* PeriodicTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99487C1FD811BC004441F6 /* PeriodicTableBackgroundView.swift */; };
+		6F99487F1FD8173D004441F6 /* CellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99487E1FD8173D004441F6 /* CellButton.swift */; };
 		6F9D9A961FC443CE0065873D /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D9A951FC443CE0065873D /* AsyncOperation.swift */; };
 		6FA489801FA946D300C2E067 /* MyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA4897F1FA946D300C2E067 /* MyCollectionViewController.swift */; };
 		6FA489821FA94B9700C2E067 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA489811FA94B9700C2E067 /* MyCollectionViewCell.swift */; };
@@ -85,6 +89,10 @@
 		6F86CDF01FB3833E00B92581 /* GroupCellCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellCollectionView.swift; sourceTree = "<group>"; };
 		6F86CDF21FB3876F00B92581 /* SameGroupElementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameGroupElementCell.swift; sourceTree = "<group>"; };
 		6F86CDF41FB38BFF00B92581 /* GroupedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedCollectionViewCell.swift; sourceTree = "<group>"; };
+		6F9948781FD8108C004441F6 /* PeriodicTableBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTableBackground.swift; sourceTree = "<group>"; };
+		6F99487A1FD81193004441F6 /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
+		6F99487C1FD811BC004441F6 /* PeriodicTableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableBackgroundView.swift; sourceTree = "<group>"; };
+		6F99487E1FD8173D004441F6 /* CellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButton.swift; sourceTree = "<group>"; };
 		6F9D9A951FC443CE0065873D /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		6FA4897F1FA946D300C2E067 /* MyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewController.swift; sourceTree = "<group>"; };
 		6FA489811FA94B9700C2E067 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +181,7 @@
 				6FA4897F1FA946D300C2E067 /* MyCollectionViewController.swift */,
 				6F797D481FB0997B005A0278 /* DetailViewController.swift */,
 				6F68EFA01FB32B7D0099C49C /* MoreDetailViewController.swift */,
+				6F99487A1FD81193004441F6 /* PeriodicTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +197,9 @@
 				6F86CDF41FB38BFF00B92581 /* GroupedCollectionViewCell.swift */,
 				6F86CDF01FB3833E00B92581 /* GroupCellCollectionView.swift */,
 				6F86CDF21FB3876F00B92581 /* SameGroupElementCell.swift */,
+				6F9948781FD8108C004441F6 /* PeriodicTableBackground.swift */,
+				6F99487C1FD811BC004441F6 /* PeriodicTableBackgroundView.swift */,
+				6F99487E1FD8173D004441F6 /* CellButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -333,13 +345,16 @@
 				6FDC8F431FA1384A0020A7D7 /* FileManager+DocumentDirectory.swift in Sources */,
 				6FA489821FA94B9700C2E067 /* MyCollectionViewCell.swift in Sources */,
 				6F68EF9F1FB315240099C49C /* String+SubAndSup.swift in Sources */,
+				6F99487D1FD811BC004441F6 /* PeriodicTableBackgroundView.swift in Sources */,
 				6F9D9A961FC443CE0065873D /* AsyncOperation.swift in Sources */,
+				6F9948791FD8108C004441F6 /* PeriodicTableBackground.swift in Sources */,
 				6F6321C01FBB0C070046B717 /* ElementsDataSource.swift in Sources */,
 				6F797D491FB0997B005A0278 /* DetailViewController.swift in Sources */,
 				6F4EB58F1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift in Sources */,
 				6F3DD4891FAAADAF00CCB804 /* String+Localized+Formatter.swift in Sources */,
 				6FA489801FA946D300C2E067 /* MyCollectionViewController.swift in Sources */,
 				6FE799C31FBF621900A973D9 /* FilteringOperation.swift in Sources */,
+				6F99487F1FD8173D004441F6 /* CellButton.swift in Sources */,
 				6F86CDF11FB3833E00B92581 /* GroupCellCollectionView.swift in Sources */,
 				6F6321C21FBB242A0046B717 /* DataLoadOperation.swift in Sources */,
 				6F549CA81FA226AE00E9823A /* ElementProperties.swift in Sources */,
@@ -352,6 +367,7 @@
 				6F13CFDC1FD6C8590023A953 /* ElementRealm.swift in Sources */,
 				6F68EFA11FB32B7D0099C49C /* MoreDetailViewController.swift in Sources */,
 				6F68EF9D1FB315020099C49C /* NSAttributedString+Extension.swift in Sources */,
+				6F99487B1FD81193004441F6 /* PeriodicTableViewController.swift in Sources */,
 				6F86CDF51FB38BFF00B92581 /* GroupedCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

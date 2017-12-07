@@ -21,6 +21,8 @@ enum Constant: CGFloat {
 }
 
 class DetailViewController: UITableViewController {
+  @IBOutlet weak var homeButton: UIBarButtonItem!
+  @IBOutlet weak var periodicTableViewButton: UIBarButtonItem!
   
   // Collection View Cell properties
   private var elementsFilteredByGroup: Results<ElementRealm>!
@@ -62,7 +64,6 @@ class DetailViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = theElement?.localizedName
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(popControllers))
     // Search Result Controller Setup
     navigationController?.navigationBar.prefersLargeTitles = true
     searchController.searchResultsUpdater = self
@@ -70,6 +71,9 @@ class DetailViewController: UITableViewController {
     searchController.searchBar.placeholder = "Search property".localize(withComment: "Search bar placeholder")
     navigationItem.searchController = searchController
     definesPresentationContext = true
+  }
+  @IBAction func goToHome(_ sender: Any) {
+    popControllers()
   }
 
   // remove all the controller and go to root controllers
