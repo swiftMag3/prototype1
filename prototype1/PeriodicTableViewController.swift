@@ -17,6 +17,10 @@ class PeriodicTableViewController: UIViewController {
   override var prefersStatusBarHidden: Bool {
     return true
   }
+  
+  override func preferredScreenEdgesDeferringSystemGestures() -> UIRectEdge {
+    return [.all]
+  }
 
   @IBAction func dismissViewController(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
@@ -62,13 +66,8 @@ class PeriodicTableViewController: UIViewController {
     // Helper Box - UIView
     helperBox = UIView(frame: CGRect(x: 288, y: 570, width: 80, height: 80))
     helperBox.layer.cornerRadius = 15
-    helperBox.backgroundColor = UIColor(hex: elementInfo.cpkColor)
+    helperBox.backgroundColor = UIColor(hex: elementInfo.cpkColor).add(overlay: UIColor(hex: "E1E6E5").withAlphaComponent(0.5))
     self.view.addSubview(helperBox)
-    
-    // Filter View - UIView
-    let filterView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-    filterView.backgroundColor = UIColor(red: 0.847, green: 0.875, blue: 0.918, alpha: 0.4)
-    helperBox.addSubview(filterView)
     
     // Name Label
     let nameLabel = UILabel(frame: CGRect(x: 7, y: 52, width: 67, height: 19))

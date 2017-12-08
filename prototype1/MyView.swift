@@ -9,6 +9,5 @@
 import UIKit
 
 class MyView: UIView {
-  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
   @IBOutlet weak var noResultLabel: UILabel!
 }

@@ -69,7 +69,7 @@ extension MyCollectionViewController {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
     let width = view.frame.width / 5 - 12
     cell.layer.cornerRadius = CGFloat(Int(width/4))
-    cell.layer.masksToBounds = true
+    cell.layer.masksToBounds = false
     cell.updateAppearanceFor(nil, animated: false)
     return cell
   }
@@ -112,7 +112,7 @@ extension MyCollectionViewController {
     
     // How should the operation update the cell once the data has been loaded?
     let updateCellClosure: (ElementRealm?) -> () = { [unowned self] (element) in
-      cell.updateAppearanceFor(element, animated: false)
+      cell.updateAppearanceFor(element)
       self.loadingOperations.removeValue(forKey: indexPath)
     }
     
@@ -120,7 +120,7 @@ extension MyCollectionViewController {
     if let dataLoader = loadingOperations[indexPath] {
       // Has the data already been loaded?
       if let theElement = dataLoader.element {
-        cell.updateAppearanceFor(theElement, animated: false)
+        cell.updateAppearanceFor(theElement)
         loadingOperations.removeValue(forKey: indexPath)
       } else {
         // No data loaded yet, so add the completion closure to update the cell once the data arrives
@@ -201,6 +201,7 @@ extension MyCollectionViewController {
     
     // Setup the Search Controller
     navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.largeTitleDisplayMode = .automatic
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.searchBar.placeholder = "Search element".localize(withComment: "Search bar placeholder")

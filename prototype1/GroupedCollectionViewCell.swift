@@ -12,16 +12,19 @@ class GroupedCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var label: UILabel!
   @IBOutlet weak var atomicNumberLabel: UILabel!
   @IBOutlet weak var atomicMassLabel: UILabel!
-  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+  @IBOutlet weak var nameLabel: UILabel!
   
   var element: ElementRealm?
+  private var shadowLayer = CAShapeLayer()
+
   
   override func prepareForReuse() {
     DispatchQueue.main.async {
       let width = Constant.collectionViewCellWidth.rawValue
       self.layer.cornerRadius = CGFloat(Int(width/4))
-      self.layer.masksToBounds = true
+      self.layer.masksToBounds = false
       self.displayElement(nil)
+      self.shadowLayer.removeFromSuperlayer()
     }
   }
   
@@ -29,9 +32,9 @@ class GroupedCollectionViewCell: UICollectionViewCell {
     DispatchQueue.main.async {
       let width = Constant.collectionViewCellWidth.rawValue
       self.layer.cornerRadius = CGFloat(Int(width/4))
-      self.layer.masksToBounds = true
+      self.layer.masksToBounds = false
       if animated {
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.5) {
           self.displayElement(element)
         }
       } else {
@@ -45,26 +48,57 @@ class GroupedCollectionViewCell: UICollectionViewCell {
     var cpkColor: String
     
     if let theElement = element {
+      // Shadow
+      shadowLayer = CAShapeLayer()
+      shadowLayer.path = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+      shadowLayer.fillColor = UIColor.clear.cgColor
+      shadowLayer.shadowColor = UIColor.darkGray.cgColor
+      shadowLayer.shadowPath = shadowLayer.path
+      shadowLayer.shadowOffset = CGSize(width: 0, height: 3)
+      shadowLayer.shadowOpacity = 0.3
+      shadowLayer.shadowRadius = 2
+      layer.insertSublayer(shadowLayer, below: nil)
+      
       cpkColor = theElement.cpkHexColor
-      backgroundColor = UIColor(hex: cpkColor)
+      backgroundColor = UIColor(hex: cpkColor).add(overlay: UIColor(hex: "E1E6E5").withAlphaComponent(0.5))
       label.text = theElement.symbol
       label.alpha = 1.0
       atomicNumberLabel.text = "\(theElement.atomicNumber)"
       atomicNumberLabel.alpha = 1.0
-      atomicMassLabel.text = String(format: "%.0f", theElement.atomicMass)
+      atomicMassLabel.text = String(format: "%.1f", theElement.atomicMass)
       atomicMassLabel.alpha = 1.0
-      loadingIndicator?.alpha = 0
-      loadingIndicator?.stopAnimating()
-      label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: backgroundColor!)
+      label.textColor = UIColor.adjustColor(textColor: UIColor.black.add(overlay: UIColor.lightGray.withAlphaComponent(0.4)), withBackground: backgroundColor!)
       atomicMassLabel.textColor = label.textColor
       atomicNumberLabel.textColor = label.textColor
+      nameLabel.alpha = 1
+      nameLabel.text = theElement.localizedName
+      nameLabel.textColor = label.textColor
+      
+      nameLabel.superview?.backgroundColor = backgroundColor
+      nameLabel.superview?.layer.cornerRadius = layer.cornerRadius
+      
+//      cpkColor = theElement.cpkHexColor
+//      backgroundColor = UIColor(hex: cpkColor)
+//      label.text = theElement.symbol
+//      label.alpha = 1.0
+//      atomicNumberLabel.text = "\(theElement.atomicNumber)"
+//      atomicNumberLabel.alpha = 1.0
+//      atomicMassLabel.text = String(format: "%.1f", theElement.atomicMass)
+//      atomicMassLabel.alpha = 1.0
+//      label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: backgroundColor!)
+//      atomicMassLabel.textColor = label.textColor
+//      atomicNumberLabel.textColor = label.textColor
+//      nameLabel.alpha = 1
+//      nameLabel.text = theElement.localizedName
+//      nameLabel.textColor = label.textColor
+
     } else {
-      backgroundColor = UIColor.lightGray
+      backgroundColor = UIColor.clear
       label.alpha = 0.0
       atomicNumberLabel.alpha = 0.0
       atomicMassLabel.alpha = 0.0
-      loadingIndicator?.alpha = 1.0
-      loadingIndicator?.startAnimating()
+      nameLabel.alpha = 0
+      nameLabel.superview?.backgroundColor = UIColor.white
     }
     
   }

@@ -11,7 +11,6 @@ import UIKit
 class SameGroupElementCell: UITableViewCell {
   
   @IBOutlet weak var collectionView: GroupCellCollectionView!
-  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -39,13 +38,6 @@ class SameGroupElementCell: UITableViewCell {
   func updateAppearance(isLoaded: Bool = true) {
     let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
     layout.sectionHeadersPinToVisibleBounds = true
-    if isLoaded {
-      loadingIndicator.isHidden = true
-      loadingIndicator.stopAnimating()
-    } else {
-      loadingIndicator.isHidden = false
-      loadingIndicator.startAnimating()
-    }
   }
   
 }
