@@ -27,6 +27,7 @@ class ElementsRealmDataSource {
     do {
       if try Realm().isEmpty {
         writeElementsToRealm()
+        populateComparationFractions()
         print("Realm is written")
       } else {
         print("Realm already exists")
@@ -106,13 +107,13 @@ class ElementsRealmDataSource {
 
   
   private func writeElementsToRealm() {
-    
-    if !FileManager.default.fileExists(atPath: targetData.path) {
-      copyLocalJSONtoDocumentDirectory()
-    } else {
-      debugPrint("data.json already exists")
-    }
-
+//
+//    if !FileManager.default.fileExists(atPath: targetData.path) {
+//      copyLocalJSONtoDocumentDirectory()
+//    } else {
+//      debugPrint("data.json already exists")
+//    }
+    copyLocalJSONtoDocumentDirectory()
     
     guard let data = try? Data(contentsOf: targetData) else {
       print("Error: Could not load the data.json in document directory".localize(withComment: "Error message"))
@@ -122,6 +123,7 @@ class ElementsRealmDataSource {
     
     let json = JSON(data)
     let arrayCount = json["result"].arrayValue.count
+    let realm = try! Realm()
     
     for index in 0..<arrayCount {
       let element = ElementRealm()
@@ -130,7 +132,7 @@ class ElementsRealmDataSource {
       element.atomicNumber = result["atomicNumber"].intValue
       element.symbol = result["symbol"].stringValue
       element.name = result["name"].stringValue
-      element.cpkHexColor = result["cpkHexColor"].string ?? "ffffff"
+      element.cpkHexColor = result["cpkHexColor"].string ?? "ff1493"
       element.legacyBlock = result["groupBlock", "legacy"].stringValue
       element.iupacBlock = result["groupBlock", "iupac"].string ?? element.legacyBlock
       element.yearDiscovered = result["yearDiscovered"].stringValue
@@ -185,7 +187,6 @@ class ElementsRealmDataSource {
       }
       
       do {
-        let realm = try Realm()
         try realm.write {
           realm.add(element, update: true)
         }
@@ -193,5 +194,46 @@ class ElementsRealmDataSource {
         print("Can't write to Realm with error : \(error)")
       }
     }
+  }
+  
+  private func populateComparationFractions() {
+    let realm = try! Realm()
+    let realmResult = realm.objects(ElementRealm.self)
+    let maxDensity = realmResult.sorted(byKeyPath: "density").last?.density.value
+    let maxAtomicRadius = realmResult.sorted(byKeyPath: "calculatedRadius").last?.calculatedRadius.value
+    let maxElectronegativity = realmResult.sorted(byKeyPath: "electronegativity").last?.electronegativity.value
+    let maxMeltingPoint = realmResult.sorted(byKeyPath: "meltingPoint").last?.meltingPoint.value
+    let maxBoilingPoint = realmResult.sorted(byKeyPath: "boilingPoint").last?.boilingPoint.value
+    let maxFirstIonizationEnergy = realmResult.sorted(byKeyPath: "ionizationEnergy").last?.ionizationEnergy.value
+    
+//    for item in maxDensity {
+//      print("element no \(item.atomicNumber): \(item.density.value ?? 0)")
+//    }
+    
+    for index in 0..<118 {
+      let element = realmResult[index]
+      let densityFraction = (element.density.value ?? 0) / maxDensity!
+      let atomicRadiusFracion = (element.calculatedRadius.value ?? 0) / maxAtomicRadius!
+      let electronegativityFraction = (element.electronegativity.value ?? 0) / maxElectronegativity!
+      let meltingPointFraction = (element.meltingPoint.value ?? 0) / maxMeltingPoint!
+      let boilingPointFraction = (element.boilingPoint.value ?? 0) / maxBoilingPoint!
+      let ionizationEnergyFraction = (element.ionizationEnergy.value ?? 0) / maxFirstIonizationEnergy!
+//      print("element no \(element.atomicNumber): \(densityFraction) .. max: \(maxDensity!)")
+      do {
+        try realm.write {
+          element.densityComparationFraction = densityFraction * 100
+          element.atomicRadiusComparationFraction = atomicRadiusFracion * 100
+          element.electronegativityComparationFraction = electronegativityFraction * 100
+          element.meltingPointComparationFraction = meltingPointFraction * 100
+          element.boilingPointComparationFraction = boilingPointFraction * 100
+          element.ionizationEnergyComparationFraction = ionizationEnergyFraction * 100
+        }
+      } catch {
+        print("Can't write to Realm with error : \(error)")
+      }
+
+    }
+    
+    
   }
 }

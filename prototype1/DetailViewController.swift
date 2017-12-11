@@ -60,6 +60,13 @@ class DetailViewController: UITableViewController {
                                                        ElementRealm.Properties.abundance]
   
   var theElement: ElementRealm?
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.portrait
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -38,7 +38,15 @@ class ElementRealm: Object {
   @objc dynamic var valence = 0
   @objc dynamic var bondingType = ""
   @objc dynamic var oxidationStates = ""
+  
+  // Added properties
   @objc dynamic var isBookmarked = false
+  @objc dynamic var densityComparationFraction: Double = 0
+  @objc dynamic var atomicRadiusComparationFraction: Double = 0
+  @objc dynamic var electronegativityComparationFraction: Double = 0
+  @objc dynamic var meltingPointComparationFraction: Double = 0
+  @objc dynamic var boilingPointComparationFraction: Double = 0
+  @objc dynamic var ionizationEnergyComparationFraction: Double = 0.0
   
   
   let density = RealmOptional<Double>()

@@ -9,6 +9,10 @@
 import UIKit
 import RealmSwift
 
+struct CellProperties {
+  static let width = 63.0
+}
+
 private let reuseIdentifier = "Cell"
 internal let targetData = URL(fileURLWithPath: "data",
                               relativeTo: FileManager.documentDirectoryURL)
@@ -29,11 +33,32 @@ class MyCollectionViewController: UICollectionViewController {
 
   private var dataIsLoaded = false
   
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.portrait
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     elementsRealmDataSource = ElementsRealmDataSource()
     setUpDisplay()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if #available(iOS 11.0, *) {
+      navigationItem.hidesSearchBarWhenScrolling = false
+    }
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if #available(iOS 11.0, *) {
+      navigationItem.hidesSearchBarWhenScrolling = true
+    }
   }
     
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,7 +92,7 @@ extension MyCollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MyCollectionViewCell
-    let width = view.frame.width / 5 - 12
+    let width = CellProperties.width //view.frame.width / 5 - 12
     cell.layer.cornerRadius = CGFloat(Int(width/4))
     cell.layer.masksToBounds = false
     cell.updateAppearanceFor(nil, animated: false)
@@ -87,9 +112,16 @@ extension MyCollectionViewController {
         sectionHeader.isHidden = true
       }
     }
+    
     return sectionHeader
   }
+  
   // MARK: UICollectionViewDelegate
+  
+//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//    return CGSize(width: view.frame.size.width, height: 30.0)
+//  }
+
 }
 
 // MARK:- UICollectionViewDelegate
@@ -143,7 +175,7 @@ extension MyCollectionViewController {
     }
     dataIsLoaded = true
   }
-  
+    
   override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     // If there's a data loader for this index path we don't need it any more. Cancel and dispose
     if let dataLoader = loadingOperations[indexPath] {
@@ -193,9 +225,9 @@ extension MyCollectionViewController {
   private func setUpDisplay() {
     let myCollecetionView = collectionView as? MyCollectionView
     myCollecetionView?.helperView.noResultLabel.isHidden = true
-    let width = view.frame.width / 5 - 12
+//    let width = CellProperties.width //view.frame.width / 5 - 12
     let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-    layout.itemSize = CGSize(width: width, height: width)
+//    layout.itemSize = CGSize(width: width, height: width)
     layout.sectionHeadersPinToVisibleBounds = true
     collectionView?.showsVerticalScrollIndicator = false
     
@@ -214,5 +246,11 @@ extension MyCollectionViewController {
 extension MyCollectionViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     filterContentForSearchText(searchController.searchBar.text!)
+  }
+}
+
+extension MyCollectionViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: CellProperties.width, height: CellProperties.width)
   }
 }

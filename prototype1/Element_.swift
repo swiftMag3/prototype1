@@ -11,7 +11,7 @@ enum Unit: String {
   case energy = "kJ/mol"
   case temperature = "K"
   case hardness = "MPa"
-  case radius = "pm"
+  case radius = "pm\n"
   case modulus = "GPa"
   case conductivity = "W/m.K"
   case heatEnergy = "J/kg.K"

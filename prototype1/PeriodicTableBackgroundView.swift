@@ -9,10 +9,11 @@
 import UIKit
 @IBDesignable
 class PeriodicTableBackgroundView: UIView {
-
-    override func draw(_ rect: CGRect) {
-        PeriodicTableBackground.drawPeriodicTablePortrait()
-    }
- 
-
+  
+  override func draw(_ rect: CGRect) {
+//    PeriodicTableBackground.drawPeriodicTablePortrait()
+    PeriodicTableBackground.drawPeriodicTableLandscape()
+  }
+  
+  
 }

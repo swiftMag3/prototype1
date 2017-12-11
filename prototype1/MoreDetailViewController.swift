@@ -49,6 +49,14 @@ class MoreDetailViewController: UITableViewController {
     return propertiesNameDictionary[property]!
   }()
   
+  override var shouldAutorotate: Bool {
+    return false
+  }
+  
+  override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.portrait
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -104,7 +112,7 @@ extension MoreDetailViewController {
         let ionName = ionRadius.ion
         let radius  = ionRadius.radius
         let text = "((\(ionName)) : \(radius))" // NO DATA SHOWS MORE THAN ONE, needs to be changed if in the future there is more than one
-        stringText += text + "\n"
+        stringText += text
       }
       if stringText.isEmpty {
         return UnknownValue.string

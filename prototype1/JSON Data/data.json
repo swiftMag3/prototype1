@@ -319,7 +319,7 @@
       "symbol": "C",
       "name": "Carbon",
       "atomicMass": "12.0107",
-      "cpkHexColor": 909090,
+      "cpkHexColor": "000000",
       "electronicConfiguration": "[He] 2s2 2p2",
       "electronegativity": 2.55,
       "ionRadius": {

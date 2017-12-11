@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Chameleon
+
 
 class MyCollectionViewCell: UICollectionViewCell {
   @IBOutlet private weak var label: UILabel!
