@@ -38,6 +38,20 @@ class MyCollectionViewCell: UICollectionViewCell {
     }
   }
   
+  override var isHighlighted: Bool {
+    didSet {
+      if isHighlighted {
+        UIView.animate(withDuration: 0.1, animations: {
+          self.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        })
+      } else {
+        UIView.animate(withDuration: 0.1, animations: {
+          self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+      }
+    }
+  }
+  
   private func displayElement(_ element: ElementRealm?) {
     self.element = element
     var cpkColor: String

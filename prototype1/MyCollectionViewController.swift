@@ -133,9 +133,11 @@ extension MyCollectionViewController {
     } else {
       element = elementsRealmDataSource.elementForItemAtIndexPath(indexPath)!
     }
+    
     performSegue(withIdentifier: "ShowDetail", sender: element)
     
   }
+  
   
   override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     

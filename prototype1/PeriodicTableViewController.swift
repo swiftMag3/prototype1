@@ -8,12 +8,14 @@
 
 import UIKit
 import RealmSwift
+import Chameleon
 
 class PeriodicTableViewController: UIViewController {
 
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var backgroundView: PeriodicTableBackgroundView!
   @IBOutlet weak var homeButton: UIButton!
+  @IBOutlet weak var homeLabel: UILabel!
   @IBOutlet weak var comparisonTitle: UILabel!
   private var trendHelperBox: UIView = UIView()
   private var buttonSubviews: [CellButton] = []
@@ -25,6 +27,25 @@ class PeriodicTableViewController: UIViewController {
   override var shouldAutorotate: Bool {
     return true
   }
+  @IBAction func densityComparison(_ sender: UIButton) {
+    self.populateButton(for: .density)
+  }
+  @IBAction func boilingPointComparison(_ sender: UIButton) {
+    self.populateButton(for: .boilingPoint)
+  }
+  @IBAction func meltingPointComparison(_ sender: Any) {
+    self.populateButton(for: .meltingPoint)
+  }
+  @IBAction func electronegativityComparison(_ sender: UIButton) {
+    self.populateButton(for: .electronegativity)
+  }
+  @IBAction func ionizationComparison(_ sender: UIButton) {
+    self.populateButton(for: .ionization)
+  }
+  @IBAction func radiusComparison(_ sender: UIButton) {
+    self.populateButton(for: .density)
+  }
+  
   
   override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
     return UIInterfaceOrientationMask.landscape
@@ -62,7 +83,6 @@ class PeriodicTableViewController: UIViewController {
     }
     
     
-    
     alert.addAction(defaultAction)
     alert.addAction(densityComparisonAction)
     alert.addAction(radiusComparisonAction)
@@ -70,6 +90,7 @@ class PeriodicTableViewController: UIViewController {
     alert.addAction(meltingPointComparisonAction)
     alert.addAction(boilingPointComparisonAction)
     alert.addAction(ionizationComparisonAction)
+
     present(alert, animated: true)
   }
   
@@ -83,10 +104,10 @@ class PeriodicTableViewController: UIViewController {
     populateButton(for: .normal)
     setCloseButton()
     homeButton.setTitle("MENU", for: .normal)
-    print(view.frame.width)
-    if view.frame.width >= 414 {
-      backgroundView.frame = CGRect(x: 35, y: 20, width: backgroundView.frame.width, height: backgroundView.frame.height)
-    }
+  }
+    
+  @objc func reset() {
+    populateButton()
   }
   
 //  private func setBackgroundForSmallerDevice() {
@@ -163,6 +184,19 @@ class PeriodicTableViewController: UIViewController {
     closeButton.setImage(#imageLiteral(resourceName: "closeButton"), for: .normal)
     closeButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
     view.addSubview(closeButton)
+    if view.frame.width >= 414 {
+      homeButton.isHidden = true
+      homeLabel.isHidden = true
+      let resetButton = UIButton(frame: CGRect(x: 36, y: 315, width: 50, height: 50))
+      resetButton.setTitle("RESET".localize(withComment: "Home button label"), for: .normal)
+      resetButton.titleLabel?.adjustsFontSizeToFitWidth = true
+      resetButton.addTarget(self, action: #selector(reset), for: .touchUpInside)
+      resetButton.backgroundColor = UIColor.flatBlue()
+      resetButton.setTitleColor(UIColor.init(contrastingBlackOrWhiteColorOn: resetButton.backgroundColor, isFlat: true), for: .normal)
+      resetButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 5)
+      resetButton.layer.cornerRadius = 5
+      self.view.addSubview(resetButton)
+    }
   }
   
   @objc func dismissViewController() {
@@ -243,4 +277,9 @@ class PeriodicTableViewController: UIViewController {
     let element = try! Realm().objects(ElementRealm.self)[atomicNumber-1]
     return (symbol: element.symbol, cpkColor: element.cpkHexColor, name: element.localizedName)
   }
+}
+
+
+extension PeriodicTableBackground {
+  
 }
