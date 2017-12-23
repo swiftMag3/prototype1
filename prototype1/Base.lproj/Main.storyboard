@@ -9,6 +9,104 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--About-->
+        <scene sceneID="opd-hv-Bfs">
+            <objects>
+                <tableViewController id="hsz-Hg-ZaF" customClass="AboutViewController" customModule="prototype1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="A8t-Na-6Re">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="yH5-A4-R4k">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayV-gg-wcl" customClass="LegendView" customModule="prototype1" customModuleProvider="target">
+                                    <rect key="frame" x="87" y="9" width="200" height="150"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="150" id="7tx-J9-fxd"/>
+                                        <constraint firstAttribute="width" constant="200" id="Gz6-2M-2g6"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ayV-gg-wcl" firstAttribute="centerX" secondItem="yH5-A4-R4k" secondAttribute="centerX" id="oZO-9s-nVY"/>
+                                <constraint firstAttribute="bottom" secondItem="ayV-gg-wcl" secondAttribute="bottom" constant="41" id="zsU-JN-4sd"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" textLabel="hAP-Vi-U53" style="IBUITableViewCellStyleDefault" id="rqa-iT-gZh">
+                                <rect key="frame" x="0.0" y="228" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rqa-iT-gZh" id="UM1-ug-JFX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hAP-Vi-U53">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hsz-Hg-ZaF" id="AAU-eK-GDX"/>
+                            <outlet property="delegate" destination="hsz-Hg-ZaF" id="ozI-js-gyb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="About" id="9jn-Pk-bYr"/>
+                    <connections>
+                        <segue destination="tvj-VL-kG5" kind="push" identifier="showWebView" id="voj-zx-iHd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNq-if-PR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716.5" y="-51.5"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="tTO-iU-qEP">
+            <objects>
+                <viewController id="tvj-VL-kG5" customClass="WebViewController" customModule="prototype1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ae5-xF-bdD"/>
+                        <viewControllerLayoutGuide type="bottom" id="0n3-ys-H1M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Msm-xx-lAc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHs-NX-Na9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aHs-NX-Na9" firstAttribute="leading" secondItem="Msm-xx-lAc" secondAttribute="leading" id="2co-Xr-fHR"/>
+                            <constraint firstItem="0n3-ys-H1M" firstAttribute="top" secondItem="aHs-NX-Na9" secondAttribute="bottom" id="aWl-4D-0me"/>
+                            <constraint firstItem="aHs-NX-Na9" firstAttribute="top" secondItem="Msm-xx-lAc" secondAttribute="top" id="c0j-j7-al2"/>
+                            <constraint firstAttribute="trailing" secondItem="aHs-NX-Na9" secondAttribute="trailing" id="dJr-SZ-utT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="pAu-tb-pX2"/>
+                    <connections>
+                        <outlet property="webView" destination="aHs-NX-Na9" id="bV7-eq-oJd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tx9-eJ-1zl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1163" y="-52"/>
+        </scene>
         <!--Elements-->
         <scene sceneID="nml-oO-wGH">
             <objects>
@@ -115,7 +213,11 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Elements" id="E2p-UF-AEq">
                         <rightBarButtonItems>
-                            <barButtonItem image="infoIcon" id="2W0-MS-Tph"/>
+                            <barButtonItem image="infoIcon" id="2W0-MS-Tph">
+                                <connections>
+                                    <segue destination="hsz-Hg-ZaF" kind="push" id="tAV-El-mu0"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="tablePageIcon" id="n1W-iv-pnW">
                                 <connections>
                                     <segue destination="4o7-Uv-6RR" kind="modal" identifier="toFullTable" id="VGp-ym-pGe"/>
@@ -264,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uc3-vs-bQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716.5" y="1776.5"/>
+            <point key="canvasLocation" x="980" y="2108"/>
         </scene>
         <!--Element-->
         <scene sceneID="QZS-Vz-iBA">
@@ -523,5 +625,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="VGp-ym-pGe"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="1" green="0.27359817906055328" blue="0.23093294668508368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+    <color key="tintColor" red="1" green="0.0" blue="0.056107677723829852" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

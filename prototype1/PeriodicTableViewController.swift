@@ -45,7 +45,7 @@ class PeriodicTableViewController: UIViewController {
     self.populateButton(for: .ionization)
   }
   @IBAction func radiusComparison(_ sender: UIButton) {
-    self.populateButton(for: .density)
+    self.populateButton(for: .atomicRadius)
   }
   
   
@@ -170,7 +170,8 @@ class PeriodicTableViewController: UIViewController {
     closeButton.setImage(#imageLiteral(resourceName: "closeButton"), for: .normal)
     closeButton.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
     view.addSubview(closeButton)
-    if view.frame.width >= 414 {
+    
+    if UIDevice.current.orientation == UIDeviceOrientation.portrait &&  view.frame.width >= 414 || ((UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight) && view.frame.width >= 736) {
       homeButton.isHidden = true
       homeLabel.isHidden = true
       let resetButton = UIButton(frame: CGRect(x: 36, y: 315, width: 50, height: 50))

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-@IBDesignable
+//@IBDesignable
 class PeriodicTableBackgroundView: UIView {
   
   override func draw(_ rect: CGRect) {
