@@ -22,16 +22,14 @@ internal let targetData = URL(fileURLWithPath: "data",
 
 class MyCollectionViewController: UICollectionViewController {
   
-//  lazy var elementsDataSource = ElementsDataSource()
   var elementsRealmDataSource: ElementsRealmDataSource!
   var loadingQueue = OperationQueue()
   var loadingOperations = [IndexPath: DataLoadOperation]()
   
   let searchController = UISearchController(searchResultsController: nil)
-//  private var filteredElements: [Element_] = []
   private var filteredElements: [ElementRealm] = []
-
   private var dataIsLoaded = false
+  @IBOutlet weak var tablePageButton: UIBarButtonItem!
   
   override var shouldAutorotate: Bool {
     return false
@@ -142,7 +140,6 @@ extension MyCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     
     guard let cell = cell as? MyCollectionViewCell else { return }
-//    dataIsLoaded = false
     
     // How should the operation update the cell once the data has been loaded?
     let updateCellClosure: (ElementRealm?) -> () = { [unowned self] (element) in
@@ -227,9 +224,7 @@ extension MyCollectionViewController {
   private func setUpDisplay() {
     let myCollecetionView = collectionView as? MyCollectionView
     myCollecetionView?.helperView.noResultLabel.isHidden = true
-//    let width = CellProperties.width //view.frame.width / 5 - 12
     let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-//    layout.itemSize = CGSize(width: width, height: width)
     layout.sectionHeadersPinToVisibleBounds = true
     collectionView?.showsVerticalScrollIndicator = false
     

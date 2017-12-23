@@ -3,3 +3,4 @@
 github "SwiftyJSON/SwiftyJSON" ~> 4.0
 github "realm/realm-cocoa"
 github "ViccAlexander/Chameleon"
+github "lkzhao/Hero"

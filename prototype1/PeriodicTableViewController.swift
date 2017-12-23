@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 import Chameleon
 
+
+
 class PeriodicTableViewController: UIViewController {
 
   @IBOutlet weak var scrollView: UIScrollView!
@@ -109,22 +111,6 @@ class PeriodicTableViewController: UIViewController {
   @objc func reset() {
     populateButton()
   }
-  
-//  private func setBackgroundForSmallerDevice() {
-//    if view.frame.width <= 667 {
-//      iphone5BackgroundView.isHidden = false
-//    }
-//    iphone5BackgroundView.isHidden = true
-//  }
-  
-  
-  //To return from landscape to portrait orientation for show-segue
-//  override func viewWillDisappear(_ animated: Bool) {
-//    super.viewWillDisappear(animated)
-//    if self.isMovingFromParentViewController {
-//      UIDevice.current.setValue(Int(UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
-//    }
-//  }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard segue.identifier == "TableToHome", let sender = sender as? CellButton else { return }
@@ -277,9 +263,4 @@ class PeriodicTableViewController: UIViewController {
     let element = try! Realm().objects(ElementRealm.self)[atomicNumber-1]
     return (symbol: element.symbol, cpkColor: element.cpkHexColor, name: element.localizedName)
   }
-}
-
-
-extension PeriodicTableBackground {
-  
 }

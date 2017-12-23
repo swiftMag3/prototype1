@@ -1,3 +1,4 @@
 github "SwiftyJSON/SwiftyJSON" "4.0.0"
 github "ViccAlexander/Chameleon" "2.2.0"
+github "lkzhao/Hero" "1.0.1"
 github "realm/realm-cocoa" "v3.0.2"

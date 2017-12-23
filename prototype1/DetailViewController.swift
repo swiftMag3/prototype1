@@ -23,7 +23,7 @@ enum Constant: CGFloat {
 class DetailViewController: UITableViewController {
   @IBOutlet weak var homeButton: UIBarButtonItem!
   @IBOutlet weak var periodicTableViewButton: UIBarButtonItem!
-  
+  @IBOutlet weak var tablePageButton: UIBarButtonItem!  
   // Collection View Cell properties
   private var elementsFilteredByGroup: Results<ElementRealm>!
   private var elementsFilteredByPeriod: Results<ElementRealm>!

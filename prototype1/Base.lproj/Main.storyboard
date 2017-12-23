@@ -118,12 +118,13 @@
                             <barButtonItem image="infoIcon" id="2W0-MS-Tph"/>
                             <barButtonItem image="tablePageIcon" id="n1W-iv-pnW">
                                 <connections>
-                                    <segue destination="4o7-Uv-6RR" kind="modal" id="VGp-ym-pGe"/>
+                                    <segue destination="4o7-Uv-6RR" kind="modal" identifier="toFullTable" id="VGp-ym-pGe"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="tablePageButton" destination="n1W-iv-pnW" id="9e6-um-5K2"/>
                         <segue destination="tZy-IU-FzZ" kind="push" identifier="ShowDetail" id="gIT-hD-vCc"/>
                     </connections>
                 </collectionViewController>
@@ -434,6 +435,7 @@
                     <connections>
                         <outlet property="homeButton" destination="j4g-GW-MkQ" id="Kkv-Gl-ZzI"/>
                         <outlet property="periodicTableViewButton" destination="PxU-al-KDx" id="Ng4-XJ-zot"/>
+                        <outlet property="tablePageButton" destination="PxU-al-KDx" id="0hL-0d-LJR"/>
                         <segue destination="4o7-Uv-6RR" kind="modal" identifier="ToTable" id="Tad-WP-pNw"/>
                     </connections>
                 </tableViewController>
@@ -519,6 +521,7 @@
         <image name="tablePageIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uti-zY-X2h"/>
+        <segue reference="VGp-ym-pGe"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.27359817906055328" blue="0.23093294668508368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

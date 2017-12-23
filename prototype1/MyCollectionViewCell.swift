@@ -90,7 +90,6 @@ class MyCollectionViewCell: UICollectionViewCell {
       nameLabel.superview?.layer.cornerRadius = layer.cornerRadius
       
     } else {
-//      backgroundColor = UIColor.clear
       label.alpha = 0.0
       atomicNumberLabel.alpha = 0.0
       atomicMassLabel.alpha = 0.0

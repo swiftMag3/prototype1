@@ -107,12 +107,6 @@ class ElementsRealmDataSource {
 
   
   private func writeElementsToRealm() {
-//
-//    if !FileManager.default.fileExists(atPath: targetData.path) {
-//      copyLocalJSONtoDocumentDirectory()
-//    } else {
-//      debugPrint("data.json already exists")
-//    }
     copyLocalJSONtoDocumentDirectory()
     
     guard let data = try? Data(contentsOf: targetData) else {
@@ -206,10 +200,6 @@ class ElementsRealmDataSource {
     let maxBoilingPoint = realmResult.sorted(byKeyPath: "boilingPoint").last?.boilingPoint.value
     let maxFirstIonizationEnergy = realmResult.sorted(byKeyPath: "ionizationEnergy").last?.ionizationEnergy.value
     
-//    for item in maxDensity {
-//      print("element no \(item.atomicNumber): \(item.density.value ?? 0)")
-//    }
-    
     for index in 0..<118 {
       let element = realmResult[index]
       let densityFraction = (element.density.value ?? 0) / maxDensity!
@@ -218,7 +208,7 @@ class ElementsRealmDataSource {
       let meltingPointFraction = (element.meltingPoint.value ?? 0) / maxMeltingPoint!
       let boilingPointFraction = (element.boilingPoint.value ?? 0) / maxBoilingPoint!
       let ionizationEnergyFraction = (element.ionizationEnergy.value ?? 0) / maxFirstIonizationEnergy!
-//      print("element no \(element.atomicNumber): \(densityFraction) .. max: \(maxDensity!)")
+
       do {
         try realm.write {
           element.densityComparationFraction = densityFraction * 100
@@ -231,9 +221,6 @@ class ElementsRealmDataSource {
       } catch {
         print("Can't write to Realm with error : \(error)")
       }
-
     }
-    
-    
   }
 }

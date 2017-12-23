@@ -14,7 +14,6 @@
 		6F13CFD91FD6C8390023A953 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6F13CFD41FD6C81C0023A953 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F13CFDA1FD6C83E0023A953 /* HandyUIKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6F4C0F171FB30ED7004CFD83 /* HandyUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F13CFDC1FD6C8590023A953 /* ElementRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F13CFDB1FD6C8590023A953 /* ElementRealm.swift */; };
-		6F3DD4871FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3DD4861FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift */; };
 		6F3DD4891FAAADAF00CCB804 /* String+Localized+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3DD4881FAAADAF00CCB804 /* String+Localized+Formatter.swift */; };
 		6F48C3A11FDA16EB00A70894 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F48C3A01FDA16EB00A70894 /* Chameleon.framework */; };
 		6F48C3A21FDA16F900A70894 /* Chameleon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6F48C3A01FDA16EB00A70894 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -22,7 +21,6 @@
 		6F4EB58F1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */; };
 		6F549CA81FA226AE00E9823A /* ElementProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F549CA71FA226AE00E9823A /* ElementProperties.swift */; };
 		6F6321B91FBAFCB20046B717 /* Element_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6321B81FBAFCB20046B717 /* Element_.swift */; };
-		6F6321C01FBB0C070046B717 /* ElementsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6321BF1FBB0C070046B717 /* ElementsDataSource.swift */; };
 		6F6321C21FBB242A0046B717 /* DataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6321C11FBB242A0046B717 /* DataLoadOperation.swift */; };
 		6F68EF9D1FB315020099C49C /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F68EF9C1FB315020099C49C /* NSAttributedString+Extension.swift */; };
 		6F68EF9F1FB315240099C49C /* String+SubAndSup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F68EF9E1FB315240099C49C /* String+SubAndSup.swift */; };
@@ -35,7 +33,6 @@
 		6F99487B1FD81193004441F6 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99487A1FD81193004441F6 /* PeriodicTableViewController.swift */; };
 		6F99487D1FD811BC004441F6 /* PeriodicTableBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99487C1FD811BC004441F6 /* PeriodicTableBackgroundView.swift */; };
 		6F99487F1FD8173D004441F6 /* CellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99487E1FD8173D004441F6 /* CellButton.swift */; };
-		6F9D9A961FC443CE0065873D /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D9A951FC443CE0065873D /* AsyncOperation.swift */; };
 		6FA489801FA946D300C2E067 /* MyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA4897F1FA946D300C2E067 /* MyCollectionViewController.swift */; };
 		6FA489821FA94B9700C2E067 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA489811FA94B9700C2E067 /* MyCollectionViewCell.swift */; };
 		6FA489841FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA489831FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift */; };
@@ -53,7 +50,8 @@
 		6FDC8F411FA127390020A7D7 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6FDC8F3C1FA127220020A7D7 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FDC8F431FA1384A0020A7D7 /* FileManager+DocumentDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDC8F421FA1384A0020A7D7 /* FileManager+DocumentDirectory.swift */; };
 		6FDC8F461FA158F70020A7D7 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FDC8F451FA155770020A7D7 /* data.json */; };
-		6FE799C31FBF621900A973D9 /* FilteringOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE799C21FBF621900A973D9 /* FilteringOperation.swift */; };
+		6FF4FDD01FDEFA6400E830FF /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF4FDCF1FDEFA6400E830FF /* Hero.framework */; };
+		6FF4FDD11FDEFA7800E830FF /* Hero.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6FF4FDCF1FDEFA6400E830FF /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FFA4AF11FD98B9900526D67 /* UIColor+blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFA4AF01FD98B9900526D67 /* UIColor+blending.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6FF4FDD11FDEFA7800E830FF /* Hero.framework in CopyFiles */,
 				6F48C3A21FDA16F900A70894 /* Chameleon.framework in CopyFiles */,
 				6F13CFDA1FD6C83E0023A953 /* HandyUIKit.framework in CopyFiles */,
 				6F13CFD91FD6C8390023A953 /* RealmSwift.framework in CopyFiles */,
@@ -79,7 +78,6 @@
 		6F13CFD41FD6C81C0023A953 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		6F13CFD51FD6C81C0023A953 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		6F13CFDB1FD6C8590023A953 /* ElementRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementRealm.swift; sourceTree = "<group>"; };
-		6F3DD4861FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyCollectionViewController+JSONToArray.swift"; sourceTree = "<group>"; };
 		6F3DD4881FAAADAF00CCB804 /* String+Localized+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized+Formatter.swift"; sourceTree = "<group>"; };
 		6F48C3A01FDA16EB00A70894 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		6F48C3A31FDA1E2100A70894 /* CopyableUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableUILabel.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsRealmDataSource.swift; sourceTree = "<group>"; };
 		6F549CA71FA226AE00E9823A /* ElementProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementProperties.swift; sourceTree = "<group>"; };
 		6F6321B81FBAFCB20046B717 /* Element_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element_.swift; sourceTree = "<group>"; };
-		6F6321BF1FBB0C070046B717 /* ElementsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsDataSource.swift; sourceTree = "<group>"; };
 		6F6321C11FBB242A0046B717 /* DataLoadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadOperation.swift; sourceTree = "<group>"; };
 		6F68EF9C1FB315020099C49C /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		6F68EF9E1FB315240099C49C /* String+SubAndSup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SubAndSup.swift"; sourceTree = "<group>"; };
@@ -100,7 +97,6 @@
 		6F99487A1FD81193004441F6 /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
 		6F99487C1FD811BC004441F6 /* PeriodicTableBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodicTableBackgroundView.swift; sourceTree = "<group>"; };
 		6F99487E1FD8173D004441F6 /* CellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButton.swift; sourceTree = "<group>"; };
-		6F9D9A951FC443CE0065873D /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		6FA4897F1FA946D300C2E067 /* MyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewController.swift; sourceTree = "<group>"; };
 		6FA489811FA94B9700C2E067 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		6FA489831FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexToUIColor.swift"; sourceTree = "<group>"; };
@@ -118,7 +114,7 @@
 		6FDC8F3C1FA127220020A7D7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		6FDC8F421FA1384A0020A7D7 /* FileManager+DocumentDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocumentDirectory.swift"; sourceTree = "<group>"; };
 		6FDC8F451FA155770020A7D7 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		6FE799C21FBF621900A973D9 /* FilteringOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringOperation.swift; sourceTree = "<group>"; };
+		6FF4FDCF1FDEFA6400E830FF /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 		6FFA4AF01FD98B9900526D67 /* UIColor+blending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+blending.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,8 +123,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F48C3A11FDA16EB00A70894 /* Chameleon.framework in Frameworks */,
 				6FDC8F3D1FA127220020A7D7 /* Alamofire.framework in Frameworks */,
+				6FF4FDD01FDEFA6400E830FF /* Hero.framework in Frameworks */,
+				6F48C3A11FDA16EB00A70894 /* Chameleon.framework in Frameworks */,
 				6F13CFD31FD6C81C0023A953 /* HandyUIKit.framework in Frameworks */,
 				6F13CFD71FD6C81C0023A953 /* Realm.framework in Frameworks */,
 				6F13CFD61FD6C81C0023A953 /* RealmSwift.framework in Frameworks */,
@@ -142,7 +139,6 @@
 		6F526BAE1FACDAB800A8B194 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6F3DD4861FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift */,
 				6FDC8F421FA1384A0020A7D7 /* FileManager+DocumentDirectory.swift */,
 				6FA489831FA9DF5B00C2E067 /* UIColor+HexToUIColor.swift */,
 				6FFA4AF01FD98B9900526D67 /* UIColor+blending.swift */,
@@ -166,11 +162,8 @@
 		6F6321BE1FBB0BD70046B717 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6F6321BF1FBB0C070046B717 /* ElementsDataSource.swift */,
 				6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */,
 				6F6321C11FBB242A0046B717 /* DataLoadOperation.swift */,
-				6FE799C21FBF621900A973D9 /* FilteringOperation.swift */,
-				6F9D9A951FC443CE0065873D /* AsyncOperation.swift */,
 			);
 			name = "Data Sources";
 			sourceTree = "<group>";
@@ -259,6 +252,7 @@
 		6FDC8F3A1FA127220020A7D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FF4FDCF1FDEFA6400E830FF /* Hero.framework */,
 				6F48C3A01FDA16EB00A70894 /* Chameleon.framework */,
 				6F13CFD51FD6C81C0023A953 /* Realm.framework */,
 				6F13CFD41FD6C81C0023A953 /* RealmSwift.framework */,
@@ -358,14 +352,11 @@
 				6FA489821FA94B9700C2E067 /* MyCollectionViewCell.swift in Sources */,
 				6F68EF9F1FB315240099C49C /* String+SubAndSup.swift in Sources */,
 				6F99487D1FD811BC004441F6 /* PeriodicTableBackgroundView.swift in Sources */,
-				6F9D9A961FC443CE0065873D /* AsyncOperation.swift in Sources */,
 				6F9948791FD8108C004441F6 /* PeriodicTableBackground.swift in Sources */,
-				6F6321C01FBB0C070046B717 /* ElementsDataSource.swift in Sources */,
 				6F797D491FB0997B005A0278 /* DetailViewController.swift in Sources */,
 				6F4EB58F1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift in Sources */,
 				6F3DD4891FAAADAF00CCB804 /* String+Localized+Formatter.swift in Sources */,
 				6FA489801FA946D300C2E067 /* MyCollectionViewController.swift in Sources */,
-				6FE799C31FBF621900A973D9 /* FilteringOperation.swift in Sources */,
 				6F99487F1FD8173D004441F6 /* CellButton.swift in Sources */,
 				6F86CDF11FB3833E00B92581 /* GroupCellCollectionView.swift in Sources */,
 				6F6321C21FBB242A0046B717 /* DataLoadOperation.swift in Sources */,
@@ -375,7 +366,6 @@
 				6FD137971FAD5B280034246A /* SectionHeader.swift in Sources */,
 				6FDC8F291FA125BE0020A7D7 /* AppDelegate.swift in Sources */,
 				6F86CDF31FB3876F00B92581 /* SameGroupElementCell.swift in Sources */,
-				6F3DD4871FAA0EA600CCB804 /* MyCollectionViewController+JSONToArray.swift in Sources */,
 				6F13CFDC1FD6C8590023A953 /* ElementRealm.swift in Sources */,
 				6F68EFA11FB32B7D0099C49C /* MoreDetailViewController.swift in Sources */,
 				6FFA4AF11FD98B9900526D67 /* UIColor+blending.swift in Sources */,

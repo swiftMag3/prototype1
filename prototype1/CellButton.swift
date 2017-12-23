@@ -26,11 +26,6 @@ class CellButton: UIButton {
   private var elementName: String = ""
   private var buttonFrame: CGRect = CGRect()
   
-//  convenience init(atomicNumber: Int) {
-//    self.init()
-//    self.atomicNumber = atomicNumber
-//  }
-    
   func setupButton(for element: Int, withPercentageFor displayType: DisplayType = DisplayType.normal) {
     
     atomicNumber = element
@@ -60,7 +55,6 @@ class CellButton: UIButton {
     self.setTitle(realmObject.symbol, for: .normal)
     self.setTitleColor(.black, for: .normal)
     self.setTitleColor(.lightGray, for: .highlighted)
-//    self.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/2)
     self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
     self.layer.borderWidth = 0.25
     self.layer.borderColor = UIColor.black.cgColor
@@ -135,14 +129,4 @@ class CellButton: UIButton {
       buttonFrame = CGRect(x: 87, y: 215, width: 35, height: 35)
     }
   }
-  
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

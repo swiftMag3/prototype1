@@ -151,8 +151,6 @@ extension MoreDetailViewController {
     
     return dictionary[moreProperty]!
   }
-  
-  
 }
 
 

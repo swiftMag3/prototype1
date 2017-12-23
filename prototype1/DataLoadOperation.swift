@@ -8,26 +8,7 @@
 
 import Foundation
 
-class DataLoadOperation: Operation {
-//  var element: Element_?
-//  var loadingCompleteHandler: ((Element_) -> ())?
-//  private let _element: Element_
-//
-//  init(_ element: Element_) {
-//    self._element = element
-//  }
-//
-//  override func main() {
-//    if isCancelled { return }
-//    self.element = _element
-//
-//    if let loadingCompleteHandler = loadingCompleteHandler {
-//      DispatchQueue.main.async {
-//        loadingCompleteHandler(self._element)
-//      }
-//    }
-//  }
-  
+class DataLoadOperation: Operation {  
   var element: ElementRealm?
   var loadingCompleteHandler: ((ElementRealm) -> ())?
   private let _element: ElementRealm
@@ -46,5 +27,4 @@ class DataLoadOperation: Operation {
       }
     }
   }
-  
 }

@@ -76,22 +76,6 @@ class GroupedCollectionViewCell: UICollectionViewCell {
       
       nameLabel.superview?.backgroundColor = backgroundColor
       nameLabel.superview?.layer.cornerRadius = layer.cornerRadius
-      
-//      cpkColor = theElement.cpkHexColor
-//      backgroundColor = UIColor(hex: cpkColor)
-//      label.text = theElement.symbol
-//      label.alpha = 1.0
-//      atomicNumberLabel.text = "\(theElement.atomicNumber)"
-//      atomicNumberLabel.alpha = 1.0
-//      atomicMassLabel.text = String(format: "%.1f", theElement.atomicMass)
-//      atomicMassLabel.alpha = 1.0
-//      label.textColor = UIColor.adjustColor(textColor: UIColor.black, withBackground: backgroundColor!)
-//      atomicMassLabel.textColor = label.textColor
-//      atomicNumberLabel.textColor = label.textColor
-//      nameLabel.alpha = 1
-//      nameLabel.text = theElement.localizedName
-//      nameLabel.textColor = label.textColor
-
     } else {
       backgroundColor = UIColor.clear
       label.alpha = 0.0
