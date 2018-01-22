@@ -25,6 +25,8 @@
 		6F48C3A41FDA1E2100A70894 /* CopyableUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F48C3A31FDA1E2100A70894 /* CopyableUILabel.swift */; };
 		6F4EB58F1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */; };
 		6F549CA81FA226AE00E9823A /* ElementProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F549CA71FA226AE00E9823A /* ElementProperties.swift */; };
+		6F5EA6681FEED46B00F2ABB4 /* AdaptivePeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5EA6671FEED46B00F2ABB4 /* AdaptivePeriodicTableViewController.swift */; };
+		6F5EA66A1FEEE2CF00F2ABB4 /* AdaptiveCellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5EA6691FEEE2CF00F2ABB4 /* AdaptiveCellButton.swift */; };
 		6F6321B91FBAFCB20046B717 /* Element_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6321B81FBAFCB20046B717 /* Element_.swift */; };
 		6F6321C21FBB242A0046B717 /* DataLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6321C11FBB242A0046B717 /* DataLoadOperation.swift */; };
 		6F68EF9D1FB315020099C49C /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F68EF9C1FB315020099C49C /* NSAttributedString+Extension.swift */; };
@@ -94,6 +96,8 @@
 		6F4C0F171FB30ED7004CFD83 /* HandyUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HandyUIKit.framework; path = Carthage/Build/iOS/HandyUIKit.framework; sourceTree = "<group>"; };
 		6F4EB58E1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsRealmDataSource.swift; sourceTree = "<group>"; };
 		6F549CA71FA226AE00E9823A /* ElementProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementProperties.swift; sourceTree = "<group>"; };
+		6F5EA6671FEED46B00F2ABB4 /* AdaptivePeriodicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptivePeriodicTableViewController.swift; sourceTree = "<group>"; };
+		6F5EA6691FEEE2CF00F2ABB4 /* AdaptiveCellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveCellButton.swift; sourceTree = "<group>"; };
 		6F6321B81FBAFCB20046B717 /* Element_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element_.swift; sourceTree = "<group>"; };
 		6F6321C11FBB242A0046B717 /* DataLoadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadOperation.swift; sourceTree = "<group>"; };
 		6F68EF9C1FB315020099C49C /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				6F99487A1FD81193004441F6 /* PeriodicTableViewController.swift */,
 				6F204A281FDF81CD0057B201 /* AboutViewController.swift */,
 				6F204A2A1FE017C70057B201 /* WebViewController.swift */,
+				6F5EA6671FEED46B00F2ABB4 /* AdaptivePeriodicTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				6F9948781FD8108C004441F6 /* PeriodicTableBackground.swift */,
 				6F99487C1FD811BC004441F6 /* PeriodicTableBackgroundView.swift */,
 				6F99487E1FD8173D004441F6 /* CellButton.swift */,
+				6F5EA6691FEEE2CF00F2ABB4 /* AdaptiveCellButton.swift */,
 				6F48C3A31FDA1E2100A70894 /* CopyableUILabel.swift */,
 				6F204A221FDF5A6A0057B201 /* LegendKit.swift */,
 				6F204A261FDF5AA10057B201 /* LegendView.swift */,
@@ -369,6 +375,7 @@
 				6F68EF9F1FB315240099C49C /* String+SubAndSup.swift in Sources */,
 				6F99487D1FD811BC004441F6 /* PeriodicTableBackgroundView.swift in Sources */,
 				6F9948791FD8108C004441F6 /* PeriodicTableBackground.swift in Sources */,
+				6F5EA6681FEED46B00F2ABB4 /* AdaptivePeriodicTableViewController.swift in Sources */,
 				6F204A291FDF81CD0057B201 /* AboutViewController.swift in Sources */,
 				6F797D491FB0997B005A0278 /* DetailViewController.swift in Sources */,
 				6F4EB58F1FD6E51900E9FCA7 /* ElementsRealmDataSource.swift in Sources */,
@@ -383,6 +390,7 @@
 				6FAA79E61FB67B34004C9CDE /* MyCollectionView.swift in Sources */,
 				6FDAA07F1FB4914A0099D90E /* SectionHeaderForDetailView.swift in Sources */,
 				6FD137971FAD5B280034246A /* SectionHeader.swift in Sources */,
+				6F5EA66A1FEEE2CF00F2ABB4 /* AdaptiveCellButton.swift in Sources */,
 				6FDC8F291FA125BE0020A7D7 /* AppDelegate.swift in Sources */,
 				6F86CDF31FB3876F00B92581 /* SameGroupElementCell.swift in Sources */,
 				6F13CFDC1FD6C8590023A953 /* ElementRealm.swift in Sources */,

@@ -319,7 +319,7 @@
       "symbol": "C",
       "name": "Carbon",
       "atomicMass": "12.0107",
-      "cpkHexColor": "000000",
+      "cpkHexColor": 909090,
       "electronicConfiguration": "[He] 2s2 2p2",
       "electronegativity": 2.55,
       "ionRadius": {
@@ -5243,7 +5243,7 @@
       "density": 9.196,
       "groupBlock": {
         "iupac": "chalcogen",
-        "legacy": "metalloid"
+        "legacy": "metal"
       },
       "yearDiscovered": "1898",
       "valence": 6,
@@ -6804,7 +6804,7 @@
       "density": null,
       "groupBlock": {
         "iupac": "transition metal",
-        "legacy": "transition metal"
+        "legacy": "unknown"
       },
       "yearDiscovered": "1982",
       "valence": null,
@@ -6866,7 +6866,7 @@
       "density": null,
       "groupBlock": {
         "iupac": "transition metal",
-        "legacy": "transition metal"
+        "legacy": "unknown"
       },
       "yearDiscovered": "1994",
       "valence": null,
@@ -6928,7 +6928,7 @@
       "density": null,
       "groupBlock": {
         "iupac": "transition metal",
-        "legacy": "transition metal"
+        "legacy": "unknown"
       },
       "yearDiscovered": "1994",
       "valence": null,
@@ -7052,7 +7052,7 @@
       "density": null,
       "groupBlock": {
         "iupac": null,
-        "legacy": "post-transition metal"
+        "legacy": "unknown"
       },
       "yearDiscovered": "2004",
       "valence": null,
@@ -7114,7 +7114,7 @@
       "density": null,
       "groupBlock": {
         "iupac": "carbon",
-        "legacy": "post-transition metal"
+        "legacy": "metal"
       },
       "yearDiscovered": "1998",
       "valence": null,
@@ -7176,7 +7176,7 @@
       "density": null,
       "groupBlock": {
         "iupac": null,
-        "legacy": "post-transition metal"
+        "legacy": "unknown"
       },
       "yearDiscovered": "2010",
       "valence": null,
@@ -7238,7 +7238,7 @@
       "density": null,
       "groupBlock": {
         "iupac": null,
-        "legacy": "post-transition metal"
+        "legacy": "unknown"
       },
       "yearDiscovered": "2000",
       "valence": null,
@@ -7300,7 +7300,7 @@
       "density": null,
       "groupBlock": {
         "iupac": null,
-        "legacy": "post-transition metal"
+        "legacy": "unknown"
       },
       "yearDiscovered": "2010",
       "valence": null,
@@ -7362,7 +7362,7 @@
       "density": null,
       "groupBlock": {
         "iupac": "noble gas",
-        "legacy": "noble gas"
+        "legacy": "unknown"
       },
       "yearDiscovered": "2006",
       "valence": null,

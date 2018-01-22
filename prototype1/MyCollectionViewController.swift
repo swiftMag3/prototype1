@@ -43,6 +43,9 @@ class MyCollectionViewController: UICollectionViewController {
     super.viewDidLoad()
     elementsRealmDataSource = ElementsRealmDataSource()
     setUpDisplay()
+    if #available(iOS 11.0, *) {
+      collectionView?.contentInsetAdjustmentBehavior = .always // iphoneX landscape adjustment inset
+    }
   }
   
   override func viewWillAppear(_ animated: Bool) {

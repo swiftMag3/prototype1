@@ -256,8 +256,16 @@ extension DetailViewController {
       let finalSuperscriptText: NSMutableAttributedString = superscriptText.customText()
       cell.detailTextLabel?.attributedText = finalSuperscriptText
       return cell
+    case .valence:
+      if theElement!.atomicNumber >= 109 && value == "0" {
+        cell.detailTextLabel?.text = UnknownValue.string + " \(unit ?? "")"
+        cell.detailTextLabel?.textColor = UIColor.lightGray
+      } else {
+        cell.detailTextLabel?.text = value.capitalized + " \(unit ?? "")"
+      }
+      return cell
     default:
-      if value == UnknownValue.string {
+      if value == UnknownValue.string || value == "Unknown" || value == "unknown" {
         cell.detailTextLabel?.text = value.capitalized
         cell.detailTextLabel?.textColor = UIColor.lightGray
       } else {
